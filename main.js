@@ -47,15 +47,8 @@ let formSearch = document.querySelector(".form-search");
 
 let formSearchInput = document.querySelector(".form-search__input-text");
 
-let searchItem = document.querySelectorAll(".search__item");
-
-
 const todaysDate = new Date();
 
-// searchItem.forEach(el => {
-//    el.firstChild.nextSibling.setAttribute("src",article.urlToImage)
-
-// })
 
 formSearch.addEventListener('submit', retrieve);
 
@@ -73,14 +66,38 @@ function retrieve(e) {
       return res.json()
    }).then((data) => {
 
+      let search = document.querySelector(".search");
+
+      if (search.classList.contains("search")) {
+         search.classList.add("search__active")
+      } else {
+         console.log("error")
+      }
+
       let news = data.articles;
 
+      let urlNews = [];
+      let imgNews = [];
+      let titleNews = [];
+      let descriptionNews = [];
+      let sourseNameNews = [];
 
-      let urlNews = []
       news.forEach(el => {
-         urlNews.push(el.url)
+         urlNews.push(el.url);
+         imgNews.push(el.urlToImage);
+         titleNews.push(el.title);
+         descriptionNews.push(el.description);
+         sourseNameNews.push(el.source.name);
       })
 
+      // adding a photo News API
+
+      let newsImg = document.querySelectorAll('.search__img');
+      for (let i = 0; i < newsImg.length; i++) {
+         newsImg[i].setAttribute("src", imgNews[i])
+      }
+
+      // adding a url News API
 
       let searchItem = document.querySelectorAll(".search__item");
       for (let i = 0; i < searchItem.length; i++) {
@@ -88,51 +105,49 @@ function retrieve(e) {
          searchItem[i].setAttribute("target", "_blank")
       }
 
+      // adding a title News API
 
-      news.forEach(item => {
+      let searchTitle = document.querySelectorAll('.search__heading');
+      for (let i = 0; i < searchTitle.length; i++) {
+         searchTitle[i].textContent = titleNews[i];
+      }
 
-         // adding a source name News API
+      // adding a description News API
 
-         let div = document.createElement('div');
-         div.textContent = item.source.name;
-         div.classList.add("search__source-news");
-         let searchSource = document.querySelector('.search__source-of-text');
-         searchSource.replaceWith(div);
+      let searchDiscription = document.querySelectorAll('.search__discription');
+      for (let i = 0; i < searchDiscription.length; i++) {
+         searchDiscription[i].textContent = descriptionNews[i];
 
+      }
 
+      // adding a source name News API
 
+      let searchSource = document.querySelectorAll('.search__source-of-text');
+      for (let i = 0; i < searchSource.length; i++) {
+         searchSource[i].textContent = sourseNameNews[i];
 
-         // adding a photo News API
-
-         let img = document.createElement('img');
-         let newsImg = document.querySelector('.search__img');
-         img.classList.add("search__img-news");
-         img.setAttribute("src", item.urlToImage)
-         newsImg.replaceWith(img);
+      }
 
 
 
-         // adding a title News API
-
-         let h2 = document.createElement('h2');
-         h2.textContent = item.title;
-         h2.classList.add("search__heading-news");
-         let searchTitle = document.querySelector('.search__heading');
-         searchTitle.replaceWith(h2);
-
-         // adding a description News API
-
-         let p = document.createElement('p');
-         p.textContent = item.description;
-         p.classList.add("search__discription-news");
-         let searchDiscription = document.querySelector('.search__discription');
-         searchDiscription.replaceWith(p);
-
+      let btnMoreNews = document.querySelector(".search__button");
+      btnMoreNews.addEventListener("click", function moreNews() {
+   
+      let img = document.createElement("img");
+      img.className = "search__img"
+      document.body.appendChild(img)
+      console.log(img)
 
       })
+
+      
+
 
 
 
    })
 
+   
+
 }
+
