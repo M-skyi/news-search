@@ -183,10 +183,6 @@ function retrieve(e) {
          let searchItem = document.querySelectorAll(".search__item");
          for (let i = 0; i < searchItem.length; i++) {
 
-            // searchItem[i].setAttribute("href", urlNews[i])
-
-            // searchItem[i].setAttribute("target", "_blank")
-
             let img = document.createElement('img')
 
             img.className = "search__img"
