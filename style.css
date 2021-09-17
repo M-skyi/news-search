@@ -678,6 +678,10 @@
   font-size: 8px;
 }
 
+.search__item--disabled{
+  display: none;
+}
+
 @media (max-width: 320px) {
   .header {
     background-image: url(img/georgia-de-lotz-mobile.png);
@@ -996,6 +1000,7 @@
     width: 100%;
     margin-top: 5px;
     border-radius: 7px 7px 0px 0px;
+    height: 197px;
   }
 
   .search__date-added {
