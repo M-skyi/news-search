@@ -56,7 +56,7 @@ function retrieve(e) {
 
    e.preventDefault()
 
-   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
+   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
 
    let topic = formSearchInput.value;
 
@@ -167,9 +167,7 @@ function retrieve(e) {
       btnMoreNews.addEventListener("click", moreNews)
 
 
-      function moreNews(e) {
-
-         e.preventDefault()
+      function moreNews() {
 
          let searchItems = document.querySelector(".search-items");
          for (let i = 0; i <= 2; i++) {
