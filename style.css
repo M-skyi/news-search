@@ -406,6 +406,10 @@
   justify-content: center;
 }
 
+.disabled--btn{
+  display: none;
+}
+
 .history__top-content {
   display: flex;
   align-items: center;
@@ -3914,14 +3918,14 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    display: flex;
+    /* display: flex; */
     align-items: center;
     text-align: center;
     color: #1A1B22;
     background-color: #FFFFFF;
     width: 288px;
     height: 64px;
-    display: block;
+    /* display: block; */
     margin: 49px 0 80px 0;
     border-radius: 80px;
     outline: none;

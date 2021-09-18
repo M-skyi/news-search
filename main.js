@@ -56,11 +56,11 @@ function retrieve(e) {
 
    e.preventDefault()
 
-   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
+   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
 
    let topic = formSearchInput.value;
 
-   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=10&apiKey=${apiKey}`;
 
    fetch(url).then((res) => {
       return res.json()
@@ -70,7 +70,7 @@ function retrieve(e) {
 
       let search = document.querySelector(".search");
 
-      if (topic.length === 0) {
+      if (formSearchInput.value === "") {
          alert("«Нужно ввести ключевое слово»");
          return
       }
@@ -81,7 +81,6 @@ function retrieve(e) {
          console.log("error")
       }
 
-
       let news = data.articles;
 
       let urlNews = [];
@@ -89,6 +88,7 @@ function retrieve(e) {
       let titleNews = [];
       let descriptionNews = [];
       let sourseNameNews = [];
+      let publishedAt = [];
 
       news.forEach(el => {
          urlNews.push(el.url);
@@ -96,7 +96,32 @@ function retrieve(e) {
          titleNews.push(el.title);
          descriptionNews.push(el.description);
          sourseNameNews.push(el.source.name);
+         publishedAt.push(el.publishedAt)
       })
+
+      if (news.length === 0) {
+         alert("«Ничего не найдено»")
+         return
+      }
+
+      // adding a published At News API
+      function getPublishedAt() {
+
+         let publishedAtItem = document.querySelectorAll('.search__date-added');
+         for (let i = 0; i < publishedAtItem.length; i++) {
+             let DateNews =  publishedAt[i]
+             let options = {  year: 'numeric', month: 'long', day: 'numeric' };
+             let changesDate = new Date(DateNews).toLocaleDateString('ru',options).slice(0, -3);
+             publishedAtItem[i].textContent = changesDate
+            
+            }
+         
+         
+
+      }
+
+      getPublishedAt()
+
 
       // adding a photo News API
       function getUrlImg() {
@@ -135,31 +160,32 @@ function retrieve(e) {
 
       }
 
-      getTitle() 
+      getTitle()
 
       // adding a description News API
 
       function getDescription() {
 
          let searchDiscription = document.querySelectorAll('.search__discription');
-      for (let i = 0; i < searchDiscription.length; i++) {
-         searchDiscription[i].textContent = descriptionNews[i];
+         for (let i = 0; i < searchDiscription.length; i++) {
+            searchDiscription[i].textContent = descriptionNews[i];
          }
 
       }
       getDescription()
-      
+
       // adding a source name News API
       function getSourse() {
 
          let searchSource = document.querySelectorAll('.search__source-of-text');
          for (let i = 0; i < searchSource.length; i++) {
             searchSource[i].textContent = sourseNameNews[i];
-          }
+         }
 
       }
+
       getSourse()
-     
+
 
       // show more News
 
@@ -179,22 +205,81 @@ function retrieve(e) {
 
 
          let searchItem = document.querySelectorAll(".search__item");
+
          for (let i = 0; i < searchItem.length; i++) {
 
-            let img = document.createElement('img')
+            let imgMoreNews = document.createElement('img')
 
-            img.className = "search__img"
+            imgMoreNews.className = "search__img"
 
             if (searchItem[i].firstChild === null) {
 
-               searchItem[i].prepend(img)
+               searchItem[i].prepend(imgMoreNews)
 
             }
+
+            let publishedAtMoreNews = document.createElement("div");
+
+            publishedAtMoreNews.className = "search__date-added";
+
+            if (searchItem[i].firstChild.nextSibling === null) {
+
+               searchItem[i].append(publishedAtMoreNews)
+            }
+
+            let titleMoreNews = document.createElement("h2");
+
+            titleMoreNews.className = "search__heading";
+
+            if (searchItem[i].firstChild.nextSibling.nextSibling === null) {
+
+               searchItem[i].append(titleMoreNews)
+
+            }
+
+            let descriptionMoreNews = document.createElement("p");
+
+            descriptionMoreNews.className = "search__discription";
+
+            if (searchItem[i].firstChild.nextSibling.nextSibling.nextSibling === null) {
+
+               searchItem[i].append(descriptionMoreNews)
+
+            }
+
+            let sourceMoreNews = document.createElement("div");
+
+            sourceMoreNews.className = "search__source-of-text";
+
+            if (searchItem[i].firstChild.nextSibling.nextSibling.nextSibling.nextSibling === null) {
+
+               searchItem[i].append(sourceMoreNews)
+
+            }
+
+            
+
+
+            
+            if (searchItem.length >= news.length) {
+               console.log("stop")
+               btnMoreNews.classList.add("disabled--btn")
+            } else if (searchItem[i].getAttribute("href") === undefined) {
+               console.log("ok")
+            }
+
+
+
+
 
          }
 
          getUrlImg()
          getUrl()
+         getTitle()
+         getDescription()
+         getSourse()
+         getPublishedAt()
 
 
 
@@ -208,6 +293,8 @@ function retrieve(e) {
 
 
 
+   }).catch((error) => {
+      console.log(error)
    })
 
 
