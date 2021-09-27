@@ -47,20 +47,54 @@ let formSearch = document.querySelector(".form-search");
 
 let formSearchInput = document.querySelector(".form-search__input-text");
 
+let buttonSearch = document.querySelector(".form-search__input-btn")
+
+
+
 const todaysDate = new Date();
 const fromDate = new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000));
 
+
 formSearch.addEventListener('submit', retrieve);
+
+
 
 function retrieve(e) {
 
    e.preventDefault()
 
-   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
+   // add block preloader 
+
+   let header = document.querySelector(".header");
+
+   let containerPreloader = document.createElement("div");
+
+   containerPreloader.className = "container-preloader";
+
+   header.after(containerPreloader);
+
+   let loadImg = document.createElement('img');
+
+   loadImg.src = "img/load-img.png";
+
+   loadImg.className = "container-preloader_loader";
+
+
+   containerPreloader.prepend(loadImg);
+
+   let loadText = document.createElement("p");
+
+   loadText.className = "container-preloader_load-text";
+
+   loadText.textContent = "Идет поиск новостей...";
+
+   containerPreloader.append(loadText);
+
+   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
 
    let topic = formSearchInput.value;
 
-   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=10&apiKey=${apiKey}`;
+   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
    fetch(url).then((res) => {
       return res.json()
@@ -70,15 +104,8 @@ function retrieve(e) {
 
       let search = document.querySelector(".search");
 
-      if (formSearchInput.value === "") {
-         alert("«Нужно ввести ключевое слово»");
-         return
-      }
-
       if (search.classList.contains("search")) {
          search.classList.add("search__active")
-      } else {
-         console.log("error")
       }
 
       let news = data.articles;
@@ -99,25 +126,42 @@ function retrieve(e) {
          publishedAt.push(el.publishedAt)
       })
 
-      if (news.length === 0) {
-         alert("«Ничего не найдено»")
-         return
-      }
+      
+
+   //add block not found news
+
+   let notFoundNews = document.querySelector(".not-found-news");
+   if (news.length === 0) {
+      notFoundNews.classList.add("not-found-news--active");
+      header.after(notFoundNews);
+       search.classList.remove("search__active");
+       containerPreloader.classList.add("container-preloader--dasabled");
+   }
+
 
       // adding a published At News API
       function getPublishedAt() {
 
          let publishedAtItem = document.querySelectorAll('.search__date-added');
          for (let i = 0; i < publishedAtItem.length; i++) {
-             let DateNews =  publishedAt[i]
-             let options = {  year: 'numeric', month: 'long', day: 'numeric' };
-             let changesDate = new Date(DateNews).toLocaleDateString('ru',options).slice(0, -3);
-             publishedAtItem[i].textContent = changesDate
-            
-            }
-         
-         
 
+            let DateNews = publishedAt[i]
+
+            let options = {
+               year: 'numeric',
+               month: 'long',
+               day: 'numeric'
+            };
+
+            let changesDate = new Date(DateNews).toLocaleDateString('ru', options).slice(0, -3);
+
+            let strDateMonth = changesDate.split(" ");
+
+            let сurrentDate = changesDate.replace(strDateMonth[1], strDateMonth[1] + ",")
+
+            publishedAtItem[i].textContent = сurrentDate
+
+         }
       }
 
       getPublishedAt()
@@ -187,19 +231,34 @@ function retrieve(e) {
       getSourse()
 
 
+      if (search.classList.contains("search__active")) {
+         containerPreloader.classList.add("container-preloader--dasabled")
+      }
+
+      formSearchInput.onchange = function () {
+         notFoundNews.classList.remove("not-found-news--active");
+         if (search.classList.contains("search__active")) {
+            search.classList.remove("search__active")
+            
+         }
+
+      }
+      
+      
+
+
       // show more News
 
       let btnMoreNews = document.querySelector(".search__button");
-      btnMoreNews.addEventListener("click", moreNews)
+      btnMoreNews.addEventListener("click", function () {
 
-
-      function moreNews() {
-
+         
          let searchItems = document.querySelector(".search-items");
          for (let i = 0; i <= 2; i++) {
 
             let moreNewsItem = document.createElement("a");
             moreNewsItem.className = "search__item";
+            moreNewsItem.classList.add("more-news")
             searchItems.append(moreNewsItem)
          }
 
@@ -257,40 +316,21 @@ function retrieve(e) {
 
             }
 
-            
-
-
-            
             if (searchItem.length >= news.length) {
-               console.log("stop")
                btnMoreNews.classList.add("disabled--btn")
-            } else if (searchItem[i].getAttribute("href") === undefined) {
-               console.log("ok")
             }
 
-
-
-
-
+            getUrl()
+            getUrlImg()
+            getTitle()
+            getDescription()
+            getSourse()
+            getPublishedAt()
+          
          }
 
-         getUrlImg()
-         getUrl()
-         getTitle()
-         getDescription()
-         getSourse()
-         getPublishedAt()
 
-
-
-
-
-      }
-
-
-
-
-
+      })
 
 
    }).catch((error) => {
@@ -300,3 +340,6 @@ function retrieve(e) {
 
 
 }
+
+
+
