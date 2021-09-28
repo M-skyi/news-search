@@ -342,4 +342,114 @@ function retrieve(e) {
 }
 
 
+//   GET GITHUB COMMITS
+
+ reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits`
+ 
+
+ fetch(reposUrl).then((res) => {
+   return res.json()
+}).then((reposData) => {
+
+
+   let commitsDate = [];
+   let commitsAvatar = [];
+   let commitsAuthorName = [];
+   let commitsAuthorEmail = [];
+   let commitsMessage = [];
+   let commitsUrl = []
+
+
+   for (let i = 0; i < 20; i++) {
+     
+      commitsDate.push(reposData[i].commit.author.date);    
+      commitsAvatar.push(reposData[i].author.avatar_url); 
+      commitsAuthorName.push(reposData[i].commit.author.name); 
+      commitsAuthorEmail.push(reposData[i].commit.author.email); 
+      commitsMessage.push(reposData[i].commit.message); 
+      commitsUrl.push(reposData[i].html_url); 
+      
+   }
+
+   // get date commits
+
+   let historyDate = document.querySelectorAll(".history__date");
+
+   for (let i = 0; i < historyDate.length; i++) {
+      
+      let dateCommits = commitsDate[i];
+      
+      let options = {
+         year: 'numeric',
+         month: 'long',
+         day: 'numeric'
+      };
+
+      let changesDate = new Date(dateCommits).toLocaleDateString('ru', options).slice(0, -3);
+
+      let strDateMonth = changesDate.split(" ");
+
+      let сurrentDate = changesDate.replace(strDateMonth[1], strDateMonth[1] + ",");
+
+      historyDate[i].textContent = сurrentDate
+      
+   }
+
+   // get author avatar 
+
+   let authorAvatar = document.querySelectorAll(".history__author-foto");
+
+   for (let i = 0; i < authorAvatar.length; i++) {
+      authorAvatar[i].setAttribute("src",commitsAvatar[i])
+      
+   }
+
+   // get author name 
+
+   let authorName = document.querySelectorAll(".history__author-name");
+
+   for (let i = 0; i < authorName.length; i++) {
+      
+      authorName[i].textContent = commitsAuthorName[i];
+      
+   }
+
+   // get author email 
+
+   let authorEmail = document.querySelectorAll(".history__author-email");
+
+   for (let i = 0; i < authorEmail.length; i++) {
+      
+      authorEmail[i].textContent = commitsAuthorEmail[i];
+
+   }
+
+   // get commits message 
+
+   let commitsMessages = document.querySelectorAll(".history__author-text");
+
+   for (let i = 0; i < commitsMessage.length; i++) {
+
+      commitsMessages[i].textContent = commitsMessage[i];
+      
+   }
+
+   // get url commits 
+
+   let commitUrl = document.querySelectorAll(".history__slider-item");
+
+   for (let i = 0; i < commitUrl.length; i++) {
+     
+      commitUrl[i].setAttribute("href",commitsUrl[i]);
+      commitUrl[i].setAttribute("target", "_blank");
+      
+   }
+
+   
+
+})
+
+
+
+
 
