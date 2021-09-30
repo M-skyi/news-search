@@ -55,12 +55,29 @@ const todaysDate = new Date();
 const fromDate = new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000));
 
 
+
+
+
+// buttonSearch.addEventListener("click",function() {
+
+//    if (formSearchInput.onchange) {
+//       let searchItem = document.querySelectorAll(".search__item")
+//       console.log(searchItem)
+//       searchItem.classList.remove("search__item")
+//    }
+   
+   
+// })
+
+
+
 formSearch.addEventListener('submit', retrieve);
 
 
 
-function retrieve(e) {
 
+function retrieve(e) {
+   
    e.preventDefault()
 
    // add block preloader 
@@ -90,9 +107,16 @@ function retrieve(e) {
 
    containerPreloader.append(loadText);
 
-   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
+   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
 
    let topic = formSearchInput.value;
+
+
+   if (topic === "") {
+         alert("«Нужно ввести ключевое слово»")
+         containerPreloader.classList.add("container-preloader--dasabled")
+         return
+   }
 
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
@@ -107,6 +131,7 @@ function retrieve(e) {
       if (search.classList.contains("search")) {
          search.classList.add("search__active")
       }
+
 
       let news = data.articles;
 
@@ -131,13 +156,12 @@ function retrieve(e) {
    //add block not found news
 
    let notFoundNews = document.querySelector(".not-found-news");
-   if (news.length === 0) {
+   if (news.length === 0 ) {
       notFoundNews.classList.add("not-found-news--active");
       header.after(notFoundNews);
        search.classList.remove("search__active");
        containerPreloader.classList.add("container-preloader--dasabled");
    }
-
 
       // adding a published At News API
       function getPublishedAt() {
@@ -258,7 +282,6 @@ function retrieve(e) {
 
             let moreNewsItem = document.createElement("a");
             moreNewsItem.className = "search__item";
-            moreNewsItem.classList.add("more-news")
             searchItems.append(moreNewsItem)
          }
 
@@ -337,7 +360,7 @@ function retrieve(e) {
       console.log(error)
    })
 
-
+   
 
 }
 
@@ -450,6 +473,5 @@ function retrieve(e) {
 })
 
 
-
-
+   
 
