@@ -49,22 +49,15 @@ let formSearchInput = document.querySelector(".form-search__input-text");
 
 let buttonSearch = document.querySelector(".form-search__input-btn")
 
-
-
 const todaysDate = new Date();
 const fromDate = new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000));
 
-
-
 formSearch.addEventListener('submit', retrieve);
-
 
 function retrieve(e) {
 
-   
-
    e.preventDefault()
-   
+
    // add block preloader 
 
    let header = document.querySelector(".header");
@@ -122,7 +115,7 @@ function retrieve(e) {
       sourseNameNews.length = 0
       publishedAt.length = 0
 
-      
+
       news.forEach(el => {
          itemNews.push(el)
          urlNews.push(el.url);
@@ -198,11 +191,11 @@ function retrieve(e) {
          for (let i = 0; i < searchItem.length; i++) {
             searchItem[i].setAttribute("href", urlNews[i])
             searchItem[i].setAttribute("target", "_blank")
-          
+
          }
          if (searchItem.length >= itemNews.length) {
             btnMoreNews.classList.add("disabled--btn")
-         }else{
+         } else {
             btnMoreNews.classList.remove("disabled--btn")
          }
       }
@@ -265,11 +258,7 @@ function retrieve(e) {
       console.log(error)
    })
 
-
-
 }
-
-
 
 let itemNews = []
 let urlNews = [];
@@ -279,13 +268,7 @@ let descriptionNews = [];
 let sourseNameNews = [];
 let publishedAt = [];
 
-
-
-
-
-
 // show more News
-
 
 let btnMoreNews = document.querySelector(".search__button");
 btnMoreNews.addEventListener("click", function () {
@@ -451,13 +434,7 @@ btnMoreNews.addEventListener("click", function () {
       getSourse()
 
    }
-
-
-
-
 })
-
-
 
 //   GET GITHUB COMMITS
 
@@ -561,7 +538,5 @@ fetch(reposUrl).then((res) => {
       commitUrl[i].setAttribute("target", "_blank");
 
    }
-
-
 
 })
