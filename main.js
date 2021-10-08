@@ -61,8 +61,10 @@ formSearch.addEventListener('submit', retrieve);
 
 function retrieve(e) {
 
-   e.preventDefault()
+   
 
+   e.preventDefault()
+   
    // add block preloader 
 
    let header = document.querySelector(".header");
@@ -101,6 +103,7 @@ function retrieve(e) {
       return
    }
 
+
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
    fetch(url).then((res) => {
@@ -136,6 +139,7 @@ function retrieve(e) {
       if (search.classList.contains("search")) {
          search.classList.add("search__active")
       }
+
 
       //add block not found news
 
@@ -194,8 +198,13 @@ function retrieve(e) {
          for (let i = 0; i < searchItem.length; i++) {
             searchItem[i].setAttribute("href", urlNews[i])
             searchItem[i].setAttribute("target", "_blank")
+          
          }
-
+         if (searchItem.length >= itemNews.length) {
+            btnMoreNews.classList.add("disabled--btn")
+         }else{
+            btnMoreNews.classList.remove("disabled--btn")
+         }
       }
 
       getUrl()
@@ -252,8 +261,6 @@ function retrieve(e) {
 
       }
 
-
-
    }).catch((error) => {
       console.log(error)
    })
@@ -264,7 +271,7 @@ function retrieve(e) {
 
 
 
-let itemNews = [];
+let itemNews = []
 let urlNews = [];
 let imgNews = [];
 let titleNews = [];
