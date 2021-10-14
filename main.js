@@ -43,7 +43,10 @@ $(document).ready(function () {
    });
 });
 
-let formSearch = document.querySelector(".form-search");
+
+
+
+ let formSearch = document.querySelector(".form-search");
 
 let formSearchInput = document.querySelector(".form-search__input-text");
 
@@ -89,12 +92,13 @@ function retrieve(e) {
 
    let topic = formSearchInput.value;
 
-
    if (topic === "") {
       alert("«Нужно ввести ключевое слово»")
       containerPreloader.classList.add("container-preloader--dasabled")
       return
    }
+
+   localStorage.setItem('topicNews', topic);
 
 
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
@@ -106,6 +110,7 @@ function retrieve(e) {
       localStorage.setItem('url', JSON.stringify(data));
 
       let news = data.articles;
+     
 
       itemNews.length = 0
       urlNews.length = 0
