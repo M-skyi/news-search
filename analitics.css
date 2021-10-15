@@ -421,7 +421,7 @@
     left: 10px;
 }
 
-.progress-sunday {
+.progress-sunday{
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -436,8 +436,9 @@
     top: 508px;
     left: 10px;
 }
-
-
+.counter-week__count{
+    font-weight: 700;
+}
 
 
 @media (max-width: 320px) {
