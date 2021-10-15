@@ -546,6 +546,84 @@
         line-height: 48px;
         color: #1A1B22;
     }
+    .bread-crums{
+        display: none;
+    }
+    .topic-request{
+        margin-top: 16px;
+        padding: 0 15px 0 15px;
+    }
+    .counter-request{
+        padding: 0 15px 0 15px;
+    }
+    .analytics {
+        padding: 0 15px 0 15px;
+    }
+    .topic-request__item{
+        font-family: Roboto Slab;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 34px;
+        color: #1A1B22;
+    }
+    .counter-request__counter-week{
+        margin-top: 16px;
+    }
+    .counter-request__counter-heading{
+        margin-bottom: 24px;
+    }
+    .analytics__headline {
+        padding-top: 24px; 
+        margin-bottom: 16px;
+    }
+    .analitics-days__procent-line-item {
+        display: none;
+    }
+    .progress-bar__item {
+        border-radius: 0;
+        height: 24px;
+        width: 100%;
+    }
+    .progress-bar__list-item:nth-child(2) {
+        margin-top: 16px;
+    }
+    .progress-bar__list-item:nth-child(14) {
+        margin-bottom: 22px;
+    }
+    .analitics__month {
+        margin-bottom: 8px;
+    }
+    .analitics-days__procent-line {
+        margin-left: 34px;
+    }
+    .analitics-days__date-item {
+        line-height: 48px;
+    }
+    .progress-bar__list-item {
+        line-height: 48px;
+    }
+    .progress-monday {
+        top: 14px;
+    }
+    .progress-тuesday {
+        top: 61px;
+    }
+    .progress-wednesday {
+        top: 109px;
+    }
+    .progress-thursday {
+        top: 157px;
+    }
+    .progress-friday {
+        top: 205px;
+    }
+    .progress-saturday {
+        top: 252px;
+    }
+    .progress-sunday {
+        top: 301px;
+    }
 }
 
 @media (min-width: 321px) {
@@ -673,6 +751,84 @@
         display: block;
         background-repeat: no-repeat;
         margin-left: 14px;
+    }
+    .bread-crums{
+        display: none;
+    }
+    .topic-request{
+        margin-top: 16px;
+        padding: 0 15px 0 15px;
+    }
+    .counter-request{
+        padding: 0 15px 0 15px;
+    }
+    .analytics {
+        padding: 0 15px 0 15px;
+    }
+    .topic-request__item{
+        font-family: Roboto Slab;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 30px;
+        line-height: 34px;
+        color: #1A1B22;
+    }
+    .counter-request__counter-week{
+        margin-top: 16px;
+    }
+    .counter-request__counter-heading{
+        margin-bottom: 24px;
+    }
+    .analytics__headline {
+        padding-top: 24px; 
+        margin-bottom: 16px;
+    }
+    .analitics-days__procent-line-item {
+        display: none;
+    }
+    .progress-bar__item {
+        border-radius: 0;
+        height: 24px;
+        width: 100%;
+    }
+    .progress-bar__list-item:nth-child(2) {
+        margin-top: 16px;
+    }
+    .progress-bar__list-item:nth-child(14) {
+        margin-bottom: 22px;
+    }
+    .analitics__month {
+        margin-bottom: 8px;
+    }
+    .analitics-days__procent-line {
+        margin-left: 34px;
+    }
+    .analitics-days__date-item {
+        line-height: 48px;
+    }
+    .progress-bar__list-item {
+        line-height: 48px;
+    }
+    .progress-monday {
+        top: 14px;
+    }
+    .progress-тuesday {
+        top: 61px;
+    }
+    .progress-wednesday {
+        top: 109px;
+    }
+    .progress-thursday {
+        top: 157px;
+    }
+    .progress-friday {
+        top: 205px;
+    }
+    .progress-saturday {
+        top: 252px;
+    }
+    .progress-sunday {
+        top: 301px;
     }
 
 }
@@ -1128,7 +1284,15 @@
         background-repeat: no-repeat;
         margin-left: 0px;
     }
-
+    .counter-request{
+        padding: 0 40px 0 40px;
+    }
+    .analytics {
+        padding: 0 40px 0 40px;
+    }
+    .topic-request {
+        padding: 0 40px 0 40px;
+    }
 
 }
 
@@ -1276,10 +1440,90 @@
         background-repeat: no-repeat;
         margin-left: 100px;
     }
+    .bread-crums{
+        display: flex;
+        margin-top: 32px;
+    }
+    .topic-request{
+        margin-top: 64px;
+        padding: 0;
+    }
+    .counter-request{
+        padding: 0;
+    }
+    .analytics {
+        padding: 0;
+    }
+    .topic-request__item{
+        font-size: 32px;
+    }
+    .header__logo-link {
+        font-size: 18px;
+    }
+    .counter-request__counter-week{
+        margin-top: 24px;
+    }
+    .counter-request__counter-heading{
+        margin-bottom: 40px;
+    }
+   
+    .analytics__headline {
+        padding-top: 40px; 
+        margin-bottom: 49px;
+    } 
+    .analitics-days__procent-line-item {
+        display: inline-block;
+        margin-left: 21.4%;
+    }
+     .progress-bar__item {
+        border-radius: 0;
+        height: 24px;
+        width: 100%;
+    }
+    .progress-bar__list-item:nth-child(2) {
+        margin-top: 0;
+    }
+    .progress-bar__list-item:nth-child(14) {
+        margin-bottom: 0;
+    }
+    .analitics__month {
+        margin-bottom: 8px;
+    }
+    .analitics-days__procent-line {
+        margin-left: 34px;
+    }
+    .analitics-days__date-item {
+        line-height: 80px;
+    }
+    .progress-bar__list-item {
+        line-height: 80px;
+    }
+    .progress-monday {
+        top: 28px;
+    }
+    .progress-тuesday {
+        top: 109px;
+    }
+    .progress-wednesday {
+        top: 187px;
+    }
+    .progress-thursday {
+        top: 268px;
+    }
+    .progress-friday {
+        top: 348px;
+    }
+    .progress-saturday {
+        top: 429px;
+    }
+    .progress-sunday {
+        top: 508px;
+    }
+    .analitics-days__procent-line-item:nth-child(11) {
+        margin-bottom: 40px;
+    } 
 
 }
-
-
 @media (min-width: 1250px) {
 
 
@@ -1347,5 +1591,24 @@
         font-size: 18px;
     }
 
+    .bread-crums {
+        display: flex;
+        margin-top: 40px;
+    }
+    .topic-request {
+        margin-top: 80px;
+        padding: 0;
+    }
+    .counter-request__counter-heading {
+        margin-bottom: 80px;
+    }
+    .analytics__headline {
+        padding-top: 80px;
+        margin-bottom: 49px;
+    }
+    .analitics-days__procent-line-item:nth-child(11) {
+        margin-bottom: 80px;
+    }
+    
 
 }
