@@ -127,11 +127,13 @@
     margin-left: 321.89px;
     margin-bottom: 28px;
 }
-.bread-crums{
+
+.bread-crums {
     display: flex;
     margin-top: 30px;
 }
-.bread-crums__links{
+
+.bread-crums__links {
     text-decoration: none;
     color: #1A1B22;
     font-family: Roboto;
@@ -139,9 +141,10 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
-    
+
 }
-.bread-crums__current-page{
+
+.bread-crums__current-page {
     text-decoration: none;
     color: #B6BCBF;
     font-family: Roboto;
@@ -151,7 +154,8 @@
     line-height: 24px;
     text-indent: 6px;
 }
-.topic-request{
+
+.topic-request {
     font-family: Roboto Slab;
     font-style: normal;
     font-weight: normal;
@@ -161,11 +165,12 @@
     margin-top: 80px;
 }
 
-.counter-request{
+.counter-request {
     display: flex;
     flex-direction: column;
 }
-.counter-request__counter-week{
+
+.counter-request__counter-week {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -174,7 +179,8 @@
     color: #1A1B22;
     margin-top: 24px;
 }
-.counter-request__counter-heading{
+
+.counter-request__counter-heading {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -184,10 +190,12 @@
     margin-top: 4px;
     margin-bottom: 80px;
 }
-.analytics{
+
+.analytics {
     background-color: #F5F6F7;
 }
-.analytics__headline{
+
+.analytics__headline {
     font-family: Roboto Slab;
     font-style: normal;
     font-weight: normal;
@@ -195,15 +203,17 @@
     line-height: 30px;
     color: #1A1B22;
     margin-top: 0px;
-    padding-top:80px;
+    padding-top: 80px;
     margin-bottom: 45px;
 }
-.analitics__top-content{
+
+.analitics__top-content {
     width: 100%;
     border-bottom: 2px solid #1a1b2294;
     display: flex;
 }
-.analitics__date{
+
+.analitics__date {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -213,7 +223,8 @@
     text-transform: uppercase;
     color: #B6BCBF;
 }
-.analitics__month{
+
+.analitics__month {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -224,7 +235,8 @@
     color: #B6BCBF;
     margin-bottom: 24px;
 }
-.analitics__counter{
+
+.analitics__counter {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -236,7 +248,7 @@
     margin-left: 50px;
 }
 
-.analitics-days__date-item{ 
+.analitics-days__date-item {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -245,13 +257,16 @@
     color: #1A1B22;
     width: max-content;
 }
-.analitics-days__date:first-child{
+
+.analitics-days__date:first-child {
     margin-top: 15px;
 }
-.analitics-days{
+
+.analitics-days {
     display: flex;
 }
-.analitics-days__procent-line-item{
+
+.analitics-days__procent-line-item {
     margin-left: 22.8%;
     display: inline-block;
     font-family: Roboto;
@@ -264,46 +279,53 @@
     text-transform: uppercase;
     color: #B6BCBF;
 }
-.analitics-days__procent-line-item:first-child{
-    margin-left:0;
+
+.analitics-days__procent-line-item:first-child {
+    margin-left: 0;
 }
-.analitics-days__procent-line-item:nth-child(7){
-    margin-left:0;
+
+.analitics-days__procent-line-item:nth-child(7) {
+    margin-left: 0;
 }
-.analitics-days__procent-line-item:nth-child(11){
-    margin-bottom:80px;
+
+.analitics-days__procent-line-item:nth-child(11) {
+    margin-bottom: 80px;
 }
-.analitics-days__procent-line{
+
+.analitics-days__procent-line {
     width: 100%;
     margin-left: 55px;
 }
 
 .progress-bar__item {
-    border-radius: 0;  
+    border-radius: 0;
     height: 24px;
     width: 100%;
 }
- 
+
 .progress-bar__item::-webkit-progress-bar {
-   background-color: #F5F6F7;
-   border-radius: 0;
+    background-color: #F5F6F7;
+    border-radius: 0;
 }
- 
+
 .progress-bar__item::-webkit-progress-value {
     background-color: #2F71E5;
     border-radius: 0;
 }
- 
+
 .progress-bar__item::-moz-progress-bar {
     border-radius: 0;
 }
-.progress-bar__list-item{
+
+.progress-bar__list-item {
     line-height: 80px;
 }
-.progress-bar{
+
+.progress-bar {
     position: relative;
 }
-.progress-monday{
+
+.progress-monday {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -318,7 +340,8 @@
     top: 28px;
     left: 10px;
 }
-.progress-тuesday{
+
+.progress-тuesday {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -333,7 +356,8 @@
     top: 108px;
     left: 10px;
 }
-.progress-wednesday{
+
+.progress-wednesday {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -348,7 +372,8 @@
     top: 189px;
     left: 10px;
 }
-.progress-thursday{
+
+.progress-thursday {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -363,7 +388,8 @@
     top: 268px;
     left: 10px;
 }
-.progress-friday{
+
+.progress-friday {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -378,7 +404,8 @@
     top: 348px;
     left: 10px;
 }
-.progress-saturday{
+
+.progress-saturday {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -393,7 +420,8 @@
     top: 428px;
     left: 10px;
 }
-.progress-sunday{
+
+.progress-sunday {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -546,20 +574,25 @@
         line-height: 48px;
         color: #1A1B22;
     }
-    .bread-crums{
+
+    .bread-crums {
         display: none;
     }
-    .topic-request{
+
+    .topic-request {
         margin-top: 16px;
         padding: 0 15px 0 15px;
     }
-    .counter-request{
+
+    .counter-request {
         padding: 0 15px 0 15px;
     }
+
     .analytics {
         padding: 0 15px 0 15px;
     }
-    .topic-request__item{
+
+    .topic-request__item {
         font-family: Roboto Slab;
         font-style: normal;
         font-weight: normal;
@@ -567,60 +600,78 @@
         line-height: 34px;
         color: #1A1B22;
     }
-    .counter-request__counter-week{
+
+    .counter-request__counter-week {
         margin-top: 16px;
     }
-    .counter-request__counter-heading{
+
+    .counter-request__counter-heading {
         margin-bottom: 24px;
     }
+
     .analytics__headline {
-        padding-top: 24px; 
+        padding-top: 24px;
         margin-bottom: 16px;
     }
+
     .analitics-days__procent-line-item {
         display: none;
     }
+
     .progress-bar__item {
         border-radius: 0;
         height: 24px;
         width: 100%;
     }
+
     .progress-bar__list-item:nth-child(2) {
         margin-top: 16px;
     }
+
     .progress-bar__list-item:nth-child(14) {
         margin-bottom: 22px;
     }
+
     .analitics__month {
         margin-bottom: 8px;
     }
+
     .analitics-days__procent-line {
         margin-left: 34px;
     }
+
     .analitics-days__date-item {
         line-height: 48px;
     }
+
     .progress-bar__list-item {
         line-height: 48px;
     }
+
     .progress-monday {
         top: 14px;
     }
+
     .progress-тuesday {
         top: 61px;
     }
+
     .progress-wednesday {
         top: 109px;
     }
+
     .progress-thursday {
         top: 157px;
     }
+
     .progress-friday {
         top: 205px;
     }
+
     .progress-saturday {
         top: 252px;
     }
+
     .progress-sunday {
         top: 301px;
     }
@@ -752,20 +803,25 @@
         background-repeat: no-repeat;
         margin-left: 14px;
     }
-    .bread-crums{
+
+    .bread-crums {
         display: none;
     }
-    .topic-request{
+
+    .topic-request {
         margin-top: 16px;
         padding: 0 15px 0 15px;
     }
-    .counter-request{
+
+    .counter-request {
         padding: 0 15px 0 15px;
     }
+
     .analytics {
         padding: 0 15px 0 15px;
     }
-    .topic-request__item{
+
+    .topic-request__item {
         font-family: Roboto Slab;
         font-style: normal;
         font-weight: normal;
@@ -773,60 +829,78 @@
         line-height: 34px;
         color: #1A1B22;
     }
-    .counter-request__counter-week{
+
+    .counter-request__counter-week {
         margin-top: 16px;
     }
-    .counter-request__counter-heading{
+
+    .counter-request__counter-heading {
         margin-bottom: 24px;
     }
+
     .analytics__headline {
-        padding-top: 24px; 
+        padding-top: 24px;
         margin-bottom: 16px;
     }
+
     .analitics-days__procent-line-item {
         display: none;
     }
+
     .progress-bar__item {
         border-radius: 0;
         height: 24px;
         width: 100%;
     }
+
     .progress-bar__list-item:nth-child(2) {
         margin-top: 16px;
     }
+
     .progress-bar__list-item:nth-child(14) {
         margin-bottom: 22px;
     }
+
     .analitics__month {
         margin-bottom: 8px;
     }
+
     .analitics-days__procent-line {
         margin-left: 34px;
     }
+
     .analitics-days__date-item {
         line-height: 48px;
     }
+
     .progress-bar__list-item {
         line-height: 48px;
     }
+
     .progress-monday {
         top: 14px;
     }
+
     .progress-тuesday {
         top: 61px;
     }
+
     .progress-wednesday {
         top: 109px;
     }
+
     .progress-thursday {
         top: 157px;
     }
+
     .progress-friday {
         top: 205px;
     }
+
     .progress-saturday {
         top: 252px;
     }
+
     .progress-sunday {
         top: 301px;
     }
@@ -1284,12 +1358,15 @@
         background-repeat: no-repeat;
         margin-left: 0px;
     }
-    .counter-request{
+
+    .counter-request {
         padding: 0 40px 0 40px;
     }
+
     .analytics {
         padding: 0 40px 0 40px;
     }
+
     .topic-request {
         padding: 0 40px 0 40px;
     }
@@ -1440,98 +1517,120 @@
         background-repeat: no-repeat;
         margin-left: 100px;
     }
-    .bread-crums{
+
+    .bread-crums {
         display: flex;
         margin-top: 32px;
     }
-    .topic-request{
+
+    .topic-request {
         margin-top: 64px;
         padding: 0;
     }
-    .counter-request{
+
+    .counter-request {
         padding: 0;
     }
+
     .analytics {
         padding: 0;
     }
-    .topic-request__item{
+
+    .topic-request__item {
         font-size: 32px;
     }
+
     .header__logo-link {
         font-size: 18px;
     }
-    .counter-request__counter-week{
+
+    .counter-request__counter-week {
         margin-top: 24px;
     }
-    .counter-request__counter-heading{
+
+    .counter-request__counter-heading {
         margin-bottom: 40px;
     }
-   
+
     .analytics__headline {
-        padding-top: 40px; 
+        padding-top: 40px;
         margin-bottom: 49px;
-    } 
+    }
+
     .analitics-days__procent-line-item {
         display: inline-block;
         margin-left: 21.4%;
     }
-     .progress-bar__item {
+
+    .progress-bar__item {
         border-radius: 0;
         height: 24px;
         width: 100%;
     }
+
     .progress-bar__list-item:nth-child(2) {
         margin-top: 0;
     }
+
     .progress-bar__list-item:nth-child(14) {
         margin-bottom: 0;
     }
+
     .analitics__month {
         margin-bottom: 8px;
     }
+
     .analitics-days__procent-line {
         margin-left: 34px;
     }
+
     .analitics-days__date-item {
         line-height: 80px;
     }
+
     .progress-bar__list-item {
         line-height: 80px;
     }
+
     .progress-monday {
         top: 28px;
     }
+
     .progress-тuesday {
         top: 109px;
     }
+
     .progress-wednesday {
         top: 187px;
     }
+
     .progress-thursday {
         top: 268px;
     }
+
     .progress-friday {
         top: 348px;
     }
+
     .progress-saturday {
         top: 429px;
     }
+
     .progress-sunday {
         top: 508px;
     }
+
     .analitics-days__procent-line-item:nth-child(11) {
         margin-bottom: 40px;
-    } 
-
+    }
 }
-@media (min-width: 1250px) {
 
+@media (min-width: 1250px) {
 
     .container {
         width: 1235px;
         margin: auto;
     }
-
 
     .footer {
         display: flex;
@@ -1595,20 +1694,24 @@
         display: flex;
         margin-top: 40px;
     }
+
     .topic-request {
         margin-top: 80px;
         padding: 0;
     }
+
     .counter-request__counter-heading {
         margin-bottom: 80px;
     }
+
     .analytics__headline {
         padding-top: 80px;
         margin-bottom: 49px;
     }
+
     .analitics-days__procent-line-item:nth-child(11) {
         margin-bottom: 80px;
     }
-    
+
 
 }
