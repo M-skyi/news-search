@@ -1713,6 +1713,12 @@
     .analitics-days__procent-line-item:nth-child(11) {
         margin-bottom: 80px;
     }
-
+    .analitics-days__procent-line {
+        margin-left: 55px;
+    }
+    .analitics-days__procent-line-item {
+        display: inline-block;
+        margin-left: 23%;
+    }
 
 }
