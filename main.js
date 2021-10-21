@@ -52,8 +52,16 @@ let formSearchInput = document.querySelector(".form-search__input-text");
 
 let buttonSearch = document.querySelector(".form-search__input-btn")
 
-const todaysDate = new Date();
-const fromDate = new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000));
+let options = {
+   year: 'numeric',
+   month: 'numeric',
+   day: 'numeric'
+};
+
+const todaysDate = new Date().toLocaleDateString('sv-SE');
+const fromDate = new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+const sixthDayDate = new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+console.log(fromDate,sixthDayDate,todaysDate)
 
 formSearch.addEventListener('submit', retrieve);
 
@@ -103,13 +111,50 @@ function retrieve(e) {
 
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
+   let seventhDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${fromDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
+   let sixthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${sixthDayDate}&to=${sixthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
+ 
+  
+   fetch(sixthDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+
+      let data = item.articles;
+      localStorage.setItem('sixthDay', JSON.stringify(data)); 
+      
+   })
+ 
+
+
+   fetch(seventhDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+
+      let data = item.articles;
+      localStorage.setItem('seventhDay', JSON.stringify(data)); 
+      
+   })
+
+
+
+
+
+
+
+
+
    fetch(url).then((res) => {
       return res.json()
    }).then((data) => {
 
+   
+
       localStorage.setItem('url', JSON.stringify(data));
 
       let news = data.articles;
+      
      
 
       itemNews.length = 0

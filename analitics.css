@@ -325,7 +325,7 @@
     position: relative;
 }
 
-.progress-monday {
+.progress-seventh-item {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -649,7 +649,7 @@
         line-height: 48px;
     }
 
-    .progress-monday {
+    .progress-seventh-item {
         top: 14px;
     }
 
@@ -878,7 +878,7 @@
         line-height: 48px;
     }
 
-    .progress-monday {
+    .progress-seventh-item {
         top: 14px;
     }
 
@@ -1593,7 +1593,7 @@
         line-height: 80px;
     }
 
-    .progress-monday {
+    .progress-seventh-item {
         top: 28px;
     }
 
