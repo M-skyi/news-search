@@ -54,15 +54,18 @@ let buttonSearch = document.querySelector(".form-search__input-btn")
 
 let options = {
    year: 'numeric',
-   month: 'numeric',
-   day: 'numeric'
+   month: 'long',
+   day: 'numeric',
+   weekday: 'long'
 };
 
 const todaysDate = new Date().toLocaleDateString('sv-SE');
-const fromDate = new Date(new Date().getTime() - (7 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const sixthDayDate = new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-console.log(fromDate,sixthDayDate,todaysDate)
-
+const fromDate = new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+const sixthDayDate = new Date(new Date().getTime() - (5 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+const fifthDayDate = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+const fourthDayDate = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+const thirdDayDate = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 formSearch.addEventListener('submit', retrieve);
 
 function retrieve(e) {
@@ -96,7 +99,7 @@ function retrieve(e) {
 
    containerPreloader.append(loadText);
 
-   let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
+   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
 
    let topic = formSearchInput.value;
 
@@ -110,52 +113,86 @@ function retrieve(e) {
 
 
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   
 
    let seventhDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${fromDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
    let sixthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${sixthDayDate}&to=${sixthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
+   let fifthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fifthDayDate}&to=${fifthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
+   let fourthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fourthDayDate}&to=${fourthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
+   let thirdDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${thirdDayDate}&to=${thirdDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
+   let secondDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${secondDayDate}&to=${secondDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
+   let firstDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${todaysDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
  
   
-   fetch(sixthDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-
-      let data = item.articles;
-      localStorage.setItem('sixthDay', JSON.stringify(data)); 
-      
-   })
- 
-
-
    fetch(seventhDay).then((res) => {
       return res.json()
    }).then((item) => {
 
       let data = item.articles;
-      localStorage.setItem('seventhDay', JSON.stringify(data)); 
+      localStorage.setItem('seventhDayData', JSON.stringify(data));  
       
+   })
+ 
+   fetch(sixthDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('sixthDay', JSON.stringify(data)); 
+   })
+
+   fetch(fifthDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('fifthDay', JSON.stringify(data)); 
+   })
+
+   fetch(fourthDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('fourthDay', JSON.stringify(data)); 
+   })
+
+   fetch(thirdDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('thirdDay', JSON.stringify(data)); 
+   })
+
+   fetch(secondDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('secondDay', JSON.stringify(data)); 
+   })
+
+   fetch(firstDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('firstDay', JSON.stringify(data)); 
    })
 
 
-
-
-
-
-
-
+ 
 
    fetch(url).then((res) => {
       return res.json()
-   }).then((data) => {
-
-   
+   }).then((data)=> {
 
       localStorage.setItem('url', JSON.stringify(data));
-
       let news = data.articles;
+      console.log(data)
       
-     
 
       itemNews.length = 0
       urlNews.length = 0

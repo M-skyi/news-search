@@ -341,7 +341,7 @@
     left: 10px;
 }
 
-.progress-тuesday {
+.progress-sixth-item{
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -357,7 +357,7 @@
     left: 10px;
 }
 
-.progress-wednesday {
+.progress-fifth-item{
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -373,7 +373,7 @@
     left: 10px;
 }
 
-.progress-thursday {
+.progress-fourth-item{
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -389,7 +389,7 @@
     left: 10px;
 }
 
-.progress-friday {
+.progress-third-item {
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -405,7 +405,7 @@
     left: 10px;
 }
 
-.progress-saturday {
+.progress-second-item{
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -421,7 +421,7 @@
     left: 10px;
 }
 
-.progress-sunday{
+.progress-first-item{
     position: absolute;
     font-family: Roboto;
     font-style: normal;
@@ -437,6 +437,9 @@
     left: 10px;
 }
 .counter-week__count{
+    font-weight: 700;
+}
+.counter-week__headline__count{
     font-weight: 700;
 }
 
@@ -653,27 +656,27 @@
         top: 14px;
     }
 
-    .progress-тuesday {
+    .progress-sixth-item {
         top: 61px;
     }
 
-    .progress-wednesday {
+    .progress-fifth-item{
         top: 109px;
     }
 
-    .progress-thursday {
+    .progress-fourth-item {
         top: 157px;
     }
 
-    .progress-friday {
+    .progress-third-item {
         top: 205px;
     }
 
-    .progress-saturday {
+    .progress-second-item {
         top: 252px;
     }
 
-    .progress-sunday {
+    .progress-first-item {
         top: 301px;
     }
 }
@@ -882,27 +885,27 @@
         top: 14px;
     }
 
-    .progress-тuesday {
+    .progress-sixth-item{
         top: 61px;
     }
 
-    .progress-wednesday {
+    .progress-fifth-item {
         top: 109px;
     }
 
-    .progress-thursday {
+    .progress-fourth-item {
         top: 157px;
     }
 
-    .progress-friday {
+    .progress-third-item{
         top: 205px;
     }
 
-    .progress-saturday {
+    .progress-second-item {
         top: 252px;
     }
 
-    .progress-sunday {
+    .progress-first-item{
         top: 301px;
     }
 
@@ -1597,27 +1600,27 @@
         top: 28px;
     }
 
-    .progress-тuesday {
+    .progress-sixth-item {
         top: 109px;
     }
 
-    .progress-wednesday {
+    .progress-fifth-item {
         top: 187px;
     }
 
-    .progress-thursday {
+    .progress-fourth-item{
         top: 268px;
     }
 
-    .progress-friday {
+    .progress-third-item {
         top: 348px;
     }
 
-    .progress-saturday {
+    .progress-second-item {
         top: 429px;
     }
 
-    .progress-sunday {
+    .progress-first-item{
         top: 508px;
     }
 
