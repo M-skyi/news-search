@@ -466,9 +466,11 @@
   min-width: 400px;
   height: 288px;
   margin: 0 8px 0 8px;
-  background: #FFFFFF;
+  background: #fff;
   border-radius: 16px;
   text-decoration: none;
+  
+
 }
 
 .history__slider-container {

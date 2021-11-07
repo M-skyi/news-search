@@ -3,8 +3,8 @@ $(document).ready(function () {
       variableWidth: true,
       arrows: true,
       dots: true,
-      slidesToShow: 3,
-      slidesToScroll: 3,
+      slidesToShow: 15,
+      slidesToScroll:4,
       mobileFirst: false,
       waitForAnimate: false,
       infinite: false,
@@ -22,8 +22,8 @@ $(document).ready(function () {
             breakpoint: 768,
             settings: {
                arrows: false,
-               slidesToShow: 2,
-               slidesToScroll: 1,
+               slidesToShow: 14,
+               slidesToScroll: 2,
                infinite: false,
             }
          },
@@ -32,7 +32,7 @@ $(document).ready(function () {
             settings: {
                arrows: false,
                centerPadding: '0px',
-               slidesToShow: 1,
+               slidesToShow: 16,
                slidesToScroll: 1,
                infinite: false,
             }
@@ -42,9 +42,6 @@ $(document).ready(function () {
 
    });
 });
-
-
-
 
  let formSearch = document.querySelector(".form-search");
 
@@ -88,7 +85,6 @@ function retrieve(e) {
 
    loadImg.className = "container-preloader_loader";
 
-
    containerPreloader.prepend(loadImg);
 
    let loadText = document.createElement("p");
@@ -99,7 +95,7 @@ function retrieve(e) {
 
    containerPreloader.append(loadText);
 
-   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
+   let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
 
    let topic = formSearchInput.value;
 
@@ -111,10 +107,8 @@ function retrieve(e) {
 
    localStorage.setItem('topicNews', topic);
 
-
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
    
-
    let seventhDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${fromDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
    let sixthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${sixthDayDate}&to=${sixthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
@@ -129,61 +123,56 @@ function retrieve(e) {
 
    let firstDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${todaysDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
- 
-  
-   fetch(seventhDay).then((res) => {
-      return res.json()
-   }).then((item) => {
+   // fetch(seventhDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
 
-      let data = item.articles;
-      localStorage.setItem('seventhDayData', JSON.stringify(data));  
+   //    let data = item.articles;
+   //    localStorage.setItem('seventhDayData', JSON.stringify(data));  
       
-   })
+   // })
  
-   fetch(sixthDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('sixthDay', JSON.stringify(data)); 
-   })
+   // fetch(sixthDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('sixthDay', JSON.stringify(data)); 
+   // })
 
-   fetch(fifthDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('fifthDay', JSON.stringify(data)); 
-   })
+   // fetch(fifthDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('fifthDay', JSON.stringify(data)); 
+   // })
 
-   fetch(fourthDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('fourthDay', JSON.stringify(data)); 
-   })
+   // fetch(fourthDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('fourthDay', JSON.stringify(data)); 
+   // })
 
-   fetch(thirdDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('thirdDay', JSON.stringify(data)); 
-   })
+   // fetch(thirdDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('thirdDay', JSON.stringify(data)); 
+   // })
 
-   fetch(secondDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('secondDay', JSON.stringify(data)); 
-   })
+   // fetch(secondDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('secondDay', JSON.stringify(data)); 
+   // })
 
-   fetch(firstDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('firstDay', JSON.stringify(data)); 
-   })
-
-
- 
+   // fetch(firstDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('firstDay', JSON.stringify(data)); 
+   // })
 
    fetch(url).then((res) => {
       return res.json()
@@ -191,8 +180,6 @@ function retrieve(e) {
 
       localStorage.setItem('url', JSON.stringify(data));
       let news = data.articles;
-      console.log(data)
-      
 
       itemNews.length = 0
       urlNews.length = 0
@@ -219,112 +206,20 @@ function retrieve(e) {
       if (search.classList.contains("search")) {
          search.classList.add("search__active")
       }
-
-
-      //add block not found news
-
-      let notFoundNews = document.querySelector(".not-found-news");
+    
+      //show block not found news
+     
       if (news.length === 0) {
-         notFoundNews.classList.add("not-found-news--active");
-         header.after(notFoundNews);
          search.classList.remove("search__active");
          containerPreloader.classList.add("container-preloader--dasabled");
-      }
-
-      // adding a published At News API
-      function getPublishedAt() {
-
-         let publishedAtItem = document.querySelectorAll('.search__date-added');
-         for (let i = 0; i < publishedAtItem.length; i++) {
-
-            let DateNews = publishedAt[i]
-
-            let options = {
-               year: 'numeric',
-               month: 'long',
-               day: 'numeric'
-            };
-
-            let changesDate = new Date(DateNews).toLocaleDateString('ru', options).slice(0, -3);
-
-            let strDateMonth = changesDate.split(" ");
-
-            let сurrentDate = changesDate.replace(strDateMonth[1], strDateMonth[1] + ",")
-
-            publishedAtItem[i].textContent = сurrentDate
-
-         }
+         blockNotFoudNews()
       }
 
       getPublishedAt()
-
-
-      // adding a photo News API
-      function getUrlImg() {
-
-         let newsImg = document.querySelectorAll('.search__img');
-         for (let i = 0; i < newsImg.length; i++) {
-            newsImg[i].setAttribute("src", imgNews[i])
-         }
-
-      }
       getUrlImg()
-
-
-      // adding a url News API
-      function getUrl() {
-
-         let searchItem = document.querySelectorAll(".search__item");
-         for (let i = 0; i < searchItem.length; i++) {
-            searchItem[i].setAttribute("href", urlNews[i])
-            searchItem[i].setAttribute("target", "_blank")
-
-         }
-         if (searchItem.length >= itemNews.length) {
-            btnMoreNews.classList.add("disabled--btn")
-         } else {
-            btnMoreNews.classList.remove("disabled--btn")
-         }
-      }
-
       getUrl()
-
-
-      // adding a title News API
-
-      function getTitle() {
-
-         let searchTitle = document.querySelectorAll('.search__heading');
-         for (let i = 0; i < searchTitle.length; i++) {
-            searchTitle[i].textContent = titleNews[i];
-         }
-
-      }
-
       getTitle()
-
-      // adding a description News API
-
-      function getDescription() {
-
-         let searchDiscription = document.querySelectorAll('.search__discription');
-         for (let i = 0; i < searchDiscription.length; i++) {
-            searchDiscription[i].textContent = descriptionNews[i];
-         }
-
-      }
       getDescription()
-
-      // adding a source name News API
-      function getSourse() {
-
-         let searchSource = document.querySelectorAll('.search__source-of-text');
-         for (let i = 0; i < searchSource.length; i++) {
-            searchSource[i].textContent = sourseNameNews[i];
-         }
-
-      }
-
       getSourse()
 
 
@@ -333,17 +228,44 @@ function retrieve(e) {
       }
 
       formSearchInput.onchange = function () {
-         notFoundNews.classList.remove("not-found-news--active");
+         let notFoundNews = document.querySelector(".not-found-news")
          if (search.classList.contains("search__active")) {
             search.classList.remove("search__active")
 
+         }
+         if (notFoundNews.classList.contains("not-found-news")) {
+            notFoundNews.remove();
          }
 
       }
 
    }).catch((error) => {
-      console.log(error)
+      alert(error)
    })
+
+}
+
+function blockNotFoudNews() {
+   let header = document.querySelector(".header");
+   
+   let notFoundNews = document.createElement("div");
+   notFoundNews.classList.add("not-found-news", "not-found-news--active");
+   header.after(notFoundNews);
+
+   let notFoundNewsImg = document.createElement("img");
+   notFoundNewsImg.className = "not-found-news__img";
+   notFoundNews.append(notFoundNewsImg);
+   notFoundNewsImg.setAttribute("src", "img/not-found-img.png");
+
+   let notFoundNewsHeadline = document.createElement("h3");
+   notFoundNewsHeadline.textContent = "Ничего не найдено";
+   notFoundNewsHeadline.className = "not-found-news__headline";
+   notFoundNewsImg.after(notFoundNewsHeadline);
+
+   let notFoundNewsText = document.createElement("p");
+   notFoundNewsText.className = "not-found-news__text";
+   notFoundNewsText.textContent = `К сожалению по вашему запросу ничего не найдено.`;
+   notFoundNewsHeadline.after(notFoundNewsText);
 
 }
 
@@ -355,6 +277,101 @@ let descriptionNews = [];
 let sourseNameNews = [];
 let publishedAt = [];
 
+ // adding a published At News API
+ function getPublishedAt() {
+
+   let publishedAtItem = document.querySelectorAll('.search__date-added');
+   for (let i = 0; i < publishedAtItem.length; i++) {
+
+      let DateNews = publishedAt[i]
+
+      let options = {
+         year: 'numeric',
+         month: 'long',
+         day: 'numeric'
+      };
+
+      let changesDate = new Date(DateNews).toLocaleDateString('ru', options).slice(0, -3);
+
+      let strDateMonth = changesDate.split(" ");
+
+      let сurrentDate = changesDate.replace(strDateMonth[1], strDateMonth[1] + ",")
+
+      publishedAtItem[i].textContent = сurrentDate
+
+   }
+}
+
+getPublishedAt()
+
+
+// adding a photo News API
+function getUrlImg() {
+
+   let newsImg = document.querySelectorAll('.search__img');
+   for (let i = 0; i < newsImg.length; i++) {
+      newsImg[i].setAttribute("src", imgNews[i])
+   }
+
+}
+getUrlImg()
+
+
+// adding a url News API
+function getUrl() {
+   let btnMoreNews = document.querySelector(".search__button");
+   let searchItem = document.querySelectorAll(".search__item");
+   for (let i = 0; i < searchItem.length; i++) {
+      searchItem[i].setAttribute("href", urlNews[i])
+      searchItem[i].setAttribute("target", "_blank")
+
+   }
+   if (searchItem.length >= itemNews.length) {
+      btnMoreNews.classList.add("disabled--btn")
+   } else {
+      btnMoreNews.classList.remove("disabled--btn")
+   }
+}
+
+getUrl()
+
+
+// adding a title News API
+
+function getTitle() {
+
+   let searchTitle = document.querySelectorAll('.search__heading');
+   for (let i = 0; i < searchTitle.length; i++) {
+      searchTitle[i].textContent = titleNews[i];
+   }
+
+}
+
+getTitle()
+
+// adding a description News API
+
+function getDescription() {
+
+   let searchDiscription = document.querySelectorAll('.search__discription');
+   for (let i = 0; i < searchDiscription.length; i++) {
+      searchDiscription[i].textContent = descriptionNews[i];
+   }
+
+}
+getDescription()
+
+// adding a source name News API
+function getSourse() {
+
+   let searchSource = document.querySelectorAll('.search__source-of-text');
+   for (let i = 0; i < searchSource.length; i++) {
+      searchSource[i].textContent = sourseNameNews[i];
+   }
+
+}
+
+getSourse()
 // show more News
 
 let btnMoreNews = document.querySelector(".search__button");
@@ -368,7 +385,6 @@ btnMoreNews.addEventListener("click", function () {
       moreNewsItem.className = "search__item";
       searchItems.append(moreNewsItem)
    }
-
 
    let searchItem = document.querySelectorAll(".search__item");
 
@@ -427,96 +443,15 @@ btnMoreNews.addEventListener("click", function () {
          btnMoreNews.classList.add("disabled--btn")
       }
 
-
-
-      // adding a url News API
-      function getPublishedAt() {
-
-         let publishedAtItem = document.querySelectorAll('.search__date-added');
-         for (let i = 0; i < publishedAtItem.length; i++) {
-
-            let DateNews = publishedAt[i]
-
-            let options = {
-               year: 'numeric',
-               month: 'long',
-               day: 'numeric'
-            };
-
-            let changesDate = new Date(DateNews).toLocaleDateString('ru', options).slice(0, -3);
-
-            let strDateMonth = changesDate.split(" ");
-
-            let сurrentDate = changesDate.replace(strDateMonth[1], strDateMonth[1] + ",")
-
-            publishedAtItem[i].textContent = сurrentDate
-
-         }
-      }
-
       getPublishedAt()
-
-
-      // adding a photo News API
-      function getUrlImg() {
-
-         let newsImg = document.querySelectorAll('.search__img');
-         for (let i = 0; i < newsImg.length; i++) {
-            newsImg[i].setAttribute("src", imgNews[i])
-         }
-
-      }
+    
       getUrlImg()
-
-
-      // adding a url News API
-      function getUrl() {
-
-         let searchItem = document.querySelectorAll(".search__item");
-         for (let i = 0; i < searchItem.length; i++) {
-            searchItem[i].setAttribute("href", urlNews[i])
-            searchItem[i].setAttribute("target", "_blank")
-         }
-
-      }
-
+     
       getUrl()
-
-
-      // adding a title News API
-
-      function getTitle() {
-
-         let searchTitle = document.querySelectorAll('.search__heading');
-         for (let i = 0; i < searchTitle.length; i++) {
-            searchTitle[i].textContent = titleNews[i];
-         }
-
-      }
 
       getTitle()
 
-      // adding a description News API
-
-      function getDescription() {
-
-         let searchDiscription = document.querySelectorAll('.search__discription');
-         for (let i = 0; i < searchDiscription.length; i++) {
-            searchDiscription[i].textContent = descriptionNews[i];
-         }
-
-      }
       getDescription()
-
-      // adding a source name News API
-      function getSourse() {
-
-         let searchSource = document.querySelectorAll('.search__source-of-text');
-         for (let i = 0; i < searchSource.length; i++) {
-            searchSource[i].textContent = sourseNameNews[i];
-         }
-
-      }
 
       getSourse()
 
@@ -552,7 +487,57 @@ fetch(reposUrl).then((res) => {
 
    }
 
-   // get date commits
+   $(function test() {
+         
+      for (let i = 0; i < 20; i++) {
+
+        $('.multiple-items').slick('slickAdd','<a class="history__slider-item"></a>');
+     
+     }
+
+     let nodeSlider = document.getElementsByClassName("history__slider-item");
+
+     for (let i = 0; i < nodeSlider.length; i++) {
+
+      nodeSlider[i].setAttribute("href", commitsUrl[i]);
+
+        let sliderItemDate = document.createElement("div");
+        sliderItemDate.className = "history__date";
+        sliderItemDate.textContent = commitsDate[i]
+        nodeSlider[i].prepend(sliderItemDate);
+
+        let sliderAuthorInfo = document.createElement("div");
+        sliderAuthorInfo.className = "history__author-info";
+        sliderItemDate.after(sliderAuthorInfo);
+
+
+        let sliderItemAvatar = document.createElement("img");
+        sliderItemAvatar.className = "history__author-foto" ; 
+        sliderItemAvatar.setAttribute("src",commitsAvatar[i]);
+        sliderAuthorInfo.prepend(sliderItemAvatar);
+
+       let wrapName = document.createElement("div");
+       wrapName.className = "history__name-email";
+       sliderItemAvatar.after(wrapName);
+
+        let sliderItemName = document.createElement("div");
+        sliderItemName.className = "history__author-name";
+        sliderItemName.textContent = commitsAuthorName[i];
+        wrapName.prepend(sliderItemName);
+
+        let sliderItemEmail = document.createElement("div");
+        sliderItemEmail.className = "history__author-email";
+        sliderItemEmail.textContent = commitsAuthorEmail[i];
+        wrapName.firstChild.after(sliderItemEmail);
+
+        let sliderItemCommits = document.createElement("div");
+        sliderItemCommits.className = "history__author-text";
+        sliderItemCommits.textContent = commitsMessage[i];
+        sliderAuthorInfo.after(sliderItemCommits)
+      
+     }
+
+  });
 
    let historyDate = document.querySelectorAll(".history__date");
 
@@ -576,54 +561,8 @@ fetch(reposUrl).then((res) => {
 
    }
 
-   // get author avatar 
-
-   let authorAvatar = document.querySelectorAll(".history__author-foto");
-
-   for (let i = 0; i < authorAvatar.length; i++) {
-      authorAvatar[i].setAttribute("src", commitsAvatar[i])
-
-   }
-
-   // get author name 
-
-   let authorName = document.querySelectorAll(".history__author-name");
-
-   for (let i = 0; i < authorName.length; i++) {
-
-      authorName[i].textContent = commitsAuthorName[i];
-
-   }
-
-   // get author email 
-
-   let authorEmail = document.querySelectorAll(".history__author-email");
-
-   for (let i = 0; i < authorEmail.length; i++) {
-
-      authorEmail[i].textContent = commitsAuthorEmail[i];
-
-   }
-
-   // get commits message 
-
-   let commitsMessages = document.querySelectorAll(".history__author-text");
-
-   for (let i = 0; i < commitsMessage.length; i++) {
-
-      commitsMessages[i].textContent = commitsMessage[i];
-
-   }
-
-   // get url commits 
-
-   let commitUrl = document.querySelectorAll(".history__slider-item");
-
-   for (let i = 0; i < commitUrl.length; i++) {
-
-      commitUrl[i].setAttribute("href", commitsUrl[i]);
-      commitUrl[i].setAttribute("target", "_blank");
-
-   }
-
 })
+
+
+  
+     

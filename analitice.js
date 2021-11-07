@@ -97,7 +97,6 @@ let options = {
     arrSixthDayData.push(el.title);
  })
 
-
  let arrSixthDayDataText = arrSixthDayData.join("");
     count6 = 0;
     pos = arrSixthDayDataText.toLowerCase().indexOf(`${topicValueLocal}`.toLowerCase());
@@ -145,7 +144,6 @@ let fourthDayData = localStorage.getItem('fourthDay');
 fourthDayData = JSON.parse(fourthDayData);
 let getWeekDay4 = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000))
 let getNumberDay4 = getWeekDay4.toDateString().slice(8, 10);
-
 let arrFourthDayData = [];
 
 fourthDayData.forEach(el =>{
