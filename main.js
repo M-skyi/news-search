@@ -1,3 +1,8 @@
+
+import gettingDataByDay  from './modules/get_news.js'
+
+
+
 $(document).ready(function () {
    $('.multiple-items').slick({
       variableWidth: true,
@@ -65,11 +70,11 @@ const thirdDayDate = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000)).
 const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 formSearch.addEventListener('submit', retrieve);
 
-function retrieve(e) {
 
-   e.preventDefault()
 
-   // add block preloader 
+
+
+function createPreloaderNews() {
 
    let header = document.querySelector(".header");
 
@@ -95,13 +100,24 @@ function retrieve(e) {
 
    containerPreloader.append(loadText);
 
+}
+
+
+function retrieve(e) {
+
+   e.preventDefault()
+
+   createPreloaderNews()
+   
    let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
 
    let topic = formSearchInput.value;
 
+   let preloader = document.querySelector(".container-preloader")
+
    if (topic === "") {
       alert("«Нужно ввести ключевое слово»")
-      containerPreloader.classList.add("container-preloader--dasabled")
+      preloader.classList.add("container-preloader--dasabled")
       return
    }
 
@@ -123,56 +139,57 @@ function retrieve(e) {
 
    let firstDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${todaysDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
-   // fetch(seventhDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
+   fetch(seventhDay).then((res) => {
+      return res.json()
+   }).then((item) => {
 
-   //    let data = item.articles;
-   //    localStorage.setItem('seventhDayData', JSON.stringify(data));  
+      let data = item.articles;
+      localStorage.setItem('seventhDayData', JSON.stringify(data));  
       
-   // })
+   })
  
-   // fetch(sixthDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('sixthDay', JSON.stringify(data)); 
-   // })
+   fetch(sixthDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('sixthDay', JSON.stringify(data)); 
+   })
 
-   // fetch(fifthDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('fifthDay', JSON.stringify(data)); 
-   // })
+   fetch(fifthDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('fifthDay', JSON.stringify(data)); 
+   })
 
-   // fetch(fourthDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('fourthDay', JSON.stringify(data)); 
-   // })
+   fetch(fourthDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('fourthDay', JSON.stringify(data)); 
+   })
 
-   // fetch(thirdDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('thirdDay', JSON.stringify(data)); 
-   // })
+   fetch(thirdDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('thirdDay', JSON.stringify(data)); 
+   })
 
-   // fetch(secondDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('secondDay', JSON.stringify(data)); 
-   // })
+   fetch(secondDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('secondDay', JSON.stringify(data)); 
+   })
 
-   // fetch(firstDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('firstDay', JSON.stringify(data)); 
-   // })
+   fetch(firstDay).then((res) => {
+      return res.json()
+   }).then((item) => {
+      let data = item.articles;
+      localStorage.setItem('firstDay', JSON.stringify(data)); 
+   })
+   gettingDataByDay()
 
    fetch(url).then((res) => {
       return res.json()
@@ -180,6 +197,26 @@ function retrieve(e) {
 
       localStorage.setItem('url', JSON.stringify(data));
       let news = data.articles;
+
+
+
+      formSearchInput.onchange = function () {
+         let searchItem = document.querySelectorAll(".search__item");
+         for (let i = 0; i < searchItem.length; i++) {
+            if (searchItem[i].classList.contains("search__item")) {
+               searchItem[i].remove()
+            }
+         }
+         let notFoundNews = document.querySelector(".not-found-news")
+         if (search.classList.contains("search__active")) {
+            search.classList.remove("search__active")
+          }
+
+         if (notFoundNews.classList.contains("not-found-news")) {
+            notFoundNews.remove();
+         }
+
+      }
 
       itemNews.length = 0
       urlNews.length = 0
@@ -201,6 +238,8 @@ function retrieve(e) {
 
       })
 
+      createNewsBlocks()
+
       let search = document.querySelector(".search");
 
       if (search.classList.contains("search")) {
@@ -208,10 +247,9 @@ function retrieve(e) {
       }
     
       //show block not found news
-     
       if (news.length === 0) {
          search.classList.remove("search__active");
-         containerPreloader.classList.add("container-preloader--dasabled");
+         preloader.classList.add("container-preloader--dasabled");
          blockNotFoudNews()
       }
 
@@ -222,25 +260,14 @@ function retrieve(e) {
       getDescription()
       getSourse()
 
-
+      
       if (search.classList.contains("search__active")) {
-         containerPreloader.classList.add("container-preloader--dasabled")
+         preloader.classList.add("container-preloader--dasabled")
       }
 
-      formSearchInput.onchange = function () {
-         let notFoundNews = document.querySelector(".not-found-news")
-         if (search.classList.contains("search__active")) {
-            search.classList.remove("search__active")
-
-         }
-         if (notFoundNews.classList.contains("not-found-news")) {
-            notFoundNews.remove();
-         }
-
-      }
 
    }).catch((error) => {
-      alert(error)
+      console.log(error)
    })
 
 }
@@ -266,6 +293,72 @@ function blockNotFoudNews() {
    notFoundNewsText.className = "not-found-news__text";
    notFoundNewsText.textContent = `К сожалению по вашему запросу ничего не найдено.`;
    notFoundNewsHeadline.after(notFoundNewsText);
+
+}
+
+function createNewsBlocks() {
+
+   let searchItems = document.querySelector(".search-items");
+   for (let i = 0; i <= 2; i++) {
+
+      let moreNewsItem = document.createElement("a");
+      moreNewsItem.className = "search__item";
+      searchItems.append(moreNewsItem)
+   }
+
+   let searchItem = document.querySelectorAll(".search__item");
+
+   for (let i = 0; i < searchItem.length; i++) {
+
+      let imgMoreNews = document.createElement('img')
+
+      imgMoreNews.className = "search__img"
+
+      if (searchItem[i].firstChild === null) {
+
+         searchItem[i].prepend(imgMoreNews)
+
+      }
+
+      let publishedAtMoreNews = document.createElement("div");
+
+      publishedAtMoreNews.className = "search__date-added";
+
+      if (searchItem[i].firstChild.nextSibling === null) {
+
+         searchItem[i].append(publishedAtMoreNews)
+      }
+
+      let titleMoreNews = document.createElement("h2");
+
+      titleMoreNews.className = "search__heading";
+
+      if (searchItem[i].firstChild.nextSibling.nextSibling === null) {
+
+         searchItem[i].append(titleMoreNews)
+
+      }
+
+      let descriptionMoreNews = document.createElement("p");
+
+      descriptionMoreNews.className = "search__discription";
+
+      if (searchItem[i].firstChild.nextSibling.nextSibling.nextSibling === null) {
+
+         searchItem[i].append(descriptionMoreNews)
+
+      }
+
+      let sourceMoreNews = document.createElement("div");
+
+      sourceMoreNews.className = "search__source-of-text";
+
+      if (searchItem[i].firstChild.nextSibling.nextSibling.nextSibling.nextSibling === null) {
+
+         searchItem[i].append(sourceMoreNews)
+
+      }
+   }
 
 }
 
@@ -378,70 +471,9 @@ let btnMoreNews = document.querySelector(".search__button");
 btnMoreNews.addEventListener("click", function () {
 
 
-   let searchItems = document.querySelector(".search-items");
-   for (let i = 0; i <= 2; i++) {
+  
 
-      let moreNewsItem = document.createElement("a");
-      moreNewsItem.className = "search__item";
-      searchItems.append(moreNewsItem)
-   }
-
-   let searchItem = document.querySelectorAll(".search__item");
-
-   for (let i = 0; i < searchItem.length; i++) {
-
-      let imgMoreNews = document.createElement('img')
-
-      imgMoreNews.className = "search__img"
-
-      if (searchItem[i].firstChild === null) {
-
-         searchItem[i].prepend(imgMoreNews)
-
-      }
-
-      let publishedAtMoreNews = document.createElement("div");
-
-      publishedAtMoreNews.className = "search__date-added";
-
-      if (searchItem[i].firstChild.nextSibling === null) {
-
-         searchItem[i].append(publishedAtMoreNews)
-      }
-
-      let titleMoreNews = document.createElement("h2");
-
-      titleMoreNews.className = "search__heading";
-
-      if (searchItem[i].firstChild.nextSibling.nextSibling === null) {
-
-         searchItem[i].append(titleMoreNews)
-
-      }
-
-      let descriptionMoreNews = document.createElement("p");
-
-      descriptionMoreNews.className = "search__discription";
-
-      if (searchItem[i].firstChild.nextSibling.nextSibling.nextSibling === null) {
-
-         searchItem[i].append(descriptionMoreNews)
-
-      }
-
-      let sourceMoreNews = document.createElement("div");
-
-      sourceMoreNews.className = "search__source-of-text";
-
-      if (searchItem[i].firstChild.nextSibling.nextSibling.nextSibling.nextSibling === null) {
-
-         searchItem[i].append(sourceMoreNews)
-
-      }
-
-      if (searchItem.length >= itemNews.length) {
-         btnMoreNews.classList.add("disabled--btn")
-      }
+   createNewsBlocks() 
 
       getPublishedAt()
     
@@ -455,12 +487,18 @@ btnMoreNews.addEventListener("click", function () {
 
       getSourse()
 
-   }
+      let searchItem = document.querySelectorAll(".search__item");
+         if (searchItem.length >= itemNews.length) {
+         btnMoreNews.classList.add("disabled--btn")
+      }
+
+
+   
 })
 
 //   GET GITHUB COMMITS
 
-reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits`
+let reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits`
 
 
 fetch(reposUrl).then((res) => {
@@ -564,5 +602,3 @@ fetch(reposUrl).then((res) => {
 })
 
 
-  
-     

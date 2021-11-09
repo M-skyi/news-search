@@ -285,3 +285,7 @@ analiticeDayItem1.textContent = dateItem1;
 let counterHeadlinesNews = document.querySelector(".counter-week__headline__count");
 let countHeadlines = count1 + count2 + count3 + count4 + count5 + count6 + count7;
 counterHeadlinesNews.textContent = countHeadlines;
+
+
+
+
