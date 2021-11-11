@@ -1,7 +1,4 @@
 
-import gettingDataByDay  from './modules/get_news.js'
-
-
 
 $(document).ready(function () {
    $('.multiple-items').slick({
@@ -71,9 +68,6 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
 formSearch.addEventListener('submit', retrieve);
 
 
-
-
-
 function createPreloaderNews() {
 
    let header = document.querySelector(".header");
@@ -101,7 +95,6 @@ function createPreloaderNews() {
    containerPreloader.append(loadText);
 
 }
-
 
 function retrieve(e) {
 
@@ -139,57 +132,57 @@ function retrieve(e) {
 
    let firstDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${todaysDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
-   fetch(seventhDay).then((res) => {
-      return res.json()
-   }).then((item) => {
+   // fetch(seventhDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
 
-      let data = item.articles;
-      localStorage.setItem('seventhDayData', JSON.stringify(data));  
+   //    let data = item.articles;
+   //    localStorage.setItem('seventhDayData', JSON.stringify(data));  
       
-   })
+   // })
  
-   fetch(sixthDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('sixthDay', JSON.stringify(data)); 
-   })
+   // fetch(sixthDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('sixthDay', JSON.stringify(data)); 
+   // })
 
-   fetch(fifthDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('fifthDay', JSON.stringify(data)); 
-   })
+   // fetch(fifthDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('fifthDay', JSON.stringify(data)); 
+   // })
 
-   fetch(fourthDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('fourthDay', JSON.stringify(data)); 
-   })
+   // fetch(fourthDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('fourthDay', JSON.stringify(data)); 
+   // })
 
-   fetch(thirdDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('thirdDay', JSON.stringify(data)); 
-   })
+   // fetch(thirdDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('thirdDay', JSON.stringify(data)); 
+   // })
 
-   fetch(secondDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('secondDay', JSON.stringify(data)); 
-   })
+   // fetch(secondDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('secondDay', JSON.stringify(data)); 
+   // })
 
-   fetch(firstDay).then((res) => {
-      return res.json()
-   }).then((item) => {
-      let data = item.articles;
-      localStorage.setItem('firstDay', JSON.stringify(data)); 
-   })
-   gettingDataByDay()
+   // fetch(firstDay).then((res) => {
+   //    return res.json()
+   // }).then((item) => {
+   //    let data = item.articles;
+   //    localStorage.setItem('firstDay', JSON.stringify(data)); 
+   // })
+ 
 
    fetch(url).then((res) => {
       return res.json()
@@ -267,7 +260,7 @@ function retrieve(e) {
 
 
    }).catch((error) => {
-      console.log(error)
+      alert(error)
    })
 
 }
@@ -397,7 +390,6 @@ let publishedAt = [];
 
 getPublishedAt()
 
-
 // adding a photo News API
 function getUrlImg() {
 
@@ -407,8 +399,8 @@ function getUrlImg() {
    }
 
 }
-getUrlImg()
 
+getUrlImg()
 
 // adding a url News API
 function getUrl() {
@@ -417,7 +409,6 @@ function getUrl() {
    for (let i = 0; i < searchItem.length; i++) {
       searchItem[i].setAttribute("href", urlNews[i])
       searchItem[i].setAttribute("target", "_blank")
-
    }
    if (searchItem.length >= itemNews.length) {
       btnMoreNews.classList.add("disabled--btn")
@@ -427,7 +418,6 @@ function getUrl() {
 }
 
 getUrl()
-
 
 // adding a title News API
 
@@ -452,6 +442,7 @@ function getDescription() {
    }
 
 }
+
 getDescription()
 
 // adding a source name News API
@@ -465,13 +456,11 @@ function getSourse() {
 }
 
 getSourse()
+
 // show more News
 
 let btnMoreNews = document.querySelector(".search__button");
 btnMoreNews.addEventListener("click", function () {
-
-
-  
 
    createNewsBlocks() 
 
@@ -491,8 +480,6 @@ btnMoreNews.addEventListener("click", function () {
          if (searchItem.length >= itemNews.length) {
          btnMoreNews.classList.add("disabled--btn")
       }
-
-
    
 })
 
@@ -548,15 +535,14 @@ fetch(reposUrl).then((res) => {
         sliderAuthorInfo.className = "history__author-info";
         sliderItemDate.after(sliderAuthorInfo);
 
-
         let sliderItemAvatar = document.createElement("img");
         sliderItemAvatar.className = "history__author-foto" ; 
         sliderItemAvatar.setAttribute("src",commitsAvatar[i]);
         sliderAuthorInfo.prepend(sliderItemAvatar);
 
-       let wrapName = document.createElement("div");
-       wrapName.className = "history__name-email";
-       sliderItemAvatar.after(wrapName);
+        let wrapName = document.createElement("div");
+        wrapName.className = "history__name-email";
+        sliderItemAvatar.after(wrapName);
 
         let sliderItemName = document.createElement("div");
         sliderItemName.className = "history__author-name";
@@ -599,6 +585,8 @@ fetch(reposUrl).then((res) => {
 
    }
 
+}).catch((error) => {
+   alert(error)
 })
 
 
