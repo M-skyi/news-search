@@ -102,7 +102,7 @@ function retrieve(e) {
 
    createPreloaderNews()
    
-   let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
+   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
 
    let topic = formSearchInput.value;
 
@@ -132,57 +132,45 @@ function retrieve(e) {
 
    let firstDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${todaysDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
-   // fetch(seventhDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
+   let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
+  
+   function savedlocalStorage(dayItem) {
 
-   //    let data = item.articles;
-   //    localStorage.setItem('seventhDayData', JSON.stringify(data));  
-      
-   // })
+      fetch(dayItem).then((res) => {
+         return res.json()
+      }).then((item) => {
+         let data = item.articles;
+         
+         for (let i = 0; i < dayArr.length; i++) {
+         
+            if (dayItem === firstDay) {
+               localStorage.setItem(`${dayArr[0]}`, JSON.stringify(data)); 
+            }else if (dayItem === secondDay) {
+               localStorage.setItem(`${dayArr[1]}`, JSON.stringify(data));
+            }else if (dayItem === thirdDay) {
+               localStorage.setItem(`${dayArr[2]}`, JSON.stringify(data));
+            }else if (dayItem === fourthDay) {
+               localStorage.setItem(`${dayArr[3]}`, JSON.stringify(data));
+            }else if (dayItem === fifthDay) {
+               localStorage.setItem(`${dayArr[4]}`, JSON.stringify(data));
+            }else if (dayItem === sixthDay) {
+               localStorage.setItem(`${dayArr[5]}`, JSON.stringify(data));
+            }else if (dayItem === seventhDay) {
+               localStorage.setItem(`${dayArr[6]}`, JSON.stringify(data));
+            }
+         }
+       })
+       }
  
-   // fetch(sixthDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('sixthDay', JSON.stringify(data)); 
-   // })
+       savedlocalStorage(firstDay)
+   // test(secondDay)
+   // test(thirdDay)
+   // test(fourthDay)
+   // test(fifthDay)
+   // test(sixthDay)
+   // test(seventhDay)
+   
 
-   // fetch(fifthDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('fifthDay', JSON.stringify(data)); 
-   // })
-
-   // fetch(fourthDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('fourthDay', JSON.stringify(data)); 
-   // })
-
-   // fetch(thirdDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('thirdDay', JSON.stringify(data)); 
-   // })
-
-   // fetch(secondDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('secondDay', JSON.stringify(data)); 
-   // })
-
-   // fetch(firstDay).then((res) => {
-   //    return res.json()
-   // }).then((item) => {
-   //    let data = item.articles;
-   //    localStorage.setItem('firstDay', JSON.stringify(data)); 
-   // })
- 
 
    fetch(url).then((res) => {
       return res.json()
