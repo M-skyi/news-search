@@ -102,7 +102,7 @@ function retrieve(e) {
 
    createPreloaderNews()
    
-   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
+   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
 
    let topic = formSearchInput.value;
 
@@ -116,7 +116,7 @@ function retrieve(e) {
 
    localStorage.setItem('topicNews', topic);
 
-   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   let url = `https://newsapi.org/v2/everything?q=${topic}&from=&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
    
    let seventhDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${fromDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
@@ -163,12 +163,12 @@ function retrieve(e) {
        }
  
        savedlocalStorage(firstDay)
-   // test(secondDay)
-   // test(thirdDay)
-   // test(fourthDay)
-   // test(fifthDay)
-   // test(sixthDay)
-   // test(seventhDay)
+       savedlocalStorage(secondDay)
+       savedlocalStorage(thirdDay)
+       savedlocalStorage(fourthDay)
+       savedlocalStorage(fifthDay)
+       savedlocalStorage(sixthDay)
+       savedlocalStorage(seventhDay)
    
 
 

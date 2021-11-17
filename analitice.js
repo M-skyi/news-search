@@ -186,6 +186,7 @@ counterHeadlinesNews.textContent = countHeadlines;
 
 
 function getDayOfWeek() {
+   
    let dateItem7 = getNumberDay7 +", " + getWeekDay(getWeekDay7).toLowerCase(); 
 let analiticeDayItem7 = document.getElementById("day-7");
 analiticeDayItem7.textContent = dateItem7;
