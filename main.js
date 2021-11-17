@@ -102,7 +102,7 @@ function retrieve(e) {
 
    createPreloaderNews()
    
-   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
+   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
 
    let topic = formSearchInput.value;
 
@@ -116,7 +116,7 @@ function retrieve(e) {
 
    localStorage.setItem('topicNews', topic);
 
-   let url = `https://newsapi.org/v2/everything?q=${topic}&from=&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
    
    let seventhDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${fromDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
@@ -179,7 +179,7 @@ function retrieve(e) {
       localStorage.setItem('url', JSON.stringify(data));
       let news = data.articles;
 
-
+      let search = document.querySelector(".search");
 
       formSearchInput.onchange = function () {
          let searchItem = document.querySelectorAll(".search__item");
@@ -220,8 +220,6 @@ function retrieve(e) {
       })
 
       createNewsBlocks()
-
-      let search = document.querySelector(".search");
 
       if (search.classList.contains("search")) {
          search.classList.add("search__active")

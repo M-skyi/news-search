@@ -126,9 +126,27 @@ let progressBarItem1 = document.getElementById("progress-first-item");
 let countDayItem1 = document.querySelector(".progress-first-item");
 
 
+// let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
+
+// function getDataFromLocalStor(dayItem){
+//    let dayData = localStorage.getItem('firstDay');
+//    dayData = JSON.parse(dayData);
+
+//    for (let i = 0; i < dayArr.length; i++) {
+      
+//       let dayData = localStorage.getItem('firstDay');
+//     dayData = JSON.parse(dayData);
+
+//    }
+// }
+// getDataFromLocalStor()
+
+
+
+
    let totalHeadlines = 0;
  
- function analitics(arr,proBar,countDay,count) {
+ function analitics(arr,proBar,countDay) {
       
       let arrData = [];
 
