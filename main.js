@@ -51,13 +51,6 @@ let formSearchInput = document.querySelector(".form-search__input-text");
 
 let buttonSearch = document.querySelector(".form-search__input-btn")
 
-let options = {
-   year: 'numeric',
-   month: 'long',
-   day: 'numeric',
-   weekday: 'long'
-};
-
 const todaysDate = new Date().toLocaleDateString('sv-SE');
 const fromDate = new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 const sixthDayDate = new Date(new Date().getTime() - (5 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
@@ -65,8 +58,8 @@ const fifthDayDate = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000)).
 const fourthDayDate = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 const thirdDayDate = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-formSearch.addEventListener('submit', retrieve);
 
+formSearch.addEventListener('submit', retrieve);
 
 function createPreloaderNews() {
 
@@ -163,12 +156,12 @@ function retrieve(e) {
        }
  
        savedlocalStorage(firstDay)
-       savedlocalStorage(secondDay)
-       savedlocalStorage(thirdDay)
-       savedlocalStorage(fourthDay)
-       savedlocalStorage(fifthDay)
-       savedlocalStorage(sixthDay)
-       savedlocalStorage(seventhDay)
+      //  savedlocalStorage(secondDay)
+      //  savedlocalStorage(thirdDay)
+      //  savedlocalStorage(fourthDay)
+      //  savedlocalStorage(fifthDay)
+      //  savedlocalStorage(sixthDay)
+      //  savedlocalStorage(seventhDay)
    
 
 
@@ -225,7 +218,6 @@ function retrieve(e) {
          search.classList.add("search__active")
       }
     
-      //show block not found news
       if (news.length === 0) {
          search.classList.remove("search__active");
          preloader.classList.add("container-preloader--dasabled");
@@ -349,7 +341,6 @@ let descriptionNews = [];
 let sourseNameNews = [];
 let publishedAt = [];
 
- // adding a published At News API
  function getPublishedAt() {
 
    let publishedAtItem = document.querySelectorAll('.search__date-added');
@@ -357,13 +348,7 @@ let publishedAt = [];
 
       let DateNews = publishedAt[i]
 
-      let options = {
-         year: 'numeric',
-         month: 'long',
-         day: 'numeric'
-      };
-
-      let changesDate = new Date(DateNews).toLocaleDateString('ru', options).slice(0, -3);
+      let changesDate = new Date(DateNews).toLocaleDateString('ru', { year: 'numeric', month: 'long', day: 'numeric'}).slice(0, -3);
 
       let strDateMonth = changesDate.split(" ");
 
@@ -376,7 +361,6 @@ let publishedAt = [];
 
 getPublishedAt()
 
-// adding a photo News API
 function getUrlImg() {
 
    let newsImg = document.querySelectorAll('.search__img');
@@ -388,7 +372,6 @@ function getUrlImg() {
 
 getUrlImg()
 
-// adding a url News API
 function getUrl() {
    let btnMoreNews = document.querySelector(".search__button");
    let searchItem = document.querySelectorAll(".search__item");
@@ -405,8 +388,6 @@ function getUrl() {
 
 getUrl()
 
-// adding a title News API
-
 function getTitle() {
 
    let searchTitle = document.querySelectorAll('.search__heading');
@@ -417,8 +398,6 @@ function getTitle() {
 }
 
 getTitle()
-
-// adding a description News API
 
 function getDescription() {
 
@@ -431,7 +410,6 @@ function getDescription() {
 
 getDescription()
 
-// adding a source name News API
 function getSourse() {
 
    let searchSource = document.querySelectorAll('.search__source-of-text');
@@ -442,8 +420,6 @@ function getSourse() {
 }
 
 getSourse()
-
-// show more News
 
 let btnMoreNews = document.querySelector(".search__button");
 btnMoreNews.addEventListener("click", function () {
@@ -498,7 +474,7 @@ fetch(reposUrl).then((res) => {
 
    }
 
-   $(function test() {
+   $(function createSliderBlocks() {
          
       for (let i = 0; i < 20; i++) {
 
@@ -555,13 +531,7 @@ fetch(reposUrl).then((res) => {
 
       let dateCommits = commitsDate[i];
 
-      let options = {
-         year: 'numeric',
-         month: 'long',
-         day: 'numeric'
-      };
-
-      let changesDate = new Date(dateCommits).toLocaleDateString('ru', options).slice(0, -3);
+      let changesDate = new Date(dateCommits).toLocaleDateString('ru', { year: 'numeric', month: 'long', day: 'numeric'}).slice(0, -3);
 
       let strDateMonth = changesDate.split(" ");
 

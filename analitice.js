@@ -2,18 +2,22 @@
 // get topic News
 
 let topicValueLocal = localStorage.getItem('topicNews');
+
 let topicValue = document.querySelector(".topic-request__item");
+
 topicValue.textContent = `Вы спросили: «${topicValueLocal}»`;
 
-// number of news per week
+// get count of news per week
 
 let weekCounterNews = localStorage.getItem('url');
 weekCounterNews = JSON.parse(weekCounterNews);
 
-
 let totalResults = weekCounterNews.totalResults;
+
 let totalResultsString = document.querySelector(".counter-week__count");
+
 let countNumber = totalResults.toString().length
+
 if (countNumber > 4) {
     let stringConter = totalResults.toString().slice(0, 2) + " " + totalResults.toString().slice(2, 5);
     totalResultsString.textContent = stringConter
@@ -24,8 +28,7 @@ if (countNumber > 4) {
    totalResultsString.textContent = totalResults
 }
 
-
-//number of title per week
+//get count of title per week
 
 let titleNews = weekCounterNews.articles;
 
@@ -47,106 +50,57 @@ while ( pos != -1 ) {
 
 let date = new Date()
 date.getMonth()
-let options = {
- month: 'long',
-};
- let currentDateMonth = new Date(date).toLocaleDateString('ru', options);
- let currentMonth = document.querySelector(".analitics__month");
- currentMonth.textContent = `(${currentDateMonth})`;
+ let currentDateMonth = new Date(date).toLocaleDateString('ru', {month: 'long',});
 
- // get analytics by day 7
+ let currentMonth = document.querySelector(".analitics__month");
+
+ currentMonth.textContent = `(${currentDateMonth})`;
 
  let seventhDayData = localStorage.getItem('seventhDay');
  seventhDayData = JSON.parse(seventhDayData);
- let getWeekDay7 = new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000));
- let getNumberDay7 = getWeekDay7.toDateString().slice(8, 10);
- let progressBarItem7 = document.getElementById("progress-seventh-item");
- let countDayItem7 = document.querySelector(".progress-seventh-item");
-    
-   
-    
- // get analytics by day 6
-
+ 
  let sixthDayData = localStorage.getItem('sixthDay');
  sixthDayData = JSON.parse(sixthDayData);
- let getWeekDay6 = new Date(new Date().getTime() - (5 * 24 * 60 * 60 * 1000));
- let getNumberDay6 = getWeekDay6.toDateString().slice(8, 10);
- let progressBarItem6 = document.getElementById("progress-sixth-item");
- let countDayItem6 = document.querySelector(".progress-sixth-item");
-
-
- // get analytics by day 5
 
  let fiftDayData = localStorage.getItem('fifthDay');
  fiftDayData = JSON.parse(fiftDayData);
- let getWeekDay5 = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000));
- let getNumberDay5 = getWeekDay5.toDateString().slice(8, 10);
- let progressBarItem5 = document.getElementById("progress-fifth-item");
+
+ let fourthDayData = localStorage.getItem('fourthDay');
+ fourthDayData = JSON.parse(fourthDayData);
+
+ let thirdDayData = localStorage.getItem('thirdDay');
+ thirdDayData = JSON.parse(thirdDayData);
+
+ let secondDayData = localStorage.getItem('secondDay');
+ secondDayData = JSON.parse(secondDayData);
+
+ let firstDayData = localStorage.getItem('firstDay');
+ firstDayData = JSON.parse(firstDayData);
+
+ let progressBarItem7 = document.getElementById("count-progress-seventh-item");
+ let countDayItem7 = document.querySelector(".progress-seventh-item");
+
+ let progressBarItem6 = document.getElementById("count-progress-sixth-item");
+ let countDayItem6 = document.querySelector(".progress-sixth-item");
+
+ let progressBarItem5 = document.getElementById("count-progress-fifth-item");
  let countDayItem5 = document.querySelector(".progress-fifth-item");
 
-// get analytics by day 4
-
-let fourthDayData = localStorage.getItem('fourthDay');
-fourthDayData = JSON.parse(fourthDayData);
-let getWeekDay4 = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000))
-let getNumberDay4 = getWeekDay4.toDateString().slice(8, 10);
- let progressBarItem4 = document.getElementById("progress-fourth-item");
+ let progressBarItem4 = document.getElementById("count-progress-fourth-item");
  let countDayItem4 = document.querySelector(".progress-fourth-item");
 
-
-
-// get analytics by day 3
-
-let thirdDayData = localStorage.getItem('thirdDay');
-thirdDayData = JSON.parse(thirdDayData);
-let getWeekDay3 = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000));
-let getNumberDay3 = getWeekDay3.toDateString().slice(8, 10);
- let progressBarItem3 = document.getElementById("progress-third-item");
+ let progressBarItem3 = document.getElementById("count-progress-third-item");
  let countDayItem3 = document.querySelector(".progress-third-item");
-  
-
-   // get analytics by day 2
-
-let secondDayData = localStorage.getItem('secondDay');
-secondDayData = JSON.parse(secondDayData);
-let getWeekDay2 = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000));
-let getNumberDay2 = getWeekDay2.toDateString().slice(8, 10);
-let progressBarItem2 = document.getElementById("progress-second-item");
+ 
+let progressBarItem2 = document.getElementById("count-progress-second-item");
 let countDayItem2 = document.querySelector(".progress-second-item");
 
-
-// get analytics by day 1
-
-
-let firstDayData = localStorage.getItem('firstDay');
-firstDayData = JSON.parse(firstDayData);
-let getWeekDay1 = new Date();
-let getNumberDay1 = getWeekDay1.toDateString().slice(8, 10)
-let progressBarItem1 = document.getElementById("progress-first-item");
+let progressBarItem1 = document.getElementById("count-progress-first-item");
 let countDayItem1 = document.querySelector(".progress-first-item");
 
-
-// let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
-
-// function getDataFromLocalStor(dayItem){
-//    let dayData = localStorage.getItem('firstDay');
-//    dayData = JSON.parse(dayData);
-
-//    for (let i = 0; i < dayArr.length; i++) {
-      
-//       let dayData = localStorage.getItem('firstDay');
-//     dayData = JSON.parse(dayData);
-
-//    }
-// }
-// getDataFromLocalStor()
-
-
-
-
    let totalHeadlines = 0;
- 
- function analitics(arr,proBar,countDay) {
+
+ function getAnalyticsData(arr,proBar,countDay) {
       
       let arrData = [];
 
@@ -171,68 +125,59 @@ let countDayItem1 = document.querySelector(".progress-first-item");
       
    }
 
-analitics(firstDayData,progressBarItem1,countDayItem1);
-analitics(secondDayData,progressBarItem2,countDayItem2);
-analitics(thirdDayData,progressBarItem3,countDayItem3);
-analitics(fourthDayData,progressBarItem4,countDayItem4);
-analitics(fiftDayData,progressBarItem5,countDayItem5);
-analitics(sixthDayData,progressBarItem6,countDayItem6);
-analitics(seventhDayData,progressBarItem7,countDayItem7);
-
-
-
-
-
-
-
-
-
-
-
-// get day of week
-function getWeekDay(getWeekDay) {
-  let days = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
-  return days[getWeekDay.getDay()];  
-}
-
-
+   getAnalyticsData(firstDayData,progressBarItem1,countDayItem1);
+   getAnalyticsData(secondDayData,progressBarItem2,countDayItem2);
+   getAnalyticsData(thirdDayData,progressBarItem3,countDayItem3);
+   getAnalyticsData(fourthDayData,progressBarItem4,countDayItem4);
+   getAnalyticsData(fiftDayData,progressBarItem5,countDayItem5);
+   getAnalyticsData(sixthDayData,progressBarItem6,countDayItem6);
+   getAnalyticsData(seventhDayData,progressBarItem7,countDayItem7);
 
 let counterHeadlinesNews = document.querySelector(".counter-week__headline__count");
 let countHeadlines = totalHeadlines;
 counterHeadlinesNews.textContent = countHeadlines;
 
 
+let dates = [];
+let dateCurrent = new Date();
 
-function getDayOfWeek() {
+for (let i = 0; i < 7; i++){
+   let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+
+   let tempDate = new Date();
+   tempDate.setDate(dateCurrent.getDate()-i);
    
-   let dateItem7 = getNumberDay7 +", " + getWeekDay(getWeekDay7).toLowerCase(); 
-let analiticeDayItem7 = document.getElementById("day-7");
-analiticeDayItem7.textContent = dateItem7;
+   let str = tempDate.getDate() + ", " + days[tempDate.getDay()]; 
+   
+   dates.push(str);  
 
-let dateItem6 = getNumberDay6 +", " + getWeekDay(getWeekDay6).toLowerCase(); 
-let analiticeDayItem6 = document.getElementById("day-6");
-analiticeDayItem6.textContent = dateItem6;
-
-let dateItem5 = getNumberDay5 +", " + getWeekDay(getWeekDay5).toLowerCase(); 
-let analiticeDayItem5 = document.getElementById("day-5");
-analiticeDayItem5.textContent = dateItem5;
-
-let dateItem4 = getNumberDay4 +", " + getWeekDay(getWeekDay4).toLowerCase(); 
-let analiticeDayItem4 = document.getElementById("day-4");
-analiticeDayItem4.textContent = dateItem4;
-
-let dateItem3 = getNumberDay3 +", " + getWeekDay(getWeekDay3).toLowerCase(); 
-let analiticeDayItem3 = document.getElementById("day-3");
-analiticeDayItem3.textContent = dateItem3;
-
-let dateItem2 = getNumberDay2 +", " + getWeekDay(getWeekDay2).toLowerCase(); 
-let analiticeDayItem2 = document.getElementById("day-2");
-analiticeDayItem2.textContent = dateItem2;
-
-
-let dateItem1 = getNumberDay1 +", " + getWeekDay(getWeekDay1).toLowerCase();
-let analiticeDayItem1 = document.getElementById("day-1");
-analiticeDayItem1.textContent = dateItem1;
 }
 
-getDayOfWeek()
+let arrRevrsed = dates.reverse();
+
+let analiticeDayItem7 = document.getElementById("day-7");
+let analiticeDayItem6 = document.getElementById("day-6");
+let analiticeDayItem5 = document.getElementById("day-5");
+let analiticeDayItem4 = document.getElementById("day-4");
+let analiticeDayItem3 = document.getElementById("day-3");
+let analiticeDayItem2 = document.getElementById("day-2");
+let analiticeDayItem1 = document.getElementById("day-1");
+
+for (let i = 0; i < arrRevrsed.length; i++) {
+   analiticeDayItem7.textContent = dates[0];
+   analiticeDayItem6.textContent = dates[1];
+   analiticeDayItem5.textContent = dates[2];
+   analiticeDayItem4.textContent = dates[3];
+   analiticeDayItem3.textContent = dates[4];
+   analiticeDayItem2.textContent = dates[5];
+   analiticeDayItem1.textContent = dates[6];
+}
+
+
+
+
+
+
+
+
+
