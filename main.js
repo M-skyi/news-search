@@ -168,7 +168,7 @@ function retrieve(e) {
    fetch(url).then((res) => {
       return res.json()
    }).then((data)=> {
-
+        
       localStorage.setItem('url', JSON.stringify(data));
       let news = data.articles;
 
