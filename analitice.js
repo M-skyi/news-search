@@ -56,6 +56,8 @@ date.getMonth()
 
  currentMonth.textContent = `(${currentDateMonth})`;
 
+ // get data from localStorage
+
  let seventhDayData = localStorage.getItem('seventhDay');
  seventhDayData = JSON.parse(seventhDayData);
  
@@ -77,6 +79,8 @@ date.getMonth()
  let firstDayData = localStorage.getItem('firstDay');
  firstDayData = JSON.parse(firstDayData);
 
+ //get elements from html
+
  let progressBarItem7 = document.getElementById("count-progress-seventh-item");
  let countDayItem7 = document.querySelector(".progress-seventh-item");
 
@@ -97,6 +101,8 @@ let countDayItem2 = document.querySelector(".progress-second-item");
 
 let progressBarItem1 = document.getElementById("count-progress-first-item");
 let countDayItem1 = document.querySelector(".progress-first-item");
+
+//get analytics data
 
    let totalHeadlines = 0;
 
