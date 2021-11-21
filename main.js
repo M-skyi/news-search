@@ -156,12 +156,12 @@ function retrieve(e) {
        }
  
        savedlocalStorage(firstDay)
-      //  savedlocalStorage(secondDay)
-      //  savedlocalStorage(thirdDay)
-      //  savedlocalStorage(fourthDay)
-      //  savedlocalStorage(fifthDay)
-      //  savedlocalStorage(sixthDay)
-      //  savedlocalStorage(seventhDay)
+       savedlocalStorage(secondDay)
+       savedlocalStorage(thirdDay)
+       savedlocalStorage(fourthDay)
+       savedlocalStorage(fifthDay)
+       savedlocalStorage(sixthDay)
+       savedlocalStorage(seventhDay)
    
 
 

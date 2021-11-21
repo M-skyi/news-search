@@ -1,3 +1,10 @@
+
+:root{
+    --black-text-color: #1A1B22;
+    --grey-text-color: #B6BCBF;
+}
+ 
+
 .container {
     width: 1235px;
     margin: auto;
@@ -23,7 +30,7 @@
     font-weight: bold;
     font-size: 20px;
     line-height: 24px;
-    color: #1A1B22;
+    color: var(--black-text-color);
 }
 
 .header__menu {
@@ -36,7 +43,7 @@
 .header__list-item {
     list-style-type: none;
     margin: 30px 0 23px 0;
-    color: #B6BCBF;
+    color: var(--grey-text-color);
 }
 
 .header__list-item:nth-child(1) {
@@ -50,7 +57,7 @@
     font-weight: 500;
     font-size: 18px;
     line-height: 24px;
-    color: #B6BCBF;
+    color: var(--grey-text-color);
 }
 
 
@@ -60,7 +67,7 @@
     font-weight: normal;
     font-size: 16px;
     line-height: 22px;
-    color: #B6BCBF;
+    color: var(--grey-text-color);
     margin: 33px 0px 25px 104px;
     width: 25%;
 }
@@ -92,7 +99,7 @@
     font-size: 18px;
     line-height: 24px;
     text-align: center;
-    color: #1A1B22;
+    color: var(--black-text-color);;
 }
 
 .footer__list-item:nth-child(2) {
@@ -135,7 +142,7 @@
 
 .bread-crums__links {
     text-decoration: none;
-    color: #1A1B22;
+    color: var(--black-text-color);;
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -146,7 +153,7 @@
 
 .bread-crums__current-page {
     text-decoration: none;
-    color: #B6BCBF;
+    color: var(--grey-text-color);
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -161,7 +168,7 @@
     font-weight: normal;
     font-size: 40px;
     line-height: 46px;
-    color: #1A1B22;
+    color: var(--black-text-color);
     margin-top: 80px;
 }
 
@@ -176,7 +183,7 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
-    color: #1A1B22;
+    color: var(--black-text-color);;
     margin-top: 24px;
 }
 
@@ -186,7 +193,7 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
-    color: #1A1B22;
+    color: var(--black-text-color);;
     margin-top: 4px;
     margin-bottom: 80px;
 }
@@ -201,7 +208,7 @@
     font-weight: normal;
     font-size: 26px;
     line-height: 30px;
-    color: #1A1B22;
+    color: var(--black-text-color);;
     margin-top: 0px;
     padding-top: 80px;
     margin-bottom: 45px;
@@ -213,7 +220,7 @@
     display: flex;
 }
 
-.analitics__date {
+.style_font{
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
@@ -221,18 +228,10 @@
     line-height: 16px;
     letter-spacing: 0.4px;
     text-transform: uppercase;
-    color: #B6BCBF;
+    color: var(--grey-text-color);
 }
 
 .analitics__month {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #B6BCBF;
     margin-bottom: 24px;
 }
 
@@ -244,7 +243,7 @@
     line-height: 16px;
     letter-spacing: 0.4px;
     text-transform: uppercase;
-    color: #B6BCBF;
+    color: var(--grey-text-color);
     margin-left: 50px;
 }
 
@@ -254,7 +253,7 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 80px;
-    color: #1A1B22;
+    color: var(--black-text-color);;
     width: max-content;
 }
 
@@ -277,7 +276,7 @@
     text-align: center;
     letter-spacing: 0.4px;
     text-transform: uppercase;
-    color: #B6BCBF;
+    color: var(--grey-text-color);
 }
 
 .analitics-days__procent-line-item:first-child {
@@ -325,115 +324,18 @@
     position: relative;
 }
 
-.progress-seventh-item {
-    position: absolute;
+.progress-item{
+    position: relative;
     font-family: Roboto;
     font-style: normal;
     font-size: 12px;
     line-height: 16px;
     font-weight: 500;
-    display: flex;
     align-items: center;
     letter-spacing: 0.4px;
     text-transform: uppercase;
     color: #FFFFFF;
-    top: 28px;
-    left: 10px;
-}
-
-.progress-sixth-item{
-    position: absolute;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    top: 108px;
-    left: 10px;
-}
-
-.progress-fifth-item{
-    position: absolute;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    top: 189px;
-    left: 10px;
-}
-
-.progress-fourth-item{
-    position: absolute;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    top: 268px;
-    left: 10px;
-}
-
-.progress-third-item {
-    position: absolute;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    top: 348px;
-    left: 10px;
-}
-
-.progress-second-item{
-    position: absolute;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    top: 428px;
-    left: 10px;
-}
-
-.progress-first-item{
-    position: absolute;
-    font-family: Roboto;
-    font-style: normal;
-    font-size: 12px;
-    line-height: 16px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: #FFFFFF;
-    top: 508px;
+    top: 45px;
     left: 10px;
 }
 .counter-week__count{
@@ -441,6 +343,11 @@
 }
 .counter-week__headline__count{
     font-weight: 700;
+}
+
+.analitics-days__date-item {
+    line-height: 81px;
+    margin-top: 14.5px;
 }
 
 
@@ -484,7 +391,7 @@
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .header__menu {
@@ -505,7 +412,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
-        color: #B6BCBF;
+        color: var(--grey-text-color);
     }
 
     .header__list-item:nth-child(1) {
@@ -576,7 +483,7 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 48px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .bread-crums {
@@ -602,7 +509,7 @@
         font-weight: normal;
         font-size: 30px;
         line-height: 34px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .counter-request__counter-week {
@@ -645,40 +552,21 @@
     }
 
     .analitics-days__date-item {
-        line-height: 48px;
+        line-height: 50px;
     }
 
     .progress-bar__list-item {
         line-height: 48px;
     }
 
-    .progress-seventh-item {
-        top: 14px;
+    .progress-item{
+        top: 30px;
     }
 
-    .progress-sixth-item {
-        top: 61px;
+    .progress-item:first-child{
+        top: 45px;
     }
-
-    .progress-fifth-item{
-        top: 109px;
-    }
-
-    .progress-fourth-item {
-        top: 157px;
-    }
-
-    .progress-third-item {
-        top: 205px;
-    }
-
-    .progress-second-item {
-        top: 252px;
-    }
-
-    .progress-first-item {
-        top: 301px;
-    }
+    
 }
 
 @media (min-width: 321px) {
@@ -703,7 +591,7 @@
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .header__menu {
@@ -724,7 +612,7 @@
         font-weight: 500;
         font-size: 16px;
         line-height: 24px;
-        color: #B6BCBF;
+        color: var(--grey-text-color);
     }
 
     .header__list-item:nth-child(1) {
@@ -795,7 +683,7 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 48px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
 
@@ -831,7 +719,7 @@
         font-weight: normal;
         font-size: 30px;
         line-height: 34px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .counter-request__counter-week {
@@ -874,39 +762,19 @@
     }
 
     .analitics-days__date-item {
-        line-height: 48px;
+        line-height: 50px;
     }
 
     .progress-bar__list-item {
         line-height: 48px;
     }
 
-    .progress-seventh-item {
-        top: 14px;
+    .progress-item{
+        top: 30px;
     }
 
-    .progress-sixth-item{
-        top: 61px;
-    }
-
-    .progress-fifth-item {
-        top: 109px;
-    }
-
-    .progress-fourth-item {
-        top: 157px;
-    }
-
-    .progress-third-item{
-        top: 205px;
-    }
-
-    .progress-second-item {
-        top: 252px;
-    }
-
-    .progress-first-item{
-        top: 301px;
+    .progress-item:first-child{
+        top: 45px;
     }
 
 }
@@ -937,7 +805,7 @@
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .header__menu {
@@ -995,7 +863,7 @@
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .header__menu {
@@ -1057,7 +925,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 22px;
-        color: #B6BCBF;
+        color: var(--grey-text-color);
         margin: 15px 0px 20px 16px;
         width: max-content;
     }
@@ -1086,7 +954,7 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 48px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
 
@@ -1130,7 +998,7 @@
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .header__menu {
@@ -1192,7 +1060,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 22px;
-        color: #B6BCBF;
+        color: var(--grey-text-color);
         margin: 15px 0px 20px 16px;
         width: max-content;
     }
@@ -1264,7 +1132,7 @@
         font-weight: bold;
         font-size: 16px;
         line-height: 24px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .header__menu {
@@ -1321,7 +1189,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 22px;
-        color: #B6BCBF;
+        color: var(--grey-text-color);
         margin: 15px 0px 20px 16px;
         width: max-content;
     }
@@ -1350,7 +1218,7 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 48px;
-        color: #1A1B22;
+        color: var(--analitice-text-color);;
         margin-left: 25.12px;
     }
 
@@ -1410,7 +1278,7 @@
         font-weight: bold;
         font-size: 20px;
         line-height: 24px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
     }
 
     .header__menu {
@@ -1475,7 +1343,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 22px;
-        color: #B6BCBF;
+        color: var(--grey-text-color);
         width: max-content;
         position: absolute;
         bottom: 133px;
@@ -1509,7 +1377,7 @@
         font-weight: normal;
         font-size: 18px;
         line-height: 48px;
-        color: #1A1B22;
+        color: var(--black-text-color);;
         margin-left: 25.12px;
     }
 
@@ -1589,43 +1457,18 @@
     }
 
     .analitics-days__date-item {
-        line-height: 80px;
+        line-height: 82px;
     }
 
     .progress-bar__list-item {
         line-height: 80px;
     }
 
-    .progress-seventh-item {
-        top: 28px;
-    }
-
-    .progress-sixth-item {
-        top: 109px;
-    }
-
-    .progress-fifth-item {
-        top: 187px;
-    }
-
-    .progress-fourth-item{
-        top: 268px;
-    }
-
-    .progress-third-item {
-        top: 348px;
-    }
-
-    .progress-second-item {
-        top: 429px;
-    }
-
-    .progress-first-item{
-        top: 508px;
-    }
-
     .analitics-days__procent-line-item:nth-child(11) {
         margin-bottom: 40px;
+    }
+    .progress-item{
+        top: 45px;
     }
 }
 
@@ -1649,7 +1492,7 @@
         font-weight: normal;
         font-size: 16px;
         line-height: 22px;
-        color: #B6BCBF;
+        color: var(--grey-text-color);
         margin: 17px 0px 6px -95px;
         width: 25%;
         text-align: center;
