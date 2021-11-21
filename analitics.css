@@ -62,9 +62,6 @@
 
 
 .footer__copyright {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
     line-height: 22px;
     color: var(--grey-text-color);
@@ -143,29 +140,19 @@
 .bread-crums__links {
     text-decoration: none;
     color: var(--black-text-color);;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 24px;
-
 }
 
 .bread-crums__current-page {
     text-decoration: none;
     color: var(--grey-text-color);
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 24px;
     text-indent: 6px;
 }
 
 .topic-request {
-    font-family: Roboto Slab;
-    font-style: normal;
-    font-weight: normal;
     font-size: 40px;
     line-height: 46px;
     color: var(--black-text-color);
@@ -178,9 +165,6 @@
 }
 
 .counter-request__counter-week {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 24px;
     color: var(--black-text-color);;
@@ -188,9 +172,6 @@
 }
 
 .counter-request__counter-heading {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 24px;
     color: var(--black-text-color);;
@@ -202,10 +183,14 @@
     background-color: #F5F6F7;
 }
 
-.analytics__headline {
-    font-family: Roboto Slab;
+.font_family{
+    font-family: Roboto;
     font-style: normal;
     font-weight: normal;
+}
+
+.analytics__headline {
+    font-family: Roboto Slab;
     font-size: 26px;
     line-height: 30px;
     color: var(--black-text-color);;
@@ -221,9 +206,6 @@
 }
 
 .style_font{
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 12px;
     line-height: 16px;
     letter-spacing: 0.4px;
@@ -236,21 +218,10 @@
 }
 
 .analitics__counter {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
-    color: var(--grey-text-color);
     margin-left: 50px;
 }
 
 .analitics-days__date-item {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 18px;
     line-height: 80px;
     color: var(--black-text-color);;
@@ -268,9 +239,6 @@
 .analitics-days__procent-line-item {
     margin-left: 22.8%;
     display: inline-block;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
     font-size: 12px;
     line-height: 16px;
     text-align: center;
