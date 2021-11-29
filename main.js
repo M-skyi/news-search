@@ -1,178 +1,51 @@
 
+import {getApiData} from './modules/getApi.js';
+import sliderOpions from './modules/sliderOptions.js'
 
-$(document).ready(function () {
-   $('.multiple-items').slick({
-      variableWidth: true,
-      arrows: true,
-      dots: true,
-      slidesToShow: 15,
-      slidesToScroll:4,
-      mobileFirst: false,
-      waitForAnimate: false,
-      infinite: false,
-      responsive: [{
-            breakpoint: 1024,
-            settings: {
-               arrows: false,
-               centerPadding: '20px',
-               slidesToShow: 3,
-               slidesToScroll: 3,
-               infinite: false,
-            }
-         },
-         {
-            breakpoint: 768,
-            settings: {
-               arrows: false,
-               slidesToShow: 14,
-               slidesToScroll: 2,
-               infinite: false,
-            }
-         },
-         {
-            breakpoint: 425,
-            settings: {
-               arrows: false,
-               centerPadding: '0px',
-               slidesToShow: 16,
-               slidesToScroll: 1,
-               infinite: false,
-            }
-         }
+sliderOpions()
 
-      ]
+   let formSearch = document.querySelector(".form-search");
 
-   });
-});
+   let formSearchInput = document.querySelector(".form-search__input-text");
 
- let formSearch = document.querySelector(".form-search");
+   formSearch.addEventListener('submit', retrieve);
 
-let formSearchInput = document.querySelector(".form-search__input-text");
+   function createPreloaderNews() {
 
-let buttonSearch = document.querySelector(".form-search__input-btn")
+      let header = document.querySelector(".header");
 
-const todaysDate = new Date().toLocaleDateString('sv-SE');
-const fromDate = new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const sixthDayDate = new Date(new Date().getTime() - (5 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const fifthDayDate = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const fourthDayDate = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const thirdDayDate = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+      let containerPreloader = document.createElement("div");
 
-formSearch.addEventListener('submit', retrieve);
+      containerPreloader.className = "container-preloader";
 
-function createPreloaderNews() {
+      header.after(containerPreloader);
 
-   let header = document.querySelector(".header");
+      let loadImg = document.createElement('img');
 
-   let containerPreloader = document.createElement("div");
+      loadImg.src = "img/load-img.png";
 
-   containerPreloader.className = "container-preloader";
+      loadImg.className = "container-preloader_loader";
 
-   header.after(containerPreloader);
+      containerPreloader.prepend(loadImg);
 
-   let loadImg = document.createElement('img');
+      let loadText = document.createElement("p");
 
-   loadImg.src = "img/load-img.png";
+      loadText.className = "container-preloader_load-text";
 
-   loadImg.className = "container-preloader_loader";
+      loadText.textContent = "Идет поиск новостей...";
 
-   containerPreloader.prepend(loadImg);
+      containerPreloader.append(loadText);
 
-   let loadText = document.createElement("p");
-
-   loadText.className = "container-preloader_load-text";
-
-   loadText.textContent = "Идет поиск новостей...";
-
-   containerPreloader.append(loadText);
-
-}
-
-function retrieve(e) {
-
-   e.preventDefault()
-
-   createPreloaderNews()
-   
-   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
-
-   let topic = formSearchInput.value;
-
-   let preloader = document.querySelector(".container-preloader")
-
-   if (topic === "") {
-      alert("«Нужно ввести ключевое слово»")
-      preloader.classList.add("container-preloader--dasabled")
-      return
    }
 
-   localStorage.setItem('topicNews', topic);
+      function retrieve(e) {
 
-   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+      e.preventDefault()
+
+      createPreloaderNews()
    
-   let seventhDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${fromDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let sixthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${sixthDayDate}&to=${sixthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let fifthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fifthDayDate}&to=${fifthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let fourthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fourthDayDate}&to=${fourthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let thirdDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${thirdDayDate}&to=${thirdDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let secondDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${secondDayDate}&to=${secondDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let firstDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${todaysDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
-  
-   function savedlocalStorage(dayItem) {
-
-      fetch(dayItem).then((res) => {
-         return res.json()
-      }).then((item) => {
-         let data = item.articles;
-         
-         for (let i = 0; i < dayArr.length; i++) {
-         
-            if (dayItem === firstDay) {
-               localStorage.setItem(`${dayArr[0]}`, JSON.stringify(data)); 
-            }else if (dayItem === secondDay) {
-               localStorage.setItem(`${dayArr[1]}`, JSON.stringify(data));
-            }else if (dayItem === thirdDay) {
-               localStorage.setItem(`${dayArr[2]}`, JSON.stringify(data));
-            }else if (dayItem === fourthDay) {
-               localStorage.setItem(`${dayArr[3]}`, JSON.stringify(data));
-            }else if (dayItem === fifthDay) {
-               localStorage.setItem(`${dayArr[4]}`, JSON.stringify(data));
-            }else if (dayItem === sixthDay) {
-               localStorage.setItem(`${dayArr[5]}`, JSON.stringify(data));
-            }else if (dayItem === seventhDay) {
-               localStorage.setItem(`${dayArr[6]}`, JSON.stringify(data));
-            }
-         }
-       })
-       }
- 
-       savedlocalStorage(firstDay)
-       savedlocalStorage(secondDay)
-       savedlocalStorage(thirdDay)
-       savedlocalStorage(fourthDay)
-       savedlocalStorage(fifthDay)
-       savedlocalStorage(sixthDay)
-       savedlocalStorage(seventhDay)
-   
-
-
-   fetch(url).then((res) => {
-      return res.json()
-   }).then((data)=> {
-        
-      localStorage.setItem('url', JSON.stringify(data));
-      let news = data.articles;
-
       let search = document.querySelector(".search");
+      let preloader = document.querySelector(".container-preloader")
 
       formSearchInput.onchange = function () {
          let searchItem = document.querySelectorAll(".search__item");
@@ -192,95 +65,97 @@ function retrieve(e) {
 
       }
 
-      itemNews.length = 0
-      urlNews.length = 0
-      imgNews.length = 0
-      titleNews.length = 0
-      descriptionNews.length = 0
-      sourseNameNews.length = 0
-      publishedAt.length = 0
+         itemNews.length = 0
+         urlNews.length = 0
+         imgNews.length = 0
+         titleNews.length = 0
+         descriptionNews.length = 0
+         sourseNameNews.length = 0
+         publishedAt.length = 0
 
 
-      news.forEach(el => {
-         itemNews.push(el)
-         urlNews.push(el.url);
-         imgNews.push(el.urlToImage);
-         titleNews.push(el.title);
-         descriptionNews.push(el.description);
-         sourseNameNews.push(el.source.name);
-         publishedAt.push(el.publishedAt)
+         getApiData().then(function (news) {
+            
+            news.forEach(el => {
+            itemNews.push(el)
+            urlNews.push(el.url);
+            imgNews.push(el.urlToImage);
+            titleNews.push(el.title);
+            descriptionNews.push(el.description);
+            sourseNameNews.push(el.source.name);
+            publishedAt.push(el.publishedAt)
 
-      })
+         })
+         
+         createNewsBlocks()
 
-      createNewsBlocks()
-
-      if (search.classList.contains("search")) {
-         search.classList.add("search__active")
-      }
-    
-      if (news.length === 0) {
-         search.classList.remove("search__active");
-         preloader.classList.add("container-preloader--dasabled");
-         blockNotFoudNews()
-      }
-
-      getPublishedAt()
-      getUrlImg()
-      getUrl()
-      getTitle()
-      getDescription()
-      getSourse()
-
-      
-      if (search.classList.contains("search__active")) {
-         preloader.classList.add("container-preloader--dasabled")
-      }
-
-
-   }).catch((error) => {
-      alert(error)
-   })
-
-}
-
-function blockNotFoudNews() {
-   let header = document.querySelector(".header");
+         if (search.classList.contains("search")) {
+            search.classList.add("search__active")
+         }
+       
+         if (news.length === 0) {
+            search.classList.remove("search__active");
+            preloader.classList.add("container-preloader--dasabled");
+            blockNotFoudNews()
+         }
    
-   let notFoundNews = document.createElement("div");
-   notFoundNews.classList.add("not-found-news", "not-found-news--active");
-   header.after(notFoundNews);
+         getPublishedAt()
+         getUrlImg()
+         getUrl()
+         getTitle()
+         getDescription()
+         getSourse()
+   
+         
+         if (search.classList.contains("search__active")) {
+            preloader.classList.add("container-preloader--dasabled")
+         }
+   
 
-   let notFoundNewsImg = document.createElement("img");
-   notFoundNewsImg.className = "not-found-news__img";
-   notFoundNews.append(notFoundNewsImg);
-   notFoundNewsImg.setAttribute("src", "img/not-found-img.png");
-
-   let notFoundNewsHeadline = document.createElement("h3");
-   notFoundNewsHeadline.textContent = "Ничего не найдено";
-   notFoundNewsHeadline.className = "not-found-news__headline";
-   notFoundNewsImg.after(notFoundNewsHeadline);
-
-   let notFoundNewsText = document.createElement("p");
-   notFoundNewsText.className = "not-found-news__text";
-   notFoundNewsText.textContent = `К сожалению по вашему запросу ничего не найдено.`;
-   notFoundNewsHeadline.after(notFoundNewsText);
-
-}
-
-function createNewsBlocks() {
-
-   let searchItems = document.querySelector(".search-items");
-   for (let i = 0; i <= 2; i++) {
-
-      let moreNewsItem = document.createElement("a");
-      moreNewsItem.className = "search__item";
-      searchItems.append(moreNewsItem)
+         }).catch((error) => {
+            alert("TypeError: status of 429 ( Too Many Requests )")
+            preloader.classList.add("container-preloader--dasabled")
+         })
+   
    }
 
-   let searchItem = document.querySelectorAll(".search__item");
+   function blockNotFoudNews() {
+      let header = document.querySelector(".header");
+      
+      let notFoundNews = document.createElement("div");
+      notFoundNews.classList.add("not-found-news", "not-found-news--active");
+      header.after(notFoundNews);
 
-   for (let i = 0; i < searchItem.length; i++) {
+      let notFoundNewsImg = document.createElement("img");
+      notFoundNewsImg.className = "not-found-news__img";
+      notFoundNews.append(notFoundNewsImg);
+      notFoundNewsImg.setAttribute("src", "img/not-found-img.png");
 
+      let notFoundNewsHeadline = document.createElement("h3");
+      notFoundNewsHeadline.textContent = "Ничего не найдено";
+      notFoundNewsHeadline.className = "not-found-news__headline";
+      notFoundNewsImg.after(notFoundNewsHeadline);
+
+      let notFoundNewsText = document.createElement("p");
+      notFoundNewsText.className = "not-found-news__text";
+      notFoundNewsText.textContent = `К сожалению по вашему запросу ничего не найдено.`;
+      notFoundNewsHeadline.after(notFoundNewsText);
+
+   }
+
+   function createNewsBlocks() {
+
+      let searchItems = document.querySelector(".search-items");
+      for (let i = 0; i <= 2; i++) {
+
+         let moreNewsItem = document.createElement("a");
+         moreNewsItem.className = "search__item";
+         searchItems.append(moreNewsItem)
+      }
+
+      let searchItem = document.querySelectorAll(".search__item");
+
+      for (let i = 0; i < searchItem.length; i++) {
       let imgMoreNews = document.createElement('img')
 
       imgMoreNews.className = "search__img"
@@ -340,6 +215,7 @@ let titleNews = [];
 let descriptionNews = [];
 let sourseNameNews = [];
 let publishedAt = [];
+
 
  function getPublishedAt() {
 
@@ -542,7 +418,48 @@ fetch(reposUrl).then((res) => {
    }
 
 }).catch((error) => {
-   alert(error)
+   console.log(error)
 })
+
+
+
+
+
+
+
+
+// import getData from './modules/getApi.js';
+
+
+// export const someFunc = () => {
+
+//    getData().then(data => {
+//        /* do what you want to do in promise resolve callback function */
+//        console.log(data)
+//    })
+// }
+
+
+
+
+
+
+
+// formSearch.addEventListener('submit', retrieve);
+
+// function retrieve(e) {
+//    e.preventDefault()
+
+//   getApiData().then(function (dataNews) {
+   
+//    dataNews.forEach(el => {
+//       console.log(el.author)
+//    })
+   
+//   });
+
+// }
+
+
 
 
