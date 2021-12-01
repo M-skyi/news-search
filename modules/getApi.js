@@ -12,7 +12,7 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
    let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
 
     
- export async function getApiData() {
+ export async function getApiNews() {
 
   let topic = formSearchInput.value;
     
@@ -80,5 +80,19 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
       localStorage.setItem('url', JSON.stringify(data));
 
       return data.articles
+
+ }
+
+//   GET GITHUB COMMITS
+
+ let reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits`;
+
+ export async function getApiGitHub() {
+
+   const response = await fetch(reposUrl)
+      
+   const data = await response.json()
+
+   return data
 
  }

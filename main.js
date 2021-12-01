@@ -1,6 +1,7 @@
 
-import {getApiData} from './modules/getApi.js';
+import {getApiNews,getApiGitHub} from './modules/getApi.js';
 import sliderOpions from './modules/sliderOptions.js'
+
 
 sliderOpions()
 
@@ -74,7 +75,7 @@ sliderOpions()
          publishedAt.length = 0
 
 
-         getApiData().then(function (news) {
+         getApiNews().then(function (news) {
             
             news.forEach(el => {
             itemNews.push(el)
@@ -321,15 +322,7 @@ btnMoreNews.addEventListener("click", function () {
    
 })
 
-//   GET GITHUB COMMITS
-
-let reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits`
-
-
-fetch(reposUrl).then((res) => {
-   return res.json()
-}).then((reposData) => {
-
+//    GITHUB COMMITS
 
    let commitsDate = [];
    let commitsAvatar = [];
@@ -338,15 +331,16 @@ fetch(reposUrl).then((res) => {
    let commitsMessage = [];
    let commitsUrl = []
 
-
+   getApiGitHub().then(function (commits) {
+            
    for (let i = 0; i < 20; i++) {
 
-      commitsDate.push(reposData[i].commit.author.date);
-      commitsAvatar.push(reposData[i].author.avatar_url);
-      commitsAuthorName.push(reposData[i].commit.author.name);
-      commitsAuthorEmail.push(reposData[i].commit.author.email);
-      commitsMessage.push(reposData[i].commit.message);
-      commitsUrl.push(reposData[i].html_url);
+      commitsDate.push(commits[i].commit.author.date);
+      commitsAvatar.push(commits[i].author.avatar_url);
+      commitsAuthorName.push(commits[i].commit.author.name);
+      commitsAuthorEmail.push(commits[i].commit.author.email);
+      commitsMessage.push(commits[i].commit.message);
+      commitsUrl.push(commits[i].html_url);
 
    }
 
@@ -416,12 +410,9 @@ fetch(reposUrl).then((res) => {
       historyDate[i].textContent = сurrentDate
 
    }
-
-}).catch((error) => {
-   console.log(error)
-})
-
-
-
+   
+   }).catch((error) => {
+      console.log(error)
+   })
 
 
