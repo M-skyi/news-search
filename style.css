@@ -737,6 +737,10 @@
   flex-direction: column;
 
 }
+.not-found-news--disabled{
+  display: none;
+}
+
 .not-found-news__headline{
   font-family: Roboto Slab;
   font-style: normal;

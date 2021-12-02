@@ -11,42 +11,29 @@ sliderOpions()
 
    formSearch.addEventListener('submit', retrieve);
 
-   function createPreloaderNews() {
-
-      let header = document.querySelector(".header");
-
-      let containerPreloader = document.createElement("div");
-
-      containerPreloader.className = "container-preloader";
-
-      header.after(containerPreloader);
-
-      let loadImg = document.createElement('img');
-
-      loadImg.src = "img/load-img.png";
-
-      loadImg.className = "container-preloader_loader";
-
-      containerPreloader.prepend(loadImg);
-
-      let loadText = document.createElement("p");
-
-      loadText.className = "container-preloader_load-text";
-
-      loadText.textContent = "Идет поиск новостей...";
-
-      containerPreloader.append(loadText);
-
-   }
-
       function retrieve(e) {
+         
+      e.preventDefault();
 
-      e.preventDefault()
-
+      let searchItem = document.querySelectorAll(".search__item");
+   
+      if (searchItem.length > 0) {
+         return
+      }
+   
+      let topic = formSearchInput.value;
+      if (topic === '') {
+         alert("«Нужно ввести ключевое слово».")
+         return
+      }
+        
       createPreloaderNews()
+      blockNotFoudNews()
    
       let search = document.querySelector(".search");
       let preloader = document.querySelector(".container-preloader")
+
+      let notFoundNews = document.querySelector(".not-found-news")
 
       formSearchInput.onchange = function () {
          let searchItem = document.querySelectorAll(".search__item");
@@ -55,13 +42,12 @@ sliderOpions()
                searchItem[i].remove()
             }
          }
-         let notFoundNews = document.querySelector(".not-found-news")
          if (search.classList.contains("search__active")) {
             search.classList.remove("search__active")
           }
 
-         if (notFoundNews.classList.contains("not-found-news")) {
-            notFoundNews.remove();
+         if (notFoundNews.classList.contains("not-found-news--active")) {
+            notFoundNews.classList.add("not-found-news--disabled");
          }
 
       }
@@ -97,7 +83,7 @@ sliderOpions()
          if (news.length === 0) {
             search.classList.remove("search__active");
             preloader.classList.add("container-preloader--dasabled");
-            blockNotFoudNews()
+            notFoundNews.classList.add("not-found-news--active");
          }
    
          getPublishedAt()
@@ -114,17 +100,45 @@ sliderOpions()
    
 
          }).catch((error) => {
-            alert("TypeError: status of 429 ( Too Many Requests )")
+            alert("error")
             preloader.classList.add("container-preloader--dasabled")
          })
    
+   }
+
+   function createPreloaderNews() {
+
+      let header = document.querySelector(".header");
+
+      let containerPreloader = document.createElement("div");
+
+      containerPreloader.className = "container-preloader";
+
+      header.after(containerPreloader);
+
+      let loadImg = document.createElement('img');
+
+      loadImg.src = "img/load-img.png";
+
+      loadImg.className = "container-preloader_loader";
+
+      containerPreloader.prepend(loadImg);
+
+      let loadText = document.createElement("p");
+
+      loadText.className = "container-preloader_load-text";
+
+      loadText.textContent = "Идет поиск новостей...";
+
+      containerPreloader.append(loadText);
+
    }
 
    function blockNotFoudNews() {
       let header = document.querySelector(".header");
       
       let notFoundNews = document.createElement("div");
-      notFoundNews.classList.add("not-found-news", "not-found-news--active");
+      notFoundNews.classList.add("not-found-news");
       header.after(notFoundNews);
 
       let notFoundNewsImg = document.createElement("img");
@@ -243,6 +257,7 @@ function getUrlImg() {
    let newsImg = document.querySelectorAll('.search__img');
    for (let i = 0; i < newsImg.length; i++) {
       newsImg[i].setAttribute("src", imgNews[i])
+
    }
 
 }
@@ -260,6 +275,17 @@ function getUrl() {
       btnMoreNews.classList.add("disabled--btn")
    } else {
       btnMoreNews.classList.remove("disabled--btn")
+   }
+
+   for (let i = 0; i < searchItem.length; i++) {
+
+    let atribute = searchItem[i].getAttribute("href");
+    if (atribute === "undefined") {
+       searchItem[i].innerHTML = '';
+       searchItem[i].style.backgroundColor = 'inherit';
+       searchItem[i].removeAttribute('href')
+    }
+      
    }
 }
 
@@ -415,4 +441,5 @@ btnMoreNews.addEventListener("click", function () {
       console.log(error)
    })
 
-
+   
+ 

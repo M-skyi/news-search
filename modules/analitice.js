@@ -56,28 +56,19 @@ date.getMonth()
 
  currentMonth.textContent = `(${currentDateMonth})`;
 
- // get data from localStorage
+ function getItemFromLocalStorage(item){ 
+    let dayData = localStorage.getItem(item);
+    return JSON.parse(dayData); 
+   } 
 
- let seventhDayData = localStorage.getItem('seventhDay');
- seventhDayData = JSON.parse(seventhDayData);
- 
- let sixthDayData = localStorage.getItem('sixthDay');
- sixthDayData = JSON.parse(sixthDayData);
-
- let fiftDayData = localStorage.getItem('fifthDay');
- fiftDayData = JSON.parse(fiftDayData);
-
- let fourthDayData = localStorage.getItem('fourthDay');
- fourthDayData = JSON.parse(fourthDayData);
-
- let thirdDayData = localStorage.getItem('thirdDay');
- thirdDayData = JSON.parse(thirdDayData);
-
- let secondDayData = localStorage.getItem('secondDay');
- secondDayData = JSON.parse(secondDayData);
-
- let firstDayData = localStorage.getItem('firstDay');
- firstDayData = JSON.parse(firstDayData);
+   seventhDayData = getItemFromLocalStorage('seventhDay');
+   sixthDayData = getItemFromLocalStorage('sixthDay');
+   fiftDayData = getItemFromLocalStorage('fifthDay');
+   fourthDayData = getItemFromLocalStorage('fourthDay');
+   thirdDayData = getItemFromLocalStorage('thirdDay');
+   secondDayData = getItemFromLocalStorage('secondDay');
+   firstDayData = getItemFromLocalStorage('firstDay');
+   
 
  //get elements from html
 

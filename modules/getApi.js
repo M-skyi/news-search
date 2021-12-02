@@ -15,7 +15,7 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
  export async function getApiNews() {
 
   let topic = formSearchInput.value;
-    
+
   localStorage.setItem('topicNews', topic);
 
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
@@ -71,7 +71,6 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
        savedlocalStorage(fifthDay)
        savedlocalStorage(sixthDay)
        savedlocalStorage(seventhDay)
-   
 
       const response = await fetch(url)
       
