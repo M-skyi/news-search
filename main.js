@@ -100,7 +100,7 @@ sliderOpions()
    
 
          }).catch((error) => {
-            alert("error")
+            alert("Произошла ошибка")
             preloader.classList.add("container-preloader--dasabled")
          })
    
