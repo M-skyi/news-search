@@ -294,7 +294,6 @@
 
 .search-items {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   padding: 0 100px 0 100px;
 }
@@ -1605,7 +1604,6 @@
 
   .search-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 0 0 0 0;
   }
@@ -2020,7 +2018,6 @@
 
   .search-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 0 0 0 0;
   }
@@ -2414,7 +2411,6 @@
 
   .search-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 0 0 0 0;
   }
@@ -2791,7 +2787,6 @@
 
   .search-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     padding: 0 0 0 0;
   }
@@ -2811,6 +2806,7 @@
     width: 100%;
     margin-top: 5px;
     border-radius: 7px 7px 0px 0px;
+    height: 290px;
   }
 
   .search__date-added {
@@ -3244,7 +3240,6 @@
 
   .search-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
   }
 
@@ -3651,7 +3646,7 @@
   }
 
   .search__item {
-    margin: 4px 0;
+    margin: 0 0;
     background-color: #fff;
     border-radius: 15px 15px 0px 0px;
     height: 420px;
@@ -3667,10 +3662,9 @@
 
   .search-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
+    column-gap: 9px;
     padding: 0 0 0 0;
-    justify-content: space-between;
   }
 
   .search__heading {
@@ -3710,6 +3704,7 @@
   .search__item {
     border-radius: 15px 15px 15px 15px;
     height: auto;
+    margin-bottom: 9px;
   }
 
   .search__date-added {
@@ -3733,9 +3728,6 @@
 
   .search {
     background: #F5F6F7;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
   }
 
   .search__top-content {
@@ -3922,10 +3914,8 @@
 
   .search-items {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    padding: 0 0 0 0;
-    justify-content: space-between;
+    column-gap: 17px;
   }
 
   .search__item {
@@ -3935,7 +3925,6 @@
     border-radius: 15px 15px 0px 0px;
     height: auto;
     position: relative;
-    margin-bottom: 15px;
     padding: 0 0 0 0;
     position: relative;
     height: 576px;
@@ -3949,9 +3938,6 @@
 
   .search {
     background: #F5F6F7;
-    /* display: flex;
-    flex-direction: column;
-    align-items: center; */
   }
 
   .search__date-added {
@@ -4040,6 +4026,7 @@
 
   .search__item {
     border-radius: 15px 15px 15px 15px;
+    margin-bottom: 17px;
   }
 
   .about-autor__discription {

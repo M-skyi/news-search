@@ -281,9 +281,7 @@ function getUrl() {
 
     let atribute = searchItem[i].getAttribute("href");
     if (atribute === "undefined") {
-       searchItem[i].innerHTML = '';
-       searchItem[i].style.backgroundColor = 'inherit';
-       searchItem[i].removeAttribute('href')
+      searchItem[i].remove();
     }
       
    }
