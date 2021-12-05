@@ -64,13 +64,13 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
        })
        }
  
-      //  savedlocalStorage(firstDay)
-      //  savedlocalStorage(secondDay)
-      //  savedlocalStorage(thirdDay)
-      //  savedlocalStorage(fourthDay)
-      //  savedlocalStorage(fifthDay)
-      //  savedlocalStorage(sixthDay)
-      //  savedlocalStorage(seventhDay)
+       savedlocalStorage(firstDay)
+       savedlocalStorage(secondDay)
+       savedlocalStorage(thirdDay)
+       savedlocalStorage(fourthDay)
+       savedlocalStorage(fifthDay)
+       savedlocalStorage(sixthDay)
+       savedlocalStorage(seventhDay)
 
       const response = await fetch(url)
       
