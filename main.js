@@ -252,14 +252,45 @@ let publishedAt = [];
 
 getPublishedAt()
 
+function validUrl(string) {
+   try {
+     new URL(string);
+   } catch (_) {
+     return false;  
+   }
+ 
+   return true;
+ }
+ 
 function getUrlImg() {
 
    let newsImg = document.querySelectorAll('.search__img');
    for (let i = 0; i < newsImg.length; i++) {
-      newsImg[i].setAttribute("src", imgNews[i])
+      newsImg[i].setAttribute("src", imgNews[i]);
 
+      let img = "https://sevastopol.triproom.ru/photo/big/noimage.png"
+
+      if (validUrl(imgNews[i]) === false ) {
+
+         newsImg[i].setAttribute("src",img);
+
+      }else {
+
+         let xhr = new XMLHttpRequest();
+
+         xhr.open('GET',imgNews[i]);
+
+         xhr.send();
+         
+         xhr.onload = function() {
+
+           if (xhr.status != 200 ) {
+            newsImg[i].setAttribute("src",img);
+           }
+
+         }
+      }      
    }
-
 }
 
 getUrlImg()

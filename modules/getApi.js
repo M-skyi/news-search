@@ -9,7 +9,7 @@ const fourthDayDate = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000))
 const thirdDayDate = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 
-   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
+   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
 
     
  export async function getApiNews() {
