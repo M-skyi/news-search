@@ -1,9 +1,9 @@
 
 import {getApiNews,getApiGitHub} from './modules/getApi.js';
-import sliderOpions from './modules/sliderOptions.js'
+import sliderOptions from './modules/sliderOptions.js'
 
 
-sliderOpions()
+sliderOptions()
 
    let formSearch = document.querySelector(".form-search");
 

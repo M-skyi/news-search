@@ -1,6 +1,6 @@
 
 
-function sliderOpions() {
+function sliderOptions() {
 
     $(document).ready(function () {
         $('.multiple-items').slick({
@@ -49,4 +49,4 @@ function sliderOpions() {
     
 }
 
-export default sliderOpions;
+export default sliderOptions;
