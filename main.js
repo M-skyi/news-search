@@ -100,7 +100,7 @@ sliderOptions()
    
 
          }).catch((error) => {
-            alert("Произошла ошибка")
+            alert("«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»")
             preloader.classList.add("container-preloader--dasabled")
          })
    
