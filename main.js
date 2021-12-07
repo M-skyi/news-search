@@ -261,6 +261,7 @@ function validUrl(string) {
  
    return true;
  }
+
  
 function getUrlImg() {
 
@@ -268,27 +269,25 @@ function getUrlImg() {
    for (let i = 0; i < newsImg.length; i++) {
       newsImg[i].setAttribute("src", imgNews[i]);
 
-      let img = "https://sevastopol.triproom.ru/photo/big/noimage.png"
+      let imgNotLoad = "https://sevastopol.triproom.ru/photo/big/noimage.png";
 
-      if (validUrl(imgNews[i]) === false ) {
+      if (validUrl(imgNews[i]) === false  ) {
 
-         newsImg[i].setAttribute("src",img);
+         newsImg[i].setAttribute("src",imgNotLoad);
 
       }else {
 
-         let xhr = new XMLHttpRequest();
-
-         xhr.open('GET',imgNews[i]);
-
-         xhr.send();
+         const checkImgSrc = src => {
+            const img = new Image();
+            img.onerror = function () { 
+               if (img.onerror) {
+                  newsImg[i].setAttribute("src",imgNotLoad);
+               }
+             }
+            img.src = src;
+          }
          
-         xhr.onload = function() {
-
-           if (xhr.status != 200 ) {
-            newsImg[i].setAttribute("src",img);
-           }
-
-         }
+          checkImgSrc(imgNews[i])
       }      
    }
 }

@@ -9,7 +9,7 @@ const fourthDayDate = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000))
 const thirdDayDate = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
 
-   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
+   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
 
     
  export async function getApiNews() {
@@ -64,13 +64,13 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
        })
        }
  
-       savedlocalStorage(firstDay)
-       savedlocalStorage(secondDay)
-       savedlocalStorage(thirdDay)
-       savedlocalStorage(fourthDay)
-       savedlocalStorage(fifthDay)
-       savedlocalStorage(sixthDay)
-       savedlocalStorage(seventhDay)
+      //  savedlocalStorage(firstDay)
+      //  savedlocalStorage(secondDay)
+      //  savedlocalStorage(thirdDay)
+      //  savedlocalStorage(fourthDay)
+      //  savedlocalStorage(fifthDay)
+      //  savedlocalStorage(sixthDay)
+      //  savedlocalStorage(seventhDay)
 
       const response = await fetch(url)
       
@@ -91,7 +91,7 @@ const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000))
    const response = await fetch(reposUrl)
       
    const data = await response.json()
-
+   
    return data
 
  }
