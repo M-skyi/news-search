@@ -1,17 +1,23 @@
 
 let formSearchInput = document.querySelector(".form-search__input-text");
 
- const todaysDate = new Date().toLocaleDateString('sv-SE');
-const fromDate = new Date(new Date().getTime() - (6 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const sixthDayDate = new Date(new Date().getTime() - (5 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const fifthDayDate = new Date(new Date().getTime() - (4 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const fourthDayDate = new Date(new Date().getTime() - (3 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const thirdDayDate = new Date(new Date().getTime() - (2 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
-const secondDayDate = new Date(new Date().getTime() - (1 * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+ function getDate(item) {
+
+  let getDate = new Date(new Date().getTime() - (item)).toLocaleDateString('sv-SE');
+
+  return getDate 
+ }
+
+const todaysDate = getDate(0 * 24 * 60 * 60 * 1000);
+const secondDayDate = getDate(1 * 24 * 60 * 60 * 1000);
+const thirdDayDate = getDate(2 * 24 * 60 * 60 * 1000);
+const fourthDayDate = getDate(3 * 24 * 60 * 60 * 1000);
+const fifthDayDate = getDate(4 * 24 * 60 * 60 * 1000);
+const sixthDayDate = getDate(5 * 24 * 60 * 60 * 1000);
+const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
 
    let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
 
-    
  export async function getApiNews() {
 
   let topic = formSearchInput.value;
