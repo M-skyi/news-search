@@ -1,3 +1,25 @@
+function createElemDay() {
+
+   let parentElemDate = document.querySelector(".analitics-days__date");
+
+   let idNum = 0;
+
+   for (let i = 0; i < 7; i++) {
+
+     idNum ++
+
+      let li = document.createElement("li");
+
+      li.classList.add("analitics-days__date-item", "font_family");
+
+      li.setAttribute("id", `day-${idNum}`);
+
+      parentElemDate.prepend(li);
+   }
+   
+}
+
+createElemDay()
 
 // get topic News
 
@@ -69,31 +91,35 @@ date.getMonth()
    secondDayData = getItemFromLocalStorage('secondDay');
    firstDayData = getItemFromLocalStorage('firstDay');
    
+ function getProgressItem(item) {
 
- //get elements from html
+    let progressItem = document.getElementById(item);
 
- let progressBarItem7 = document.getElementById("count-progress-seventh-item");
- let countDayItem7 = document.querySelector(".progress-seventh-item");
+    return progressItem
+ }
 
- let progressBarItem6 = document.getElementById("count-progress-sixth-item");
- let countDayItem6 = document.querySelector(".progress-sixth-item");
+ let progressBarItem7 = getProgressItem("count-progress-item-7");
+ let progressBarItem6 = getProgressItem("count-progress-item-6");
+ let progressBarItem5 = getProgressItem("count-progress-item-5");
+ let progressBarItem4 = getProgressItem("count-progress-item-4");
+ let progressBarItem3 = getProgressItem("count-progress-item-3");
+ let progressBarItem2 = getProgressItem("count-progress-item-2");
+ let progressBarItem1 = getProgressItem("count-progress-item-1");
 
- let progressBarItem5 = document.getElementById("count-progress-fifth-item");
- let countDayItem5 = document.querySelector(".progress-fifth-item");
+ function getcountDayItem(item) {
 
- let progressBarItem4 = document.getElementById("count-progress-fourth-item");
- let countDayItem4 = document.querySelector(".progress-fourth-item");
+    let countDayItem = document.querySelector(item);
 
- let progressBarItem3 = document.getElementById("count-progress-third-item");
- let countDayItem3 = document.querySelector(".progress-third-item");
- 
-let progressBarItem2 = document.getElementById("count-progress-second-item");
-let countDayItem2 = document.querySelector(".progress-second-item");
+    return countDayItem
+ }
 
-let progressBarItem1 = document.getElementById("count-progress-first-item");
-let countDayItem1 = document.querySelector(".progress-first-item");
-
-//get analytics data
+ let countDayItem7 = getcountDayItem(".progress-item-7");
+ let countDayItem6 = getcountDayItem(".progress-item-6");
+ let countDayItem5 = getcountDayItem(".progress-item-5");
+ let countDayItem4 = getcountDayItem(".progress-item-4");
+ let countDayItem3 = getcountDayItem(".progress-item-3");
+ let countDayItem2 = getcountDayItem(".progress-item-2");
+ let countDayItem1 = getcountDayItem(".progress-item-1");
 
    let totalHeadlines = 0;
 
@@ -139,6 +165,7 @@ let dates = [];
 let dateCurrent = new Date();
 
 for (let i = 0; i < 7; i++){
+
    let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 
    let tempDate = new Date();
@@ -150,25 +177,44 @@ for (let i = 0; i < 7; i++){
 
 }
 
-let arrRevrsed = dates.reverse();
+let arrReversed = dates.reverse();
 
-let analiticeDayItem7 = document.getElementById("day-7");
-let analiticeDayItem6 = document.getElementById("day-6");
-let analiticeDayItem5 = document.getElementById("day-5");
-let analiticeDayItem4 = document.getElementById("day-4");
-let analiticeDayItem3 = document.getElementById("day-3");
-let analiticeDayItem2 = document.getElementById("day-2");
-let analiticeDayItem1 = document.getElementById("day-1");
+function getAnaliticeDay(item) {
 
-for (let i = 0; i < arrRevrsed.length; i++) {
-   analiticeDayItem7.textContent = dates[0];
-   analiticeDayItem6.textContent = dates[1];
-   analiticeDayItem5.textContent = dates[2];
-   analiticeDayItem4.textContent = dates[3];
-   analiticeDayItem3.textContent = dates[4];
-   analiticeDayItem2.textContent = dates[5];
-   analiticeDayItem1.textContent = dates[6];
+   let itemDay = document.getElementById(item);
+
+   return itemDay
 }
+
+let analiticeDayItem7 = getAnaliticeDay("day-7");
+let analiticeDayItem6 = getAnaliticeDay("day-6");
+let analiticeDayItem5 = getAnaliticeDay("day-5");
+let analiticeDayItem4 = getAnaliticeDay("day-4");
+let analiticeDayItem3 = getAnaliticeDay("day-3");
+let analiticeDayItem2 = getAnaliticeDay("day-2");
+let analiticeDayItem1 = getAnaliticeDay("day-1");
+
+
+function correctDate(itemDay,num) {
+
+   let date =  itemDay.textContent = dates[num];
+
+   return date
+}
+
+correctDate(analiticeDayItem7,0);
+correctDate(analiticeDayItem6,1);
+correctDate(analiticeDayItem5,2);
+correctDate(analiticeDayItem4,3);
+correctDate(analiticeDayItem3,4);
+correctDate(analiticeDayItem2,5);
+correctDate(analiticeDayItem1,6);
+ 
+
+
+
+
+
 
 
 

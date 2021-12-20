@@ -25,20 +25,21 @@ const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
   localStorage.setItem('topicNews', topic);
 
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-   
-   let seventhDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${fromDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
-   let sixthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${sixthDayDate}&to=${sixthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   function urlDayNews(data) {
 
-   let fifthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fifthDayDate}&to=${fifthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+      let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${data}&to=${data}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
-   let fourthDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fourthDayDate}&to=${fourthDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+      return urlDay
+   }
 
-   let thirdDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${thirdDayDate}&to=${thirdDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let secondDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${secondDayDate}&to=${secondDayDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
-
-   let firstDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${todaysDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   let seventhDay = urlDayNews(fromDate);
+   let sixthDay = urlDayNews(sixthDayDate);
+   let fifthDay = urlDayNews(fifthDayDate);
+   let fourthDay = urlDayNews(fourthDayDate);
+   let thirdDay = urlDayNews(thirdDayDate);
+   let secondDay = urlDayNews(secondDayDate);
+   let firstDay = urlDayNews(todaysDate);
 
    let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
   
