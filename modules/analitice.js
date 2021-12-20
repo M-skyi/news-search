@@ -106,20 +106,20 @@ date.getMonth()
  let progressBarItem2 = getProgressItem("count-progress-item-2");
  let progressBarItem1 = getProgressItem("count-progress-item-1");
 
- function getcountDayItem(item) {
+ function getCountDayItem(item) {
 
     let countDayItem = document.querySelector(item);
 
     return countDayItem
  }
 
- let countDayItem7 = getcountDayItem(".progress-item-7");
- let countDayItem6 = getcountDayItem(".progress-item-6");
- let countDayItem5 = getcountDayItem(".progress-item-5");
- let countDayItem4 = getcountDayItem(".progress-item-4");
- let countDayItem3 = getcountDayItem(".progress-item-3");
- let countDayItem2 = getcountDayItem(".progress-item-2");
- let countDayItem1 = getcountDayItem(".progress-item-1");
+ let countDayItem7 = getCountDayItem(".progress-item-7");
+ let countDayItem6 = getCountDayItem(".progress-item-6");
+ let countDayItem5 = getCountDayItem(".progress-item-5");
+ let countDayItem4 = getCountDayItem(".progress-item-4");
+ let countDayItem3 = getCountDayItem(".progress-item-3");
+ let countDayItem2 = getCountDayItem(".progress-item-2");
+ let countDayItem1 = getCountDayItem(".progress-item-1");
 
    let totalHeadlines = 0;
 
