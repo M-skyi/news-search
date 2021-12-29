@@ -16,7 +16,7 @@ const fifthDayDate = getDate(4 * 24 * 60 * 60 * 1000);
 const sixthDayDate = getDate(5 * 24 * 60 * 60 * 1000);
 const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
 
-   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
+   let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
 
  export async function getApiNews() {
 
@@ -41,17 +41,21 @@ const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
    let secondDay = urlDayNews(secondDayDate);
    let firstDay = urlDayNews(todaysDate);
 
+
+
+
+
    let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
-  
+
+
    function savedlocalStorage(dayItem) {
 
       fetch(dayItem).then((res) => {
          return res.json()
       }).then((item) => {
          let data = item.articles;
-         
+
          for (let i = 0; i < dayArr.length; i++) {
-         
             if (dayItem === firstDay) {
                localStorage.setItem(`${dayArr[0]}`, JSON.stringify(data)); 
             }else if (dayItem === secondDay) {
@@ -69,9 +73,11 @@ const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
             }
          }
        })
+
+
        }
  
-       savedlocalStorage(firstDay)
+      savedlocalStorage(firstDay)
        savedlocalStorage(secondDay)
        savedlocalStorage(thirdDay)
        savedlocalStorage(fourthDay)
