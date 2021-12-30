@@ -1,30 +1,43 @@
 
 let formSearchInput = document.querySelector(".form-search__input-text");
 
- function getDate(item) {
+//  function getDate(item) {
 
-  let getDate = new Date(new Date().getTime() - (item)).toLocaleDateString('sv-SE');
+//   let getDate = new Date(new Date().getTime() - (item)).toLocaleDateString('sv-SE');
 
-  return getDate 
- }
+//   return getDate 
+//  }
 
-const todaysDate = getDate(0 * 24 * 60 * 60 * 1000);
-const secondDayDate = getDate(1 * 24 * 60 * 60 * 1000);
-const thirdDayDate = getDate(2 * 24 * 60 * 60 * 1000);
-const fourthDayDate = getDate(3 * 24 * 60 * 60 * 1000);
-const fifthDayDate = getDate(4 * 24 * 60 * 60 * 1000);
-const sixthDayDate = getDate(5 * 24 * 60 * 60 * 1000);
-const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
+ // const secondDayDate = getDate(1 * 24 * 60 * 60 * 1000);
+// const thirdDayDate = getDate(2 * 24 * 60 * 60 * 1000);
+// const fourthDayDate = getDate(3 * 24 * 60 * 60 * 1000);
+// const fifthDayDate = getDate(4 * 24 * 60 * 60 * 1000);
+// const sixthDayDate = getDate(5 * 24 * 60 * 60 * 1000);
+// const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
+
+let arrDateItem = [];
+
+for (let i = 0; i < 7; i++) {
+   
+   let getDate = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+   
+   arrDateItem.push(getDate);
+}
+
+
+
+
 
    let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
 
  export async function getApiNews() {
 
+
   let topic = formSearchInput.value;
 
   localStorage.setItem('topicNews', topic);
 
-   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${fromDate}&to=${todaysDate}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${arrDateItem[6]}&to=${arrDateItem[0]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
    function urlDayNews(data) {
 
@@ -33,17 +46,13 @@ const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
       return urlDay
    }
 
-   let seventhDay = urlDayNews(fromDate);
-   let sixthDay = urlDayNews(sixthDayDate);
-   let fifthDay = urlDayNews(fifthDayDate);
-   let fourthDay = urlDayNews(fourthDayDate);
-   let thirdDay = urlDayNews(thirdDayDate);
-   let secondDay = urlDayNews(secondDayDate);
-   let firstDay = urlDayNews(todaysDate);
-
-
-
-
+   let seventhDay = urlDayNews(arrDateItem[6]);
+   let sixthDay = urlDayNews(arrDateItem[5]);
+   let fifthDay = urlDayNews(arrDateItem[4]);
+   let fourthDay = urlDayNews(arrDateItem[3]);
+   let thirdDay = urlDayNews(arrDateItem[2]);
+   let secondDay = urlDayNews(arrDateItem[1]);
+   let firstDay = urlDayNews(arrDateItem[0]);
 
    let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
 
@@ -73,7 +82,6 @@ const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
             }
          }
        })
-
 
        }
  

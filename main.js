@@ -99,10 +99,11 @@ sliderOptions()
          }
    
 
-         }).catch((error) => {
-            alert("«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»")
-            preloader.classList.add("container-preloader--dasabled")
          })
+         // .catch((error) => {
+         //    alert("«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»")
+         //    preloader.classList.add("container-preloader--dasabled")
+         // })
    
    }
 
