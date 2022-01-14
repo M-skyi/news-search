@@ -1,20 +1,6 @@
 
 let formSearchInput = document.querySelector(".form-search__input-text");
 
-//  function getDate(item) {
-
-//   let getDate = new Date(new Date().getTime() - (item)).toLocaleDateString('sv-SE');
-
-//   return getDate 
-//  }
-
- // const secondDayDate = getDate(1 * 24 * 60 * 60 * 1000);
-// const thirdDayDate = getDate(2 * 24 * 60 * 60 * 1000);
-// const fourthDayDate = getDate(3 * 24 * 60 * 60 * 1000);
-// const fifthDayDate = getDate(4 * 24 * 60 * 60 * 1000);
-// const sixthDayDate = getDate(5 * 24 * 60 * 60 * 1000);
-// const fromDate = getDate(6 * 24 * 60 * 60 * 1000);
-
 let arrDateItem = [];
 
 for (let i = 0; i < 7; i++) {
@@ -24,11 +10,7 @@ for (let i = 0; i < 7; i++) {
    arrDateItem.push(getDate);
 }
 
-
-
-
-
-   let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
+   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
 
  export async function getApiNews() {
 
@@ -39,59 +21,40 @@ for (let i = 0; i < 7; i++) {
 
    let url = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${arrDateItem[6]}&to=${arrDateItem[0]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
-   function urlDayNews(data) {
+   let arrUrlAnaliticeDay = [];
 
-      let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${data}&to=${data}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+   for (let i = 0; i < 7; i++) {
+      
+      let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topic}&from=${arrDateItem[i]}&to=${arrDateItem[i]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+      
+      arrUrlAnaliticeDay.push(urlDay)
 
-      return urlDay
    }
 
-   let seventhDay = urlDayNews(arrDateItem[6]);
-   let sixthDay = urlDayNews(arrDateItem[5]);
-   let fifthDay = urlDayNews(arrDateItem[4]);
-   let fourthDay = urlDayNews(arrDateItem[3]);
-   let thirdDay = urlDayNews(arrDateItem[2]);
-   let secondDay = urlDayNews(arrDateItem[1]);
-   let firstDay = urlDayNews(arrDateItem[0]);
-
-   let dayArr = ['firstDay','secondDay','thirdDay','fourthDay','fifthDay','sixthDay','seventhDay'];
+   let arrAnaliticeDays = [];
 
 
-   function savedlocalStorage(dayItem) {
+    let requests = arrUrlAnaliticeDay.map(url => fetch(url));
+    
+    Promise.all(requests)
+    .then((responses) => {
+       
+      const dataResults = responses.map((response) => response.json());
 
-      fetch(dayItem).then((res) => {
-         return res.json()
-      }).then((item) => {
-         let data = item.articles;
+      return Promise.all(dataResults);   
 
-         for (let i = 0; i < dayArr.length; i++) {
-            if (dayItem === firstDay) {
-               localStorage.setItem(`${dayArr[0]}`, JSON.stringify(data)); 
-            }else if (dayItem === secondDay) {
-               localStorage.setItem(`${dayArr[1]}`, JSON.stringify(data));
-            }else if (dayItem === thirdDay) {
-               localStorage.setItem(`${dayArr[2]}`, JSON.stringify(data));
-            }else if (dayItem === fourthDay) {
-               localStorage.setItem(`${dayArr[3]}`, JSON.stringify(data));
-            }else if (dayItem === fifthDay) {
-               localStorage.setItem(`${dayArr[4]}`, JSON.stringify(data));
-            }else if (dayItem === sixthDay) {
-               localStorage.setItem(`${dayArr[5]}`, JSON.stringify(data));
-            }else if (dayItem === seventhDay) {
-               localStorage.setItem(`${dayArr[6]}`, JSON.stringify(data));
-            }
-         }
+    })
+    .then((data) => {
+       data.forEach(el => {
+   
+         let dataNewsDay = el.articles
+
+         arrAnaliticeDays.push(dataNewsDay);
+
+         localStorage.setItem(`AnaliticeDay`, JSON.stringify(arrAnaliticeDays));
+  
        })
-
-       }
- 
-      savedlocalStorage(firstDay)
-       savedlocalStorage(secondDay)
-       savedlocalStorage(thirdDay)
-       savedlocalStorage(fourthDay)
-       savedlocalStorage(fifthDay)
-       savedlocalStorage(sixthDay)
-       savedlocalStorage(seventhDay)
+    })
 
       const response = await fetch(url)
       

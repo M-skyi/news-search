@@ -56,6 +56,7 @@ topicValue.textContent = `Вы спросили: «${topicValueLocal}»`;
 // get count of news per week
 
 let weekCounterNews = localStorage.getItem('url');
+
 weekCounterNews = JSON.parse(weekCounterNews);
 
 let totalResults = weekCounterNews.totalResults;
@@ -78,7 +79,6 @@ if (countNumber > 4) {
 
 let titleNews = weekCounterNews.articles;
 
-
 let arr = [];
 titleNews.forEach(el => {
     arr.push(el.title)  
@@ -86,65 +86,55 @@ titleNews.forEach(el => {
 
 let headlineText = arr.join("")
 
-
 count = 0;
+
 pos = headlineText.toLowerCase().indexOf(`${topicValueLocal}`.toLowerCase());
+
 while ( pos != -1 ) {
    count++;
    pos = headlineText.toLowerCase().indexOf(`${topicValueLocal}`.toLowerCase(),pos+1);
 }
 
 let date = new Date()
+
 date.getMonth()
+
  let currentDateMonth = new Date(date).toLocaleDateString('ru', {month: 'long',});
 
  let currentMonth = document.querySelector(".analitics__month");
 
  currentMonth.textContent = `(${currentDateMonth})`;
 
- function getItemFromLocalStorage(item){ 
-    let dayData = localStorage.getItem(item);
-    return JSON.parse(dayData); 
-   } 
+   let analiticeDay = localStorage.getItem('AnaliticeDay');
 
-   seventhDayData = getItemFromLocalStorage('seventhDay');
-   sixthDayData = getItemFromLocalStorage('sixthDay');
-   fiftDayData = getItemFromLocalStorage('fifthDay');
-   fourthDayData = getItemFromLocalStorage('fourthDay');
-   thirdDayData = getItemFromLocalStorage('thirdDay');
-   secondDayData = getItemFromLocalStorage('secondDay');
-   firstDayData = getItemFromLocalStorage('firstDay');
+   analiticeDay = JSON.parse(analiticeDay);
+  
+   let analiticeDayArr = [];
 
+   for (let i = 0; i < analiticeDay.length; i++) {
+      
+      analiticeDayArr.push(analiticeDay[i])
+   }
+
+ let arrProgBar = [];
+
+ for (let i = 1; i < 8; i++) {
    
- function getProgressItem(item) {
+   let progressBarItem = document.getElementById(`count-progress-item-${i}`);
 
-    let progressItem = document.getElementById(item);
+   arrProgBar.push(progressBarItem)
 
-    return progressItem
  }
 
- let progressBarItem7 = getProgressItem("count-progress-item-7");
- let progressBarItem6 = getProgressItem("count-progress-item-6");
- let progressBarItem5 = getProgressItem("count-progress-item-5");
- let progressBarItem4 = getProgressItem("count-progress-item-4");
- let progressBarItem3 = getProgressItem("count-progress-item-3");
- let progressBarItem2 = getProgressItem("count-progress-item-2");
- let progressBarItem1 = getProgressItem("count-progress-item-1");
+   let arrCountDay = [];
 
- function getCountDayItem(item) {
+   for (let i = 1; i < 8; i++) {
+            
+      let countDayItem = document.querySelector(`.progress-item-${i}`);
 
-    let countDayItem = document.querySelector(item);
-
-    return countDayItem
- }
-
- let countDayItem7 = getCountDayItem(".progress-item-7");
- let countDayItem6 = getCountDayItem(".progress-item-6");
- let countDayItem5 = getCountDayItem(".progress-item-5");
- let countDayItem4 = getCountDayItem(".progress-item-4");
- let countDayItem3 = getCountDayItem(".progress-item-3");
- let countDayItem2 = getCountDayItem(".progress-item-2");
- let countDayItem1 = getCountDayItem(".progress-item-1");
+      arrCountDay.push(countDayItem)
+      
+   }
 
    let totalHeadlines = 0;
 
@@ -165,7 +155,7 @@ date.getMonth()
       pos = arrDataText.toLowerCase().indexOf(`${topicValueLocal}`.toLowerCase(),pos+1);
       }
 
-      proBar.value = count
+      proBar.value = count;
       
       countDay.textContent = count;
 
@@ -173,68 +163,50 @@ date.getMonth()
       
    }
 
-   getAnalyticsData(firstDayData,progressBarItem1,countDayItem1);
-   getAnalyticsData(secondDayData,progressBarItem2,countDayItem2);
-   getAnalyticsData(thirdDayData,progressBarItem3,countDayItem3);
-   getAnalyticsData(fourthDayData,progressBarItem4,countDayItem4);
-   getAnalyticsData(fiftDayData,progressBarItem5,countDayItem5);
-   getAnalyticsData(sixthDayData,progressBarItem6,countDayItem6);
-   getAnalyticsData(seventhDayData,progressBarItem7,countDayItem7);
-
-let counterHeadlinesNews = document.querySelector(".counter-week__headline__count");
-let countHeadlines = totalHeadlines;
-counterHeadlinesNews.textContent = countHeadlines;
-
-
-let dates = [];
-let dateCurrent = new Date();
-
-for (let i = 0; i < 7; i++){
-
-   let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
-
-   let tempDate = new Date();
-   tempDate.setDate(dateCurrent.getDate()-i);
+      for (let i = 0; i < 7; i++) {
+         
+         getAnalyticsData(analiticeDayArr[i],arrProgBar[i],arrCountDay[i]);
    
-   let str = tempDate.getDate() + ", " + days[tempDate.getDay()]; 
+      }
+
+   let counterHeadlinesNews = document.querySelector(".counter-week__headline__count");
+
+   let countHeadlines = totalHeadlines;
+
+   counterHeadlinesNews.textContent = countHeadlines;
+
+   let dates = [];
    
-   dates.push(str);  
+   let dateCurrent = new Date();
 
-}
+   for (let i = 0; i < 7; i++){
 
-let arrReversed = dates.reverse();
+      let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 
-function getAnaliticeDay(item) {
+      let tempDate = new Date();
+      tempDate.setDate(dateCurrent.getDate()-i);
+      
+      let str = tempDate.getDate() + ", " + days[tempDate.getDay()]; 
+      
+      dates.push(str);  
 
-   let itemDay = document.getElementById(item);
+   }
 
-   return itemDay
-}
+   let arrAnaliticeDay = [];
 
-let analiticeDayItem7 = getAnaliticeDay("day-7");
-let analiticeDayItem6 = getAnaliticeDay("day-6");
-let analiticeDayItem5 = getAnaliticeDay("day-5");
-let analiticeDayItem4 = getAnaliticeDay("day-4");
-let analiticeDayItem3 = getAnaliticeDay("day-3");
-let analiticeDayItem2 = getAnaliticeDay("day-2");
-let analiticeDayItem1 = getAnaliticeDay("day-1");
+   for (let i = 1; i < 8; i++) {
+      
+      let analiticeDayItem = document.getElementById(`day-${i}`);
 
+      arrAnaliticeDay.push(analiticeDayItem) 
+   }
 
-function correctDate(itemDay,num) {
+   for (let i = 0; i < 7; i++) {
 
-   let date =  itemDay.textContent = dates[num];
-
-   return date
-}
-
-correctDate(analiticeDayItem7,0);
-correctDate(analiticeDayItem6,1);
-correctDate(analiticeDayItem5,2);
-correctDate(analiticeDayItem4,3);
-correctDate(analiticeDayItem3,4);
-correctDate(analiticeDayItem2,5);
-correctDate(analiticeDayItem1,6);
- 
+      arrAnaliticeDay[i].textContent = dates[i];
+      
+   }
+   
 
 
 
