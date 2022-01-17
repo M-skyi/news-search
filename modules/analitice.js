@@ -73,17 +73,17 @@
             
          }
 
-         function totalHeadlines(x) {
+               let x = 0;
 
-            let totalHeadlines = countHeadlines.map(i=>x+=i, x=0).reverse()[0]
+               let totalHeadlines = countHeadlines.map(i=>x+=i, x).reverse()[0]
 
-            let counterHeadlinesNews = document.querySelector(".counter-week__headline__count");
+               let counterHeadlinesNews = document.querySelector(".counter-week__headline__count");
+   
+               counterHeadlinesNews.textContent = totalHeadlines;
 
-            counterHeadlinesNews.textContent = totalHeadlines;
 
-         }
-         
-         totalHeadlines()
+
+        
    
    
 
