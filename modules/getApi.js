@@ -10,7 +10,7 @@ for (let i = 0; i < 7; i++) {
    arrDateItem.push(getDate);
 }
 
-   let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
+   let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
 
  export async function getApiNews() {
 
