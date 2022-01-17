@@ -14,18 +14,27 @@
       let arrAnaliticeDay = [];
 
       for (let i = 1; i < 8; i++) {
-         
-         let analiticeDayItem = document.getElementById(`day-${i}`);
-   
-         arrAnaliticeDay.push(analiticeDayItem);
 
-         let progressBarItem = document.getElementById(`count-progress-item-${i}`);
-   
-         arrProgBar.push(progressBarItem);
-   
-         let countDayItem = document.querySelector(`.progress-item-${i}`);
-   
-         arrCountDay.push(countDayItem);
+         function getDayItem() {
+            
+            let analiticeDayItem = document.getElementById(`day-${i}`);
+            arrAnaliticeDay.push(analiticeDayItem);
+        }
+        getDayItem()
+
+         function getCountProgressItem() {
+
+            let progressBarItem = document.getElementById(`count-progress-item-${i}`);
+            arrProgBar.push(progressBarItem);
+         }
+         getCountProgressItem()
+
+         function getProgresBar() {
+
+            let countDayItem = document.querySelector(`.progress-item-${i}`);
+            arrCountDay.push(countDayItem);
+         }
+         getProgresBar()
 
       }
 
@@ -37,20 +46,30 @@
 
          for (let i = 0; i < 7; i++){
 
-            let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+            function getDateAnalitics() {
 
-            let tempDate = new Date();
-            tempDate.setDate(dateCurrent.getDate()-i);
-            
-            let str = tempDate.getDate() + ", " + days[tempDate.getDay()]; 
-            
-            dates.push(str);
-           
-            getAnalyticsData(getDataLocalStor()[i],arrProgBar[i],arrCountDay[i]);
+               let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 
-            arrAnaliticeDay[i].textContent = dates[i];
+               let tempDate = new Date();
+               tempDate.setDate(dateCurrent.getDate()-i);
+               
+               let str = tempDate.getDate() + ", " + days[tempDate.getDay()]; 
+               
+               dates.push(str);
 
-            countHeadlines.push(arrProgBar[i].value)
+            }
+            getDateAnalitics()
+
+            function getDataAnalitics() {
+
+               getAnalyticsData(getDataLocalStor()[i],arrProgBar[i],arrCountDay[i]);
+
+               arrAnaliticeDay[i].textContent = dates[i];
+
+               countHeadlines.push(arrProgBar[i].value)
+               
+            }
+            getDataAnalitics()
             
          }
 
