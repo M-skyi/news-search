@@ -1,0 +1,68 @@
+:root{
+    --white-text-color: #FFFFFF;
+    --black-text-color: #B6BCBF;
+}
+.Header{
+    background-image: url(../project_img/bg_header.png);
+    height: 576px;
+}
+.HeaderTop{
+    display: flex;
+}
+.HeaderTop__nav{
+    display: flex;
+}
+.HeaderTop{
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid  rgba(196, 196, 196, 0.40);;
+}
+.HeaderTopLeft__logo{
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    color: var(--white-text-color);
+}
+.HeaderTop__logo-pos{
+    margin-left: 104px;
+    margin-top: 30px;
+}
+.HeaderTop__nav{
+    list-style-type: none;
+}
+.HeaderTop__item{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: var(--white-text-color);
+    margin-left: 34px;
+}
+.HeaderTop__nav-pos{
+    margin-right: 101px;
+    margin-top: 30px;
+}
+.HeaderTop__item-link{
+    text-decoration: none;
+    color: var(--white-text-color);
+}
+.HeaderTopLeft__logo-link{
+    text-decoration: none;
+    color: var(--white-text-color);
+}
+
+.HeaderTop__item-link--active::after{
+    position: relative;
+    content: "";
+    width: 100%;
+    background-color: #fff;
+    height: 3px;
+    display: block;
+    top: 23px;
+}
+
+
