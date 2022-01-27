@@ -5,17 +5,16 @@ import HeaderTopRight from './HeaderTopRight';
 
 const HeaderTop = () =>{
     return(
-        <div className={"HeaderTop"}>
+        <div className={"header-top pos--dis_flex container "}>
 
-            <div className={"HeaderTop__logo-pos"}>
-                 <HeaderTopLeft/>
-            </div>
-            
-            <div className={"HeaderTop__nav-pos"}>
-                <HeaderTopRight/>   
-            </div>
-            
-            
+                <div className={"header-top__logo-pos"}>
+                    <HeaderTopLeft/>
+                </div>
+                
+                <div className={"header-top__nav-pos"}>
+                    <HeaderTopRight/>   
+                </div>
+
         </div>
         
     )

@@ -2,14 +2,14 @@
 
 const HeaderTopRight = () =>{
     return(
-        <div className={"HeaderTopRight"}>
+        <div className={"header-top-right"}>
 
-                <nav className={"HeaderTop__nav"}>
-                    <li className={"HeaderTop__item"} className={"HeaderTop__item"}>
-                        <a className={"HeaderTop__item-link HeaderTop__item-link--active"} href="#">Главная</a>
+                <nav className={"header-top-right__nav pos--dis_flex"}>
+                    <li className={"header-top-right__item"} className={"header-top-right__item"}>
+                        <a className={"header-top-right__item-link header-top-right__item-link--active"} href="#">Главная</a>
                     </li>
-                    <li className={"HeaderTop__item"}>
-                        <a className={"HeaderTop__item-link"} href="#">О проекте</a>
+                    <li className={"header-top-right__item"}>
+                        <a className={"header-top-right__item-link"} href="#">О проекте</a>
                     </li>
                 </nav>
             

@@ -2,10 +2,10 @@ import'./Header.css'
 
 const HeaderTopLeft = () =>{
     return(
-        <div className={"HeaderTopLeft"}>
+        <div className={"header-top-left "}>
 
-            <div className={"HeaderTopLeft__logo"}>
-                <a className={"HeaderTopLeft__logo-link"} href="#">NewsAnalyzer</a>
+            <div className={"header-top-left__logo"}>
+                <a className={"header-top-left__logo-link"} href="#">NewsAnalyzer</a>
             </div>
 
         </div>

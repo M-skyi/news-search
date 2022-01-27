@@ -1,0 +1,52 @@
+.container{
+    width: 1235px;
+    margin: 0 auto;
+}
+
+.history-commits-main{
+    height: 485px;
+    background: #F5F6F7;;
+}
+
+.history-commits-top__headline{
+    font-size: 30px;
+    line-height: 40px;
+    margin: 72px 0px 64px 0px;
+    width: fit-content;
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 46px;
+    padding: 72px 0 64px 0;
+    margin: 0;
+
+}
+.history-commits-top{
+    display: flex;
+    justify-content: space-between;
+}
+.history-commits-top__link-item{
+    margin: 85px 0 73px 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-decoration: none;
+    color: #1A1B22;
+    background-image: url(../project_img/arrowLink.png);
+    background-repeat: no-repeat;
+    width: 170px;
+    height: 20px;
+    background-position: 160px 4px;
+    display: block;
+    cursor: pointer;
+}
+
+@media(max-width: 320px){
+    .history-commits-top {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -3,13 +3,15 @@ import HeaderTop from "./HeaderTop";
 import'./Header.css'
 
 
+
 const Header = () =>{
+
     return(
-        <div className={"Header"}>
-             <HeaderTop/>
-             <HeaderMain/>
-        </div>
-        
+        <div className={"header"}>
+                <hr className={"header-line"} />
+                <HeaderTop/>
+                <HeaderMain/>        
+        </div>   
     )
 }
 
