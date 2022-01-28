@@ -6,7 +6,7 @@ import FooterNav from './FooterNav';
 const FooterMain = () =>{
 
     return(
-       <div className={"footer-main"}>
+       <div className={"footer-main container"}>
 
            <FooterCopyright/>
            <FooterNav/>

@@ -5,7 +5,7 @@ const FooterCopyright = () =>{
     return(
        <div className={"footer-copyright"}>
            <div className={"footer-copyright__text"}>
-                © 2019  Supersite
+                © 2022  Supersite
            </div>
        </div> 
     )
