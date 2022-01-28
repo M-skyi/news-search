@@ -3,18 +3,15 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Analytics from './Analytics';
+import Analytics from './analytics_main_modules/Analytics';
 import {BrowserRouter} from "react-router-dom"
-import {Route,Routes} from "react-router-dom"
+import {Routes,Route,} from "react-router-dom"
 
 ReactDOM.render(
   
   <React.StrictMode>
     <BrowserRouter>
-        <Routes>
-          <Route path="/app" element={<App/>}/>
-          <Route path="/analytics" element={<Analytics/>}/>
-      </Routes>
+       <App/>     
     </BrowserRouter> 
   </React.StrictMode>,
   document.getElementById('root')

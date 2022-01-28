@@ -1,22 +1,24 @@
 import AboutAuthorMain from './about_author_modules/AboutAuthorMain';
 import './App.css';
 import FooterMain from './footer_modules/FooterMain';
-import Header from './header_modules/Header';
-import HistoryCommitsMain from './history_commits_modules/HistoryCommitsMain';
-import SearchResMain from './search_res_modules/SearchResMain';
 import {Router,Route,Link, Routes} from "react-router-dom"
-import Analytics from './Analytics';
+import Analytics from './analytics_main_modules/Analytics';
+import NewsMain from './news_main_modules/NewsMain';
+import HeaderTop from './header_modules/HeaderTop';
+import Header from './header_modules/Header';
 
 
 const App = () => {
   return (
     <div className={"App"}>
-      <Header/>
-      <SearchResMain/>
-      <AboutAuthorMain/>
-      <HistoryCommitsMain/>
+      {/* <Header/> */}
+        <Routes>
+            <Route path="/" element={<NewsMain/>}/> 
+            <Route path="/analytics" element={<Analytics/>}/> 
+        </Routes>
       <FooterMain/>  
     </div>
+    
   );
 }
 
