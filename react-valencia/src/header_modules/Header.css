@@ -64,7 +64,8 @@
 
      .header-top-right__item-link{
          text-decoration: none;
-         color: var(--white-text-color);
+         /* color: var(--white-text-color); */
+         color: red;
      }
 
      .header-top-left__logo-link{

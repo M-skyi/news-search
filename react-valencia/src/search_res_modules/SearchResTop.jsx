@@ -1,4 +1,7 @@
+import { Link } from 'react-router-dom';
 import'./SearchRes.css'
+
+
 
 const SearchResTop = () =>{
 
@@ -10,9 +13,9 @@ const SearchResTop = () =>{
             </div>
 
             <div className={"search-top-content__link"}>
-                <a className={"search-top-content__link-item"} href="#">Посмотреть аналитику </a>
+                <Link className={"search-top-content__link-item"} to='/analytics'>Посмотреть аналитику</Link >    
             </div>
-                
+            
         </div>   
     )
 }

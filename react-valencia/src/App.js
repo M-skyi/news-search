@@ -4,6 +4,9 @@ import FooterMain from './footer_modules/FooterMain';
 import Header from './header_modules/Header';
 import HistoryCommitsMain from './history_commits_modules/HistoryCommitsMain';
 import SearchResMain from './search_res_modules/SearchResMain';
+import {Router,Route,Link, Routes} from "react-router-dom"
+import Analytics from './Analytics';
+
 
 const App = () => {
   return (
@@ -12,7 +15,7 @@ const App = () => {
       <SearchResMain/>
       <AboutAuthorMain/>
       <HistoryCommitsMain/>
-      <FooterMain/>
+      <FooterMain/>  
     </div>
   );
 }
