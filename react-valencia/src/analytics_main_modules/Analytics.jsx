@@ -4,14 +4,14 @@ import HeaderTop from '../header_modules/HeaderTop';
 import './Analytics.css';
  
 
-const Analytics = () => {
+const Analytics = (props) => {
   return (
     <div className={"Analytics"}>
 
       <div className={"test"}>
-      <HeaderTop/>
+
+      <HeaderTop  className ={"red"}/>
       </div>
-      {/* <HeaderTop/> */}
       Test
       <Link className={"header-top-right__item-link header-top-right__item-link--active"} to='/'>Главная</Link >
     </div>

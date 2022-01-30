@@ -219,7 +219,11 @@
     }
 
     .search-main-content {
-        justify-content: center;
+        margin: 0 auto;
+    }
+
+    .container {
+        width: 400px;
     }
 
     .search-top-content {
@@ -295,11 +299,7 @@
     .search-res-item__img {
         margin-top: 0;
     }
-
-    .search-main-content {
-         justify-content: unset; 
-    }
-
+    
     .container {
         width: 690px;
         margin: 0 auto;
