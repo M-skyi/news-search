@@ -1,11 +1,15 @@
 import'./Header.css'
+import { Link } from 'react-router-dom';
 
-const HeaderTopLeft = () =>{
+const HeaderTopLeft = (props) =>{
+
+
+    console.log(props)
     return(
-        <div className={"header-top-left "}>
+        <div className={`header-top-left`}>
 
-            <div className={"header-top-left__logo"}>
-                <a className={"header-top-left__logo-link"} href="#">NewsAnalyzer</a>
+            <div className={"header-top-left__logo "}>
+                <Link className={`header-top-left__logo-link ${props.className}`} to="/">NewsAnalyzer </Link>
             </div>
 
         </div>
