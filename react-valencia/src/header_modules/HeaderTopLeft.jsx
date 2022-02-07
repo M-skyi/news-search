@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 const HeaderTopLeft = (props) =>{
 
-
-    console.log(props)
     return(
         <div className={`header-top-left`}>
 

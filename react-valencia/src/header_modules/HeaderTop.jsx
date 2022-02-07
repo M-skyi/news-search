@@ -5,8 +5,6 @@ import HeaderTopRight from './HeaderTopRight';
 
 const HeaderTop = (props) =>{
 
-     console.log(props)
-
     return(
         <div className={`header-top pos--dis_flex container `}>
 

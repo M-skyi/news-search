@@ -88,7 +88,7 @@
          background-color: #fff;
          height: 3px;
          display: block;
-         top: 16px;
+         top: 13px;
      }
 
      .item-link--active{
@@ -237,7 +237,7 @@
         }
 
         .header-line {
-            top: 59px;
+            top: 56px;
         }
 
         .header-main-text__headline {
@@ -291,7 +291,7 @@
         }
 
         .item-link--active::after {
-            top: 18px;
+            top: 15px;
         }
 
         .header-top__logo-pos {
@@ -307,7 +307,7 @@
         }
 
         .header-line {
-            top: 67px;
+            top: 64px;
         }
 
         .header-main-text__text {
