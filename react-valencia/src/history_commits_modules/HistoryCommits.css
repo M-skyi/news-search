@@ -1,8 +1,3 @@
-/* .container{
-    width: 1235px;
-    margin: 0 auto;
-} */
-
 .history-commits-main{
     height: 485px;
     background: #F5F6F7;;
@@ -43,6 +38,145 @@
     display: block;
     cursor: pointer;
 }
+
+.history-slide__item{
+    max-width: 400px;
+    height: 288px;
+    background: #FFFFFF;
+    border-radius: 16px;
+    display: block;
+}
+
+.history-slide{
+    width: 100%;
+    background: #F5F6F7;
+    height: 288px;
+    position: relative;
+}
+
+.slick-slide{
+    max-width: 400px;
+    margin: 0 8px 0 8px;
+}
+
+.history-slide::before {
+    content: "";
+    height: 288px;
+    width: 100px;
+    display: block;
+    position: absolute;
+    z-index: 999;
+    box-shadow: inset 106px 32px 51px -53px #f5f6f7;
+} 
+
+.history-slide::after {
+    content: "";
+    height: 288px;
+    width: 100px;
+    display: block;
+    position: absolute;
+    z-index: 999;
+    box-shadow: inset -50px 0px 41px 0px #f5f6f7;
+    right: 0px;
+    top: 0px;
+} 
+
+.slick-next {
+    right: 74px;
+    background-color: #1b1d1d;
+}
+
+.history-slide__item{
+    text-decoration: none;
+    padding: 0 24px 0 24px;
+}
+
+.history-slide__date{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #B6BCBF;
+    margin: 24px 0 20px 0;
+
+}
+
+.history-slide__author{
+    display: flex;
+}
+
+.history-slide__img{
+    margin: 0 16px 16px 0;
+    height: 64px;
+    width: 64px;
+}
+
+.history-slide__name{
+    font-family: Roboto Slab;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 26px;
+    line-height: 30px;
+    color: #1A1B22;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 280px;
+}
+
+.history-slide__email{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #1A1B22;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    width: 280px;
+
+}
+
+.history-slide__text{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    color: #1A1B22;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media(min-width: 320px){
     .history-commits-top {
@@ -95,7 +229,7 @@
     .history-commits-top__headline {
         font-size: 30px;
         line-height: 40px;
-        padding: 32px 50px 16px 0;
+        padding: 32px 50px 0 0;
     }
 
     .history-commits-top__link-item {
@@ -103,7 +237,24 @@
         width: 308px;
         
     }
-    
 
+}
+
+@media(min-width: 1440px){
+    .history-commits-top__headline {
+        font-size: 40px;
+        line-height: 46px;
+        padding: 72px 50px 64px 0;
+    }
+
+    .history-commits-main {
+        height: 607px;
+        background: #F5F6F7;
+    }
+
+    .history-commits-top__link-item {
+        margin: 69px 0 0 0;
+    }
+    
 }
 

@@ -9,9 +9,8 @@ const HistoryCommitsMain = () =>{
 
            <div className={"container"}>
                 <HistoryCommitsTop/>
-                <HistoryCommitsSlider/>
            </div>
-           
+                <HistoryCommitsSlider/>
 
        </div> 
     )

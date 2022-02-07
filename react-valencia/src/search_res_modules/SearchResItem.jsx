@@ -3,7 +3,7 @@ import'./SearchRes.css'
 const SearchResItem = () =>{
 
     return(
-        <div className={"search-res-item"}>
+        <a className={"search-res-item"} href="#">
             
                 <img className={"search-res-item__img"} src={require('../project_img/news-img.png')} alt="Img news"/>   
 
@@ -24,7 +24,7 @@ const SearchResItem = () =>{
                      Медуза
                  </div>
 
-        </div>   
+        </a>   
     )
 }
 
