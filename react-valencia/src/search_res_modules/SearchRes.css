@@ -183,6 +183,7 @@
         margin: 0 16px 0 16px;
         height: auto;
         margin-bottom: 10px;
+        text-decoration: none;
     }
 
     .search-res-item__date {
@@ -262,6 +263,7 @@
         height: 390px;
         margin: 0 ;
         margin-bottom: 0;
+        text-decoration: none;
     }
 
     .search-res-btn__show-more{

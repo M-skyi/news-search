@@ -8,7 +8,7 @@ const HistoryCommitsTop = () =>{
                 История коммитов из GitHub
           </div>
           <div className={"history-commits-top__link"}>
-                <a className={"history-commits-top__link-item"} href="#">Открыть в  Github</a>
+                <a className={"history-commits-top__link-item"} href="https://github.com/M-skyi/Test_Valencia_JS">Открыть в  Github</a>
           </div>
        </div> 
     )
