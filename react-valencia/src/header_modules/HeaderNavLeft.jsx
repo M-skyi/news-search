@@ -1,7 +1,7 @@
 import'./Header.css'
 import { Link } from 'react-router-dom';
 
-const HeaderTopLeft = (props) =>{
+const HeaderNavLeft = (props) =>{
 
     return(
         <div className={`header-top-left`}>
@@ -15,4 +15,4 @@ const HeaderTopLeft = (props) =>{
     )
 }
 
-export default HeaderTopLeft;
+export default HeaderNavLeft;

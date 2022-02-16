@@ -98,8 +98,7 @@ export default function SimpleSlider() {
 
     return (
       <Slider {...settings} style={{ display: 'flex' }} className='history-slide'>
-
-          <a className='history-slide__item' href="">
+            <a className='history-slide__item' href="">
              <div className="history-slide__date">14 августа, 2019</div>
               <div className="history-slide__author">
 
@@ -208,7 +207,7 @@ export default function SimpleSlider() {
                     You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open   Tools 
                     Plugins  Available plugins   and find and install Emmet plugin.
             </div>
-          </a>  
+          </a> 
       </Slider>
     );
   }

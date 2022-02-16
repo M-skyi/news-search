@@ -1,7 +1,4 @@
-/* :root{
-    --white-text-color: #FFFFFF;
-    --black-text-color: #B6BCBF;
-} */
+
      .header{
          background-image: url(../project_img/bg_header.png);
          background-repeat: no-repeat;
@@ -13,12 +10,10 @@
         margin: 0 auto;
     }
      
-     .pos--dis_flex{
-         display: flex;
-     }
 
      .header-top{
          justify-content: space-between;
+         display: flex;
         
      }
 
@@ -47,6 +42,7 @@
 
      .header-top-right__nav{
          list-style-type: none;
+         display: flex;
      }
 
      .header-top-right__item{

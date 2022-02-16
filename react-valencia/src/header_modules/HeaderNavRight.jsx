@@ -2,11 +2,11 @@
  import { Link } from 'react-router-dom';
 
 
-const HeaderTopRight = (props) =>{
+const HeaderNavRight = (props) =>{
     return(
         <div className={`header-top-right`}>
 
-                <nav className={`header-top-right__nav pos--dis_flex `}>
+                <nav className={`header-top-right__nav`}>
                     <li className={"header-top-right__item"}>
                         <Link className={`header-top-right__item-link  ${props.active} ${props.className}`} to='/'>Главная</Link >
                     </li>
@@ -20,4 +20,4 @@ const HeaderTopRight = (props) =>{
     )
 }
 
-export default HeaderTopRight;
+export default HeaderNavRight;

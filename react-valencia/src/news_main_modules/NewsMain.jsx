@@ -1,19 +1,19 @@
 
 import AboutAuthorMain from '../about_author_modules/AboutAuthorMain';
-import SearchResMain from './../search_res_modules/SearchResMain';
-import HistoryCommitsMain from './../history_commits_modules/HistoryCommitsMain';
+import SearchResMain from '../search_res_modules/SearchResultMain';
 import Header from '../header_modules/Header';
-import FooterMain from './../footer_modules/FooterMain';
+import HistoryCommitsMain from '../history_commits_modules/HistoryCommitsMain';
+
  
 
-const NewsMain = () => {
+const NewsMain = (props) => {
+
   return (
     <div className={"NewsMain"}>
-        <Header/>
+        <Header test = {props}/>
         <SearchResMain/>
         <AboutAuthorMain/>
         <HistoryCommitsMain/>
-        <FooterMain/>
     </div>
   );
 }

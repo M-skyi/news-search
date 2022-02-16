@@ -20,7 +20,7 @@
     background-size: contain;
     background-image: url(../project_img/author_img.jpg);
 }
-.bout-author-text__headline{
+.about-author-text__headline{
     margin-top: 131px;
     font-family: Roboto Slab;
     font-style: normal;
@@ -28,7 +28,7 @@
     font-size: 40px;
     line-height: 46px;
 }
-.bout-author-text__text{
+.about-author-text__description{
     margin-top: 24px;
     font-family: Roboto;
     font-style: normal;
@@ -63,13 +63,13 @@
             margin: 20px 24px 24px 24px;
     }
 
-    .bout-author-text__headline {
+    .about-author-text__headline {
         margin: 0 16px 16px 16px;
         font-size: 30px;
         line-height: 40px;
     }
 
-    .bout-author-text__text {
+    .about-author-text__description {
         margin: 16px;
         
     }
@@ -82,7 +82,7 @@
         align-items: center;
     }
 
-    .bout-author-text__text {
+    .about-author-text__description {
         margin: 16px;
         max-width: 400px;
     }
@@ -94,7 +94,7 @@
         align-items: center;
     }
 
-    .bout-author-text__text {
+    .about-author-text__description {
         margin: 16px;
         max-width: 400px;
     }
@@ -111,11 +111,11 @@
         margin: 40px 40px 40px 0;
     }
 
-    .bout-author-text__headline {
+    .about-author-text__headline {
         margin: 42px 40px 16px 16px;
     }
 
-    .bout-author-text__text {
+    .about-author-text__description {
         margin: 16px 40px 4px 17px;
         max-width: 400px;
     }
@@ -133,13 +133,13 @@
         margin: 80px 56px 80px 0;
     }
 
-    .bout-author-text__headline {
+    .about-author-text__headline {
         margin: 131px 0 24px 0;
         font-size: 40px;
         line-height: 46px;
     }
 
-    .bout-author-text__text {
+    .about-author-text__description {
         margin: 0;
         max-width: 600px;
     }

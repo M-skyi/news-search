@@ -5,13 +5,13 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Analytics from './analytics_main_modules/Analytics';
 import {BrowserRouter} from "react-router-dom"
-import {Routes,Route,} from "react-router-dom"
+import tes from './modules_js/GetApi'
 
 ReactDOM.render(
   
   <React.StrictMode>
     <BrowserRouter>
-       <App/>     
+       <App test = {tes}/>     
     </BrowserRouter> 
   </React.StrictMode>,
   document.getElementById('root')

@@ -1,16 +1,16 @@
-import HeaderMain from "./HeaderMain";
-import HeaderTop from "./HeaderTop";
+import HeaderContent from "./HeaderContent";
+import HeaderNav from "./HeaderNav";
 import'./Header.css'
 
 
 
-const Header = () =>{
+const Header = (props) =>{
 
     return(
         <div className={"header"}>
                 <hr className={"header-line"} />
-                <HeaderTop/>
-                <HeaderMain/>        
+                <HeaderNav/>
+                <HeaderContent test = {props}/>        
         </div>   
     )
 }

@@ -3,13 +3,13 @@ import'./AboutAuthor.css'
 const AboutAuthorText = () =>{
 
     return(
-        <div className={"bout-author-text "}>
+        <div className={"about-author-text "}>
            
-            <div className={"bout-author-text__headline"}>
+            <div className={"about-author-text__headline"}>
                 Об авторе
             </div>
 
-            <div className={"bout-author-text__text"}>
+            <div className={"about-author-text__description"}>
                 
                 <p className={"about-author-text__first"}>
                      Меня зовут Алексей Михайлецкий, я начинающий Front-End разработчик . Я обладаю базовыми навыками современного фронтенда .

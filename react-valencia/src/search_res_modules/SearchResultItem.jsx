@@ -1,6 +1,6 @@
-import'./SearchRes.css'
+import'./SearchResult.css'
 
-const SearchResItem = () =>{
+const SearchResultItem = () =>{
 
     return(
         <a className={"search-res-item"} href="#">
@@ -28,4 +28,4 @@ const SearchResItem = () =>{
     )
 }
 
-export default SearchResItem;
+export default SearchResultItem;

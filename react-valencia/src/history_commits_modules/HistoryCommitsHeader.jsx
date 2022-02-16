@@ -1,6 +1,6 @@
 import'./HistoryCommits.css'
 
-const HistoryCommitsTop = () =>{
+const HistoryCommitsHeader = () =>{
 
     return(
        <div className={"history-commits-top"}>
@@ -14,4 +14,4 @@ const HistoryCommitsTop = () =>{
     )
 }
 
-export default HistoryCommitsTop;
+export default HistoryCommitsHeader;

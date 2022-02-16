@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom';
-import'./SearchRes.css'
+import'./SearchResult.css'
 
 
 
-const SearchResTop = () =>{
+const SearchResultHeader = () =>{
 
     return(
         <div className={"search-top-content pos--dis_flex container"}>
@@ -20,4 +20,4 @@ const SearchResTop = () =>{
     )
 }
 
-export default SearchResTop;
+export default SearchResultHeader;

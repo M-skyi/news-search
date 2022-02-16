@@ -1,5 +1,5 @@
 import'./HistoryCommits.css'
-import HistoryCommitsTop from './HistoryCommitsTop';
+import HistoryCommitsHeader from './HistoryCommitsHeader';
 import HistoryCommitsSlider from './HistoryCommitsSlider';
 
 const HistoryCommitsMain = () =>{
@@ -8,7 +8,7 @@ const HistoryCommitsMain = () =>{
        <div className={"history-commits-main"}>
 
            <div className={"container"}>
-                <HistoryCommitsTop/>
+                <HistoryCommitsHeader/>
            </div>
                 <HistoryCommitsSlider/>
 

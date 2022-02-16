@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
  
 
 
-const AnalyticsTop = (props) => {
+const AnalyticsHeader = (props) => {
   return (
     <div className={"analytics-top container"}>
         <ul className={"bread-crumbs"}>
@@ -28,4 +28,4 @@ const AnalyticsTop = (props) => {
   
 } 
 
-export default AnalyticsTop;
+export default AnalyticsHeader;
