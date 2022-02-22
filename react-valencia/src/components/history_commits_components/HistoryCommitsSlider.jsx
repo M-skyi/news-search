@@ -102,7 +102,7 @@ export default function SimpleSlider() {
              <div className="history-slide__date">14 августа, 2019</div>
               <div className="history-slide__author">
 
-                 <img className="history-slide__img" src={require('../project_img/user1.png')} alt="" />
+                 <img className="history-slide__img" src={require('../../project_img/user1.png')} alt="" />
 
                  <div className="history-slide__name-email">
 
@@ -124,7 +124,7 @@ export default function SimpleSlider() {
              <div className="history-slide__date">14 августа, 2019</div>
               <div className="history-slide__author">
 
-                 <img className="history-slide__img" src={require('../project_img/user.png')} alt="" />
+                 <img className="history-slide__img" src={require('../../project_img/user.png')} alt="" />
 
                  <div className="history-slide__name-email">
 
@@ -146,7 +146,7 @@ export default function SimpleSlider() {
              <div className="history-slide__date">14 августа, 2019</div>
               <div className="history-slide__author">
 
-                 <img className="history-slide__img" src={require('../project_img/user1.png')} alt="" />
+                 <img className="history-slide__img" src={require('../../project_img/user1.png')} alt="" />
 
                  <div className="history-slide__name-email">
 
@@ -168,7 +168,7 @@ export default function SimpleSlider() {
              <div className="history-slide__date">14 августа, 2019</div>
               <div className="history-slide__author">
 
-                 <img className="history-slide__img" src={require('../project_img/user.png')} alt="" />
+                 <img className="history-slide__img" src={require('../../project_img/user.png')} alt="" />
 
                  <div className="history-slide__name-email">
 
@@ -190,7 +190,7 @@ export default function SimpleSlider() {
              <div className="history-slide__date">14 августа, 2019</div>
               <div className="history-slide__author">
 
-                 <img className="history-slide__img" src={require('../project_img/user1.png')} alt="" />
+                 <img className="history-slide__img" src={require('../../project_img/user1.png')} alt="" />
 
                  <div className="history-slide__name-email">
 

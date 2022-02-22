@@ -11,6 +11,7 @@ const FooterMain = () =>{
            <FooterCopyright/>
            <FooterNav/>
            <FooterLinks/>
+           
 
        </div> 
     )

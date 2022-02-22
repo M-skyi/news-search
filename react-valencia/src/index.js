@@ -3,9 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import Analytics from './analytics_main_modules/Analytics';
 import {BrowserRouter} from "react-router-dom"
-import tes from './modules_js/GetApi'
+import tes from './api/api'
 
 ReactDOM.render(
   

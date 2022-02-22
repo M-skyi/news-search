@@ -5,7 +5,7 @@ const SearchResultItem = () =>{
     return(
         <a className={"search-res-item"} href="#">
             
-                <img className={"search-res-item__img"} src={require('../project_img/news-img.png')} alt="Img news"/>   
+                <img className={"search-res-item__img"} src={require('../../project_img/news-img.png')} alt="Img news"/>   
 
                 <div className={"search-res-item__date"}>
                     2 августа, 2019
