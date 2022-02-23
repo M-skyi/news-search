@@ -1,4 +1,4 @@
-import './Analytics.css';
+import '../../styles/Analytics.css';
 import AnalyticsProgressBar from './AnalyticsProgressBar';
 
  

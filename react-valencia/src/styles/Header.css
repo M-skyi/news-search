@@ -1,6 +1,6 @@
 
      .header{
-         background-image: url(../../project_img/bg_header.png);
+         background-image: url(../project_img/bg_header.png);
          background-repeat: no-repeat;
          background-size: 100% 100%;
      }
@@ -168,7 +168,7 @@
          }
 
         .header{
-            background-image: url(../../project_img/header_bg_mobile.png);
+            background-image: url(../project_img/header_bg_mobile.png);
         }
 
         .header-main--pos {
@@ -355,7 +355,7 @@
         }
 
         .header{
-            background-image: url(../../project_img/header_ipad_img.png);
+            background-image: url(../project_img/header_ipad_img.png);
         }
 
         .header-main-text__text {
@@ -372,7 +372,7 @@
      @media (min-width: 1024px) {
 
         .header {
-            background-image: url(../../project_img/bg_header.png);
+            background-image: url(../project_img/bg_header.png);
         }
 
         .header-main-text__headline {

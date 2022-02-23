@@ -1,4 +1,4 @@
-import'./SearchResult.css'
+import'../../styles/SearchResult.css'
 import SearchResultItem from './SearchResultItem';
 
 

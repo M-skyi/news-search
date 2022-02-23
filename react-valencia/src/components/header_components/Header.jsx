@@ -1,6 +1,6 @@
 import HeaderContent from "./HeaderContent";
 import HeaderNav from "./HeaderNav";
-import'./Header.css'
+import'../../styles/Header.css'
 
 
 

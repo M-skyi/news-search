@@ -1,4 +1,4 @@
-import'./SearchResult.css'
+import'../../styles/SearchResult.css'
 
 const SearchResultItem = () =>{
 

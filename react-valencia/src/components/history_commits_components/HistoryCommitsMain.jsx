@@ -1,4 +1,4 @@
-import'./HistoryCommits.css'
+import'../../styles/HistoryCommits.css'
 import HistoryCommitsHeader from './HistoryCommitsHeader';
 import HistoryCommitsSlider from './HistoryCommitsSlider';
 

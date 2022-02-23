@@ -1,4 +1,4 @@
-import'./Footer.css'
+import'../../styles/Footer.css'
 import FooterCopyright from './FooterCopyright';
 import FooterLinks from './FooterLinks';
 import FooterNav from './FooterNav';

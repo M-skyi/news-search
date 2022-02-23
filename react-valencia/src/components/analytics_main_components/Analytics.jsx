@@ -1,5 +1,5 @@
 
-import './Analytics.css';
+import '../../styles/Analytics.css';
 import AnalyticsContent from './AnalyticsContent';
 import AnalyticsHeader from './AnalyticsHeader';
 import HeaderNavLeft from '../header_components/HeaderNavLeft';

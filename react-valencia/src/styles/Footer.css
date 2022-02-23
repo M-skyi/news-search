@@ -44,11 +44,11 @@
 }
 
 .footer-links__github{
-    background-image: url(../../project_img/github.png);
+    background-image: url(../project_img/github.png);
 }
 
 .footer-links__facebook{
-    background-image: url(../../project_img/facebook.png);
+    background-image: url(../project_img/facebook.png);
     margin-left: 29px;
 }
 

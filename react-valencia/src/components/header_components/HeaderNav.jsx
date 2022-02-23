@@ -1,4 +1,4 @@
-import'./Header.css'
+import'../../styles/Header.css'
 import HeaderNavLeft from './HeaderNavLeft';
 import HeaderNavRight from './HeaderNavRight';
 

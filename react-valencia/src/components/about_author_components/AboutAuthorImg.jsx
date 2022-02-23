@@ -1,4 +1,4 @@
-import'./AboutAuthor.css'
+import'../../styles/AboutAuthor.css'
 
 const AboutAuthorImg = () =>{
 

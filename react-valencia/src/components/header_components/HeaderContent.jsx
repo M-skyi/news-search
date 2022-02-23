@@ -1,6 +1,6 @@
 import HeaderMainText from './HeaderMainText';
 import {HeaderMainSearch }from "./HeaderMainSearch";
-import'./Header.css'
+import'../../styles/Header.css'
 
 
 

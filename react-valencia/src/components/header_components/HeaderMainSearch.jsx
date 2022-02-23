@@ -1,4 +1,4 @@
-import'./Header.css'
+import'../../styles/Header.css'
 import { useState } from 'react'
 import gettingNews from '../../api/api'
 import {getInputValue} from '../../api/api'

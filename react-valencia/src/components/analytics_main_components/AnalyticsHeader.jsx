@@ -1,5 +1,5 @@
 
-import './Analytics.css';
+import '../../styles/Analytics.css';
 import { Link } from 'react-router-dom';
  
 
