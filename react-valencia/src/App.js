@@ -1,8 +1,8 @@
 import './App.css';
 import {Router,Route,Link, Routes} from "react-router-dom"
-import FooterMain from './components/footer_components/FooterMain';
-import Analytics from './components/analytics_main_components/Analytics';
-import NewsMain from './components/news_main_components/NewsMain';
+import FooterMain from './components/footer/FooterMain';
+import Analytics from './components/analytics_main/Analytics';
+import NewsMain from './components/news_main/NewsMain';
 
 const App = (props) => {
   return (

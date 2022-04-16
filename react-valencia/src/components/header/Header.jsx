@@ -10,7 +10,7 @@ const Header = (props) =>{
         <div className={"header"}>
                 <hr className={"header-line"} />
                 <HeaderNav/>
-                <HeaderContent test = {props}/>        
+                <HeaderContent test = {props}/>   
         </div>   
     )
 }

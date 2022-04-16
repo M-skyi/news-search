@@ -2,8 +2,8 @@
 import '../../styles/Analytics.css';
 import AnalyticsContent from './AnalyticsContent';
 import AnalyticsHeader from './AnalyticsHeader';
-import HeaderNavLeft from '../header_components/HeaderNavLeft';
-import HeaderNavRight from '../header_components/HeaderNavRight';
+import HeaderNavLeft from '../header/HeaderNavLeft';
+import HeaderNavRight from '../header/HeaderNavRight';
  
 
 

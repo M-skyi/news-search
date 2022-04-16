@@ -1,5 +1,5 @@
-import HeaderMainText from './HeaderMainText';
-import {HeaderMainSearch }from "./HeaderMainSearch";
+import HeaderMainText from './HeaderText';
+import {HeaderMainSearch }from "./HeaderSearch";
 import'../../styles/Header.css'
 
 
