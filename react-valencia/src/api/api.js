@@ -7,9 +7,11 @@
 
     export let getInputValue = (newsTopic) => {
         topic.push(newsTopic);
-    }   
-
-
+    } 
+    
+    
+   
+    
     let gettingNews = async (e) => {
 
     e.preventDefault();
@@ -28,6 +30,7 @@
         let arrUrl = [];
         let arrPublishedAt = [];
         let arrAuthor = [];
+        
 
      newsData.forEach(el=> {
         arrTitle.push(el.title);
@@ -36,18 +39,13 @@
         arrUrl.push(el.url);
         arrPublishedAt.push(el.publishedAt);
         arrAuthor.push(el.author);
-     });
-
-     console.log(data)
+     });    
 
 }
 
+        
 
+        
     
-       
-    
-   
-
-
 
 export default gettingNews;

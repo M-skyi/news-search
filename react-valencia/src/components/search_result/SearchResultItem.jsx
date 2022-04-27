@@ -1,7 +1,11 @@
 import'../../styles/SearchResult.css'
 
-const SearchResultItem = () =>{
 
+
+
+
+
+const SearchResultItem = () =>{
     return(
         <a className={"search-res-item"} href="#">
             

@@ -4,6 +4,7 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    display: none;
 }
 .no-news-found__img{
     background-image: url(../project_img/not-found-news.png);

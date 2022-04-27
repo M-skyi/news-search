@@ -2,17 +2,20 @@ import'../../styles/SearchResult.css'
 import SearchResultItem from './SearchResultItem';
 
 
-// let newsCount = [1,2,3]
-// let newsItem = newsCount.map(item => <SearchResultItem/> )
 
+
+export function showNewsEl () {
+
+    let newsCount = [1,2,3]
+    let newsItem = newsCount.map(item => <SearchResultItem key={item.toString()}/> );
+
+    return newsItem 
+}
 
 const SearchResultContent = () =>{
     return(
-        <div className={"search-main-content container"}>
-            {/* {newsItem} */}
-            <SearchResultItem/>
-            <SearchResultItem/>
-            <SearchResultItem/>
+        <div className={"search-main-content container"} >
+            {showNewsEl()} 
         </div>   
     )
 }

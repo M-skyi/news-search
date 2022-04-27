@@ -10,7 +10,6 @@ import NoNewsFound from '../no_news_found/no_news_found';
  
 
 const NewsMain = (props) => {
-
   return (
     <div className={"NewsMain"}>
        <Header test = {props}/>

@@ -262,7 +262,7 @@
         width: 224px;
         height: 390px;
         margin: 0 ;
-        margin-bottom: 0;
+        margin-bottom: 8px;
         text-decoration: none;
     }
 
@@ -319,7 +319,7 @@
         width: 400px;
         height: 576px;
         margin: 0;
-        margin-bottom: 0;
+        margin-bottom: 16px;
         text-decoration: none;
     }
 
