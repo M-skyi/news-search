@@ -1,21 +1,16 @@
 import'../../styles/SearchResult.css'
 import SearchResultItem from './SearchResultItem';
+import { useState } from 'react';
 
 
-
-
-export function showNewsEl () {
-
-    let newsCount = [1,2,3]
-    let newsItem = newsCount.map(item => <SearchResultItem key={item.toString()}/> );
-
-    return newsItem 
-}
 
 const SearchResultContent = () =>{
+
+    const [itemsResult, setShow] = useState([1,2,3])
+
     return(
         <div className={"search-main-content container"} >
-            {showNewsEl()} 
+            {itemsResult.map(item => <SearchResultItem key={item.toString()}/>)}  
         </div>   
     )
 }
