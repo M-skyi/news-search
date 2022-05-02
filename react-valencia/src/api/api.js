@@ -9,12 +9,24 @@
         topic.push(newsTopic);
     } 
     
-    
+      function name(params) {
+         if (topic === "") {
+            alert("o");
+          }
+          console.log(topic)
+      }
+  
+   
    
     
     let gettingNews = async (e) => {
 
-    e.preventDefault();
+    
+
+   //  e.preventDefault();
+
+    
+   
 
      const url = `https://nomoreparties.co/news/v2/everything?q=${topic.pop()}&from=${currentDay}&to=${currentDay}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
@@ -39,8 +51,11 @@
         arrUrl.push(el.url);
         arrPublishedAt.push(el.publishedAt);
         arrAuthor.push(el.author);
-     });    
+     });  
+     
+     console.log(newsData )
 
+     
 }
 
         

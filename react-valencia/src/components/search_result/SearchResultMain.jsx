@@ -9,24 +9,28 @@ import { useState} from 'react';
 
 
 
+
 const SearchResultMain = (props) =>{
 
     const [itemResult, setItemsResult] = useState([
-        <SearchResContent/>
+        <SearchResContent  />,
+        
     ])
 
     const moreNews = () =>{
         
-        setItemsResult([...itemResult, <SearchResContent/>])
+        setItemsResult([...itemResult,
+             <SearchResContent />,
+             ])
 
     }
 
 
     return(
-        <div className={"main-result"}>
+        <div className={"main-result"} >
             <SearchResultHeader/>
-
-            {itemResult}
+            
+            {itemResult.map((item, index )  => <SearchResContent key={index} /> )}  
 
             <div className={"search-res-btn "}>
                  <button className={"search-res-btn__show-more"}  onClick={moreNews} >Показать еще</button>

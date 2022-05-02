@@ -10,7 +10,7 @@ const SearchResultContent = () =>{
 
     return(
         <div className={"search-main-content container"} >
-            {itemsResult.map(item => <SearchResultItem key={item.toString()}/>)}  
+            {itemsResult.map((item,index) => <SearchResultItem key={index}/>)}  
         </div>   
     )
 }
