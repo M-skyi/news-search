@@ -2,27 +2,27 @@ import'../../styles/Header.css'
 import { useState } from 'react'
 import gettingNews from '../../api/api'
 import {getInputValue} from '../../api/api'
+// import { showPreloader} from '../news_main/NewsMain'
 
 
 
-
-   export const showPreloader = () => {
-         alert("ok")   
-    }
+  
+ 
 
 
-const HeaderMainSearch = () =>{
+const HeaderMainSearch = (props) =>{
+
+
  
     const [topic, setTitle] = useState('');
 
     getInputValue(topic)
 
-    
+    const showLoader = props.showLoader;
 
     const getNews = (e) => {
         e.preventDefault()
-
-        showPreloader()
+        showLoader()
 
         if (topic.length === 0) {
 

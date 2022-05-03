@@ -6,29 +6,28 @@ import HistoryCommitsMain from '../history_commits/HistoryCommitsMain';
 import Preloader from '../preloader/Preloader';
 import NoNewsFound from '../no_news_found/no_news_found';
 import { useState } from 'react';
-import {showPreloader} from '../header/HeaderSearch.jsx'
 
 
 
 
 
-showPreloader()
 
-
- 
 
 const NewsMain = (props) => {
 
   const [preloader, setPreloader] = useState(false)
 
+    const showPreloader = (e) => {
+      setPreloader(!preloader)
+    }
+
   
  
-
   return (
     <div className={"NewsMain"}>
-       <Header test = {props}/>
+       <Header  showLoader = {showPreloader}/>
 
-       {preloader && <Preloader/>} 
+       {preloader && <Preloader />}
       
        <NoNewsFound/>
        <SearchResultMain/>

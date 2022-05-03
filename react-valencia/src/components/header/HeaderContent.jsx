@@ -8,13 +8,14 @@ import'../../styles/Header.css'
 
 const HeaderContent = (props) => {
 
+   
     return(
 
         <div className={"header-main container header-main--pos "}>
 
             <div className={"header-main--pos"}>
                 <HeaderMainText/>
-                <HeaderMainSearch test = {props}/>
+                <HeaderMainSearch showLoader = {props.showLoader}/>
             </div>
              
         </div>
