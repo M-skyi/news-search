@@ -1,5 +1,5 @@
 
-    let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
+    let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
 
     let currentDay = new Date();
 
@@ -9,24 +9,9 @@
         topic.push(newsTopic);
     } 
     
-      function name(params) {
-         if (topic === "") {
-            alert("o");
-          }
-          console.log(topic)
-      }
-  
-   
    
     
     let gettingNews = async (e) => {
-
-    
-
-   //  e.preventDefault();
-
-    
-   
 
      const url = `https://nomoreparties.co/news/v2/everything?q=${topic.pop()}&from=${currentDay}&to=${currentDay}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
 
@@ -53,10 +38,14 @@
         arrAuthor.push(el.author);
      });  
      
-     console.log(newsData )
+     console.log(arrTitle )
 
-     
+     return newsData
 }
+
+
+
+
 
         
 

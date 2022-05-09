@@ -10,7 +10,12 @@ const Header = (props) =>{
         <div className={"header"}>
                 <hr className={"header-line"} />
                 <HeaderNav/>
-                <HeaderContent  showLoader = {props.showLoader}/>   
+                <HeaderContent  showLoader = {props.showLoader}
+                 hideLoader = {props.hideLoader}
+                 showNoNewsFound = {props.showNoNewsFound}
+                 hideNoNewsFound = {props.hideNoNewsFound}
+                 showSearchResult = {props.showSearchResult}
+                 />   
         </div>   
     )
 }

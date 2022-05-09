@@ -11,26 +11,55 @@ import { useState } from 'react';
 
 
 
-
-
 const NewsMain = (props) => {
 
-  const [preloader, setPreloader] = useState(false)
+  const [preloader, setPreloader] = useState(false);
+  const [noNewsFound, setNoNewsFound] = useState(false);
+  const [searchResult, setSearchResult] = useState(false)
 
-    const showPreloader = (e) => {
-      setPreloader(!preloader)
+    const showPreloader = () => {
+     
+      setPreloader(true)
+        
     }
 
-  
- 
+    const hidePreloader = () => {
+      
+      setPreloader(false)
+        
+    }
+
+    const showNoNewsFound = () => {
+      
+      setNoNewsFound(true)
+        
+    }
+
+    const hideNoNewsFound = () => {
+      
+      setNoNewsFound(false)
+        
+    }
+
+    const showSearchResult = () => {
+      
+      setSearchResult(true)
+        
+    }
+
+
+
   return (
     <div className={"NewsMain"}>
-       <Header  showLoader = {showPreloader}/>
-
-       {preloader && <Preloader />}
-      
-       <NoNewsFound/>
-       <SearchResultMain/>
+       <Header  showLoader = {showPreloader}
+        hideLoader = {hidePreloader}
+        showNoNewsFound = {showNoNewsFound}
+        hideNoNewsFound = {hideNoNewsFound}
+        showSearchResult = {showSearchResult}
+        />
+       {preloader && <Preloader/> }
+       {noNewsFound && <NoNewsFound/> }
+       {searchResult &&<SearchResultMain/>}
        <AboutAuthorMain/>
        <HistoryCommitsMain/>
     </div>

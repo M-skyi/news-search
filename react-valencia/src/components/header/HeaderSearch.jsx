@@ -2,7 +2,7 @@ import'../../styles/Header.css'
 import { useState } from 'react'
 import gettingNews from '../../api/api'
 import {getInputValue} from '../../api/api'
-// import { showPreloader} from '../news_main/NewsMain'
+
 
 
 
@@ -12,23 +12,48 @@ import {getInputValue} from '../../api/api'
 
 const HeaderMainSearch = (props) =>{
 
-
  
     const [topic, setTitle] = useState('');
 
     getInputValue(topic)
 
     const showLoader = props.showLoader;
+    const hideLoader = props.hideLoader;
+    const showNoNewsFound = props.showNoNewsFound;
+    const hideNoNewsFound = props.hideNoNewsFound;
+    const showSearchResult = props.showSearchResult;
+
 
     const getNews = (e) => {
-        e.preventDefault()
-        showLoader()
 
+        e.preventDefault();
+
+        hideNoNewsFound();
+        
         if (topic.length === 0) {
 
-            alert("«Нужно ввести ключевое слово»")
+            alert("«Нужно ввести ключевое слово»");
+            return;
+        }
 
-        }else(gettingNews())
+        showLoader();
+
+        gettingNews().then(function (news) {
+            
+            if (news.length  === 0) {
+                
+                hideLoader();
+                showNoNewsFound(); 
+
+            }else{
+                hideLoader();
+                showSearchResult();
+            }
+    
+          }).catch((error) => {
+            alert("«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»");
+            hideLoader();
+         })
 
     } 
 

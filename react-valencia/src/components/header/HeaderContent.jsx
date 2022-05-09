@@ -15,7 +15,12 @@ const HeaderContent = (props) => {
 
             <div className={"header-main--pos"}>
                 <HeaderMainText/>
-                <HeaderMainSearch showLoader = {props.showLoader}/>
+                <HeaderMainSearch showLoader = {props.showLoader}
+                 hideLoader = {props.hideLoader}
+                 showNoNewsFound = {props.showNoNewsFound}
+                 hideNoNewsFound = {props.hideNoNewsFound}
+                 showSearchResult = {props.showSearchResult}
+                 />
             </div>
              
         </div>
