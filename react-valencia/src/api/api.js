@@ -1,5 +1,5 @@
 
-    let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
+    let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
 
     let currentDay = new Date();
 
@@ -9,7 +9,12 @@
         topic.push(newsTopic);
     } 
     
-   
+   //  let arrTitle = [];
+    
+
+
+      
+
     
     let gettingNews = async (e) => {
 
@@ -21,27 +26,34 @@
 
      let newsData = data.articles;
 
-        let arrTitle = [];
-        let arrDescription = [];
-        let arrImg = [];
-        let arrUrl = [];
-        let arrPublishedAt = [];
-        let arrAuthor = [];
-        
+     let newsItem = {
+      arrTitle: [],
+      arrDescription: [],
+      arrImg: [],
+      arrUrl: [],
+      arrPublishedAt: [],
+      arrAuthor: []
+   }
 
-     newsData.forEach(el=> {
-        arrTitle.push(el.title);
-        arrDescription.push(el.description);
-        arrImg.push(el.urlToImage);
-        arrUrl.push(el.url);
-        arrPublishedAt.push(el.publishedAt);
-        arrAuthor.push(el.author);
+      newsData.forEach(el=> {
+         newsItem.arrTitle.push(el.title);
+         newsItem.arrDescription.push(el.description);
+         newsItem.arrImg.push(el.urlToImage);
+         newsItem.arrUrl.push(el.url);
+         newsItem.arrPublishedAt.push(el.publishedAt);
+         newsItem.arrAuthor.push(el.author);
      });  
-     
-     console.log(arrTitle )
 
-     return newsData
+   let state = {
+      newsData:newsData,
+      newsItems:newsItem
+   }
+   
+     return state
 }
+
+
+
 
 
 

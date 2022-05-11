@@ -4,14 +4,51 @@ import { useState } from 'react';
 
 
 
-const SearchResultContent = () =>{
 
-    const [itemsResult, setShow] = useState([1,2,3])
+
+
+
+const SearchResultContent = (props) =>{
+
+console.log(props);
+    let title = [ "a","b","w","c"]
+
+
+    const [itemsResult, setItemsResult] = useState([
+
+    <SearchResultItem />,
+    <SearchResultItem />,
+    <SearchResultItem />
+    ])
+
+    const moreNews = () =>{
+        
+        setItemsResult([...itemsResult,
+
+             <SearchResultItem />,
+             <SearchResultItem />,
+             <SearchResultItem />
+
+             ])
+             
+    }
+
+
 
     return(
         <div className={"search-main-content container"} >
-            {itemsResult.map((item,index) => <SearchResultItem key={index}/>)}  
-        </div>   
+            {itemsResult.map((item,index) =>
+
+             <SearchResultItem key = {index}
+                
+             title = {title[index]}
+
+            />)} 
+
+            <button onClick={moreNews}>hfghh</button>
+        </div> 
+        
+        
     )
 }
 

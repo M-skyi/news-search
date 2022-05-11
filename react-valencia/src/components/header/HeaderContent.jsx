@@ -20,6 +20,7 @@ const HeaderContent = (props) => {
                  showNoNewsFound = {props.showNoNewsFound}
                  hideNoNewsFound = {props.hideNoNewsFound}
                  showSearchResult = {props.showSearchResult}
+                 hideSearchResult = {props.hideSearchResult}
                  />
             </div>
              

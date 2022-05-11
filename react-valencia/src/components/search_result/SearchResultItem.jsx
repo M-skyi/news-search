@@ -1,11 +1,45 @@
 import'../../styles/SearchResult.css'
+import gettingNews from '../../api/api'
+import { useState } from 'react'
 
 
 
 
 
 
-const SearchResultItem = () =>{
+ let  title = [];
+
+
+
+  export const showNews = () => {
+
+   let stateNews =  gettingNews().then(function (item) {
+
+    title.push(item.newsItems.arrTitle)
+
+    
+
+        return item.newsItems
+    })
+
+    return stateNews
+
+  }
+
+
+
+//   console.log(title);
+
+
+
+
+
+
+
+const SearchResultItem = (props) =>{
+
+console.log(props);
+ 
     return(
         <a className={"search-res-item"} href="#">
             
@@ -16,7 +50,9 @@ const SearchResultItem = () =>{
                 </div>
 
                 <div className={"search-res-item__heading"}>
-                     Национальное достояние – парки 
+                     
+                     {props.title}
+                     
                 </div>
 
                 <div className={"search-res-item__content"}>

@@ -2,6 +2,7 @@ import'../../styles/Header.css'
 import { useState } from 'react'
 import gettingNews from '../../api/api'
 import {getInputValue} from '../../api/api'
+import {showNews} from '../search_result/SearchResultItem'
 
 
 
@@ -22,28 +23,32 @@ const HeaderMainSearch = (props) =>{
     const showNoNewsFound = props.showNoNewsFound;
     const hideNoNewsFound = props.hideNoNewsFound;
     const showSearchResult = props.showSearchResult;
+    const hideSearchResult = props.hideSearchResult;
 
 
-    const getNews = (e) => {
+    const searchNews = (e) => {
 
         e.preventDefault();
+
+        showNews()
 
         hideNoNewsFound();
         
         if (topic.length === 0) {
-
+            
+            hideSearchResult() 
             alert("«Нужно ввести ключевое слово»");
             return;
         }
 
         showLoader();
 
-        gettingNews().then(function (news) {
+        gettingNews().then(function (item) {
             
-            if (news.length  === 0) {
+            if (item.newsData.length  === 0) {
                 
                 hideLoader();
-                showNoNewsFound(); 
+                showNoNewsFound();
 
             }else{
                 hideLoader();
@@ -65,7 +70,7 @@ const HeaderMainSearch = (props) =>{
                 <input className="form-search__input-text" onChange={event => setTitle(event.target.value)} value={topic}   type="text" placeholder="Введите тему новости"></input>
             </div>
             <div className={"form-search__btn"}>
-                <input className="form-search__input-btn" type="submit" onClick={getNews}  value="Искать"></input>
+                <input className="form-search__input-btn" type="submit" onClick={searchNews}  value="Искать"></input>
             </div>
 
         </form>

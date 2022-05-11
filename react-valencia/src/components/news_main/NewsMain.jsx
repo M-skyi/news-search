@@ -47,6 +47,12 @@ const NewsMain = (props) => {
         
     }
 
+    const hideSearchResult = () => {
+      
+      setSearchResult(false)
+        
+    }
+
 
 
   return (
@@ -56,6 +62,7 @@ const NewsMain = (props) => {
         showNoNewsFound = {showNoNewsFound}
         hideNoNewsFound = {hideNoNewsFound}
         showSearchResult = {showSearchResult}
+        hideSearchResult = {hideSearchResult}
         />
        {preloader && <Preloader/> }
        {noNewsFound && <NoNewsFound/> }
