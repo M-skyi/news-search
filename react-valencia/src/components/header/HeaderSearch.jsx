@@ -2,7 +2,8 @@ import'../../styles/Header.css'
 import { useState } from 'react'
 import gettingNews from '../../api/api'
 import {getInputValue} from '../../api/api'
-import {showNews} from '../search_result/SearchResultItem'
+
+
 
 
 
@@ -16,7 +17,7 @@ const HeaderMainSearch = (props) =>{
  
     const [topic, setTitle] = useState('');
 
-    getInputValue(topic)
+    getInputValue(topic);
 
     const showLoader = props.showLoader;
     const hideLoader = props.hideLoader;
@@ -30,15 +31,18 @@ const HeaderMainSearch = (props) =>{
 
         e.preventDefault();
 
-        showNews()
-
         hideNoNewsFound();
         
         if (topic.length === 0) {
             
-            hideSearchResult() 
+            hideSearchResult(); 
+
             alert("«Нужно ввести ключевое слово»");
+
             return;
+        }else if ( setTitle(topic) !=  topic){
+
+            hideSearchResult();
         }
 
         showLoader();

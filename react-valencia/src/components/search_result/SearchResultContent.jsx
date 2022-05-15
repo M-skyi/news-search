@@ -1,51 +1,71 @@
 import'../../styles/SearchResult.css'
 import SearchResultItem from './SearchResultItem';
-import { useState } from 'react';
+import { useState} from 'react';
+import gettingNews from '../../api/api'
+
+
+
+    const useItem = () => {
+
+    const [itemsResult, setItemsResult] = useState([
+
+        <SearchResultItem />,
+        <SearchResultItem />,
+        <SearchResultItem />
+        ])
+
+       const setResult = () => 
+        
+        setItemsResult([...itemsResult,
+
+         <SearchResultItem />,
+         <SearchResultItem />,
+         <SearchResultItem />
+            
+         ])
+
+        return {itemsResult,setResult};
+
+}
 
 
 
 
 
+  
 
 
 const SearchResultContent = (props) =>{
 
-console.log(props);
-    let title = [ "a","b","w","c"]
+    const {itemsResult,setResult} = useItem();
 
-
-    const [itemsResult, setItemsResult] = useState([
-
-    <SearchResultItem />,
-    <SearchResultItem />,
-    <SearchResultItem />
-    ])
-
-    const moreNews = () =>{
-        
-        setItemsResult([...itemsResult,
-
-             <SearchResultItem />,
-             <SearchResultItem />,
-             <SearchResultItem />
-
-             ])
-             
-    }
-
-
+    let dataObjNews = JSON.parse(localStorage.getItem("newsItem"));
 
     return(
         <div className={"search-main-content container"} >
+            
             {itemsResult.map((item,index) =>
 
              <SearchResultItem key = {index}
                 
-             title = {title[index]}
+             title = {dataObjNews.arrTitle[index]}
+
+             description = {dataObjNews.arrDescription[index]}
+
+             author = {dataObjNews.arrAuthor[index]}
+
+             publishedAt = {dataObjNews.arrPublishedDate[index]}
+
+             img = {dataObjNews.arrImg[index]}
+
+             url = {dataObjNews.arrUrl[index]}
+
 
             />)} 
 
-            <button onClick={moreNews}>hfghh</button>
+            <div className={"search-res-btn "}>
+                 <button className={"search-res-btn__show-more"} onClick={setResult} >Показать еще</button>
+            </div>
         </div> 
         
         
