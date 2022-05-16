@@ -2,6 +2,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import'../../styles/HistoryCommits.css'
+import HistoryCommitsSliderItem from "./HistoryCommitsSliderItem";
+import { useState } from 'react'
+import {gettingCommits} from '../../api/api'
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -55,12 +58,12 @@ function SamplePrevArrow(props) {
 }
 
 export default function SimpleSlider() {
-    var settings = {
+    let settings = {
       dots: true,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 3,
-      slidesToScroll: 2,
+      slidesToScroll: 4,
       nextArrow: <SampleNextArrow />,
       prevArrow: <SamplePrevArrow />,
       responsive: [{
@@ -90,124 +93,42 @@ export default function SimpleSlider() {
            slidesToShow: 1,
            slidesToScroll: 1,
            infinite: false,
-        }
+           dots:false,
+        } 
      }
 
   ]
     };
 
+
+
+    let dataCommits = JSON.parse(localStorage.getItem("commitsItem"));
+
+
     return (
-      <Slider {...settings} style={{ display: 'flex' }} className='history-slide'>
-            <a className='history-slide__item' href="">
-             <div className="history-slide__date">14 августа, 2019</div>
-              <div className="history-slide__author">
+      <Slider {...settings} style={{ display: 'flex', height:'auto' }} className='history-slide'>
 
-                 <img className="history-slide__img" src={require('../../project_img/user1.png')} alt="" />
+        {dataCommits.arrItemUrl.map( (item,index) => 
 
-                 <div className="history-slide__name-email">
+        <HistoryCommitsSliderItem 
+        
+        key = {index}
 
-                     <div className="history-slide__name">Антон Долинин</div>
+        date = {dataCommits.arrChangesDate[index]}
 
-                     <div className="history-slide__email">anton@yandex.ru</div>
+        name = {dataCommits.arrName[index]}
 
-                 </div>
+        email = {dataCommits.arrEmail[index]}
 
-             </div>
+        message = {dataCommits.arrMessage[index]}
 
-             <div className="history-slide__text">
-                 
-                    You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open   Tools 
-                    Plugins  Available plugins   and find and install Emmet plugin.
-            </div>
-          </a>
-          <a className='history-slide__item' href="">
-             <div className="history-slide__date">14 августа, 2019</div>
-              <div className="history-slide__author">
+        itemUrl = {dataCommits.arrItemUrl[index]}
 
-                 <img className="history-slide__img" src={require('../../project_img/user.png')} alt="" />
+        imgUrl = {dataCommits.arrImgUrl[index]}
 
-                 <div className="history-slide__name-email">
+        
+        /> )}
 
-                     <div className="history-slide__name">Мария Фёдорова</div>
-
-                     <div className="history-slide__email">mariiifed@yandex.ru</div>
-
-                 </div>
-
-             </div>
-
-             <div className="history-slide__text">
-                 
-                    You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open   Tools 
-                    Plugins  Available plugins   and find and install Emmet plugin.
-            </div>
-          </a>
-          <a className='history-slide__item' href="">
-             <div className="history-slide__date">14 августа, 2019</div>
-              <div className="history-slide__author">
-
-                 <img className="history-slide__img" src={require('../../project_img/user1.png')} alt="" />
-
-                 <div className="history-slide__name-email">
-
-                     <div className="history-slide__name">Антон Долинин</div>
-
-                     <div className="history-slide__email">anton@yandex.ru</div>
-
-                 </div>
-
-             </div>
-
-             <div className="history-slide__text">
-                 
-                    You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open   Tools 
-                    Plugins  Available plugins   and find and install Emmet plugin.
-            </div>
-          </a>
-          <a className='history-slide__item' href="">
-             <div className="history-slide__date">14 августа, 2019</div>
-              <div className="history-slide__author">
-
-                 <img className="history-slide__img" src={require('../../project_img/user.png')} alt="" />
-
-                 <div className="history-slide__name-email">
-
-                     <div className="history-slide__name">Мария Фёдорова</div>
-
-                     <div className="history-slide__email">mariiifed@yandex.ru</div>
-
-                 </div>
-
-             </div>
-
-             <div className="history-slide__text">
-                 
-                    You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open   Tools 
-                    Plugins  Available plugins   and find and install Emmet plugin.
-            </div>
-          </a>
-          <a className='history-slide__item' href="">
-             <div className="history-slide__date">14 августа, 2019</div>
-              <div className="history-slide__author">
-
-                 <img className="history-slide__img" src={require('../../project_img/user1.png')} alt="" />
-
-                 <div className="history-slide__name-email">
-
-                     <div className="history-slide__name">Антон Долинин</div>
-
-                     <div className="history-slide__email">anton@yandex.ru</div>
-
-                 </div>
-
-             </div>
-
-             <div className="history-slide__text">
-                 
-                    You can install this plugin directly from NetBeans Plugin Portal: in NetBeans, open   Tools 
-                    Plugins  Available plugins   and find and install Emmet plugin.
-            </div>
-          </a> 
       </Slider>
     );
   }

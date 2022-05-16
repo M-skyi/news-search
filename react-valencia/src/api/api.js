@@ -1,5 +1,10 @@
 
-    let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
+   import{changeDate} from "../app/main"
+   
+   
+   
+   
+   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
 
     let currentDay = new Date();
 
@@ -11,19 +16,7 @@
 
 
 
-    function changeDate(arrayDate,newDateArr) {
 
-      for (let i = 0; i < arrayDate.length; i++) {
-
-         let dateNews = arrayDate[i];
-         let changeDate = new Date(dateNews).toLocaleDateString('ru', { year: 'numeric', month: 'long', day: 'numeric'}).slice(0, -3);
-         let strDateMonth = changeDate.split(" ");
-         let currentDate = changeDate.replace(strDateMonth[1], strDateMonth[1] + ",");
-         newDateArr.push(currentDate)
-      }
-     
-  }
-    
 
 
     let gettingNews = async (e) => {
@@ -61,16 +54,55 @@
      let dataObj = JSON.stringify(newsItem)
      localStorage.setItem('newsItem', dataObj)
 
+     localStorage.setItem('newsDataLength', newsData.length)
 
-   let state = {
-      newsData:newsData,
-      newsItems:newsItem
-   }
    
-     return state
+     return newsData
 }
 
-       
-    
 
-export default gettingNews;
+
+let gettingCommits = async (e) => { 
+
+      let reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits?&&per_page=20`;
+
+      const response = await fetch(reposUrl)
+      
+      const data = await response.json()
+
+      let commitsItem = {
+         arrDate: [],
+         arrImgUrl: [],
+         arrName: [],
+         arrEmail: [],
+         arrMessage: [],
+         arrItemUrl: [],
+         arrChangesDate: []
+      }
+
+      data.forEach( el => {
+
+         commitsItem.arrDate.push(el.commit.author.date);
+         commitsItem.arrImgUrl.push(el.author.avatar_url);
+         commitsItem.arrName.push(el.commit.author.name);
+         commitsItem.arrEmail.push(el.commit.author.email);
+         commitsItem.arrMessage.push(el.commit.message);
+         commitsItem.arrItemUrl.push(el.html_url);
+
+      })
+
+      changeDate(commitsItem.arrDate,commitsItem.arrChangesDate)
+
+          let dataCommits = JSON.stringify(commitsItem)
+          localStorage.setItem('commitsItem', dataCommits)   
+          
+      
+ }   
+           
+     gettingCommits()
+
+
+export {
+   gettingNews,
+   gettingCommits
+};

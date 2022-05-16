@@ -377,5 +377,8 @@
     .search-res-btn__show-more {
         margin: 64px 0 80px 0;
     }
+    .search-res-btn__hide-btn {
+        display: none;
+    }
 }
 

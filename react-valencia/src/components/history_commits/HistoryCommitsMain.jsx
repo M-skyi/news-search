@@ -11,8 +11,7 @@ const HistoryCommitsMain = () =>{
                 <HistoryCommitsHeader/>
            </div>
                 <HistoryCommitsSlider/>
-
-       </div> 
+             </div> 
     )
 }
 

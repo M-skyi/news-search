@@ -1,15 +1,10 @@
 import'../../styles/Header.css'
 import { useState } from 'react'
-import gettingNews from '../../api/api'
+import {gettingNews }from '../../api/api'
 import {getInputValue} from '../../api/api'
 
 
 
-
-
-
-  
- 
 
 
 const HeaderMainSearch = (props) =>{
@@ -49,7 +44,7 @@ const HeaderMainSearch = (props) =>{
 
         gettingNews().then(function (item) {
             
-            if (item.newsData.length  === 0) {
+            if (item.length  === 0) {
                 
                 hideLoader();
                 showNoNewsFound();
@@ -58,6 +53,7 @@ const HeaderMainSearch = (props) =>{
                 hideLoader();
                 showSearchResult();
             }
+
     
           }).catch((error) => {
             alert("«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»");

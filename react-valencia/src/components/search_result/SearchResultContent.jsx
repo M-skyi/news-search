@@ -1,9 +1,11 @@
 import'../../styles/SearchResult.css'
 import SearchResultItem from './SearchResultItem';
 import { useState} from 'react';
-import gettingNews from '../../api/api'
+import {gettingNews }from '../../api/api'
 
 
+
+    
 
     const useItem = () => {
 
@@ -14,15 +16,24 @@ import gettingNews from '../../api/api'
         <SearchResultItem />
         ])
 
-       const setResult = () => 
-        
-        setItemsResult([...itemsResult,
+  
+         function setResult() {
 
-         <SearchResultItem />,
-         <SearchResultItem />,
-         <SearchResultItem />
-            
-         ])
+            setItemsResult([...itemsResult,
+
+                <SearchResultItem />,
+                <SearchResultItem />,
+                <SearchResultItem />
+                   
+                ])            
+         } 
+
+         let lengthNews = JSON.parse(localStorage.getItem("newsDataLength"));
+
+         if (itemsResult.length >= 99 || itemsResult.length === lengthNews ) {
+            hideBtn()
+         }
+
 
         return {itemsResult,setResult};
 
@@ -30,14 +41,23 @@ import gettingNews from '../../api/api'
 
 
 
+        let classHideBtn = {
+            hideButton:''
+        }
 
+
+        const hideBtn = () => {
+        classHideBtn.hideButton = "search-res-btn__hide-btn"
+        }
 
   
+
 
 
 const SearchResultContent = (props) =>{
 
     const {itemsResult,setResult} = useItem();
+
 
     let dataObjNews = JSON.parse(localStorage.getItem("newsItem"));
 
@@ -64,7 +84,7 @@ const SearchResultContent = (props) =>{
             />)} 
 
             <div className={"search-res-btn "}>
-                 <button className={"search-res-btn__show-more"} onClick={setResult} >Показать еще</button>
+                 <button className={`search-res-btn__show-more ${classHideBtn.hideButton}`}  onClick={setResult} >Показать еще</button>
             </div>
         </div> 
         
