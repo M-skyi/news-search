@@ -9,9 +9,9 @@ import noImg from '../../project_img/noimage.png'
 const SearchResultItem = (props) =>{
 
 
+
     const [author, setAuthor] = useState(props.author);
     const [image, setImage] = useState(props.img);
-    const [url, setUrl] = useState(props.url);
 
     const changeAuthorItem = () => {
 
@@ -47,9 +47,6 @@ const SearchResultItem = (props) =>{
         return image
     }
 
-    
-
-    
 
     return(
         <a className={`search-res-item `} href={props.url} target="_blank">

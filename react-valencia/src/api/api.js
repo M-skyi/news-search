@@ -4,7 +4,7 @@
    
    
    
-   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
+   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
 
     let currentDay = new Date();
 
@@ -13,10 +13,6 @@
     export let getInputValue = (newsTopic) => {
         topic.push(newsTopic);
     } 
-
-
-
-
 
 
     let gettingNews = async (e) => {

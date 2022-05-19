@@ -5,61 +5,79 @@ import {gettingNews }from '../../api/api'
 
 
 
-    
+
 
     const useItem = () => {
 
-    const [itemsResult, setItemsResult] = useState([
+        let dataObjNews = JSON.parse(localStorage.getItem("newsItem"));
+        let lengthNews = JSON.parse(localStorage.getItem("newsDataLength"));
+    
 
-        <SearchResultItem />,
-        <SearchResultItem />,
-        <SearchResultItem />
-        ])
+    const [itemsResult, setItemsResult] = useState(dataObjNews.arrTitle.map( item =>
 
-  
+        <SearchResultItem /> 
+        
+        ).slice(0,3))
+
+       function removeItem() {
+
+        let total = 0
+
+        if (itemsResult.length > dataObjNews.arrTitle.length) {
+             total = itemsResult.length - dataObjNews.arrTitle.length
+        }
+
+        return total
+    }
+
          function setResult() {
 
             setItemsResult([...itemsResult,
 
-                <SearchResultItem />,
-                <SearchResultItem />,
-                <SearchResultItem />
+                <SearchResultItem  />,
+                <SearchResultItem  />,
+                <SearchResultItem  />
                    
-                ])            
+                ])
          } 
 
-         let lengthNews = JSON.parse(localStorage.getItem("newsDataLength"));
 
-         if (itemsResult.length >= 99 || itemsResult.length === lengthNews ) {
-            hideBtn()
-         }
+            if (itemsResult.length > lengthNews || itemsResult.length === lengthNews ) {
+            
+                itemsResult.splice(-1,removeItem())
 
+                hideBtn()
+    
+            }else {
 
-        return {itemsResult,setResult};
+                showBtn()
+            }
+            
+        return {itemsResult,setResult,dataObjNews};
 
 }
 
 
 
-        let classHideBtn = {
-            hideButton:''
+        let classBtn = {
+            hideButton:'',
         }
 
 
         const hideBtn = () => {
-        classHideBtn.hideButton = "search-res-btn__hide-btn"
+            classBtn.hideButton = "search-res-btn__hide-btn"
+            
         }
 
-  
+        const showBtn = () => {
+            classBtn.hideButton = "";
+        }
 
 
 
 const SearchResultContent = (props) =>{
 
-    const {itemsResult,setResult} = useItem();
-
-
-    let dataObjNews = JSON.parse(localStorage.getItem("newsItem"));
+    const {itemsResult,setResult,dataObjNews} = useItem();
 
     return(
         <div className={"search-main-content container"} >
@@ -84,7 +102,7 @@ const SearchResultContent = (props) =>{
             />)} 
 
             <div className={"search-res-btn "}>
-                 <button className={`search-res-btn__show-more ${classHideBtn.hideButton}`}  onClick={setResult} >Показать еще</button>
+                 <button className={`search-res-btn__show-more ${classBtn.hideButton}`}  onClick={setResult} >Показать еще</button>
             </div>
         </div> 
         

@@ -144,6 +144,7 @@
 }
 .search-res-btn{
     text-align: center;
+    width: inherit;
 }
 
 @media(min-width: 320px){
@@ -346,7 +347,6 @@
         display: flex;
         row-gap: 17px;
         column-gap: 17px;
-        justify-content: center;
     }
 
     .search-res-item__date {
@@ -377,8 +377,13 @@
     .search-res-btn__show-more {
         margin: 64px 0 80px 0;
     }
+
     .search-res-btn__hide-btn {
         display: none;
+    }
+
+    .search-res-btn__show-btn {
+        display: block;
     }
 }
 
