@@ -1,18 +1,14 @@
 import'../../styles/SearchResult.css'
 import SearchResultItem from './SearchResultItem';
 import { useState} from 'react';
-import {gettingNews }from '../../api/api'
-
-
 
 
 
     const useItem = () => {
 
         let dataObjNews = JSON.parse(localStorage.getItem("newsItem"));
-        let lengthNews = JSON.parse(localStorage.getItem("newsDataLength"));
+        let newsData = JSON.parse(localStorage.getItem("newsData"));
     
-
     const [itemsResult, setItemsResult] = useState(dataObjNews.arrTitle.map( item =>
 
         <SearchResultItem /> 
@@ -42,7 +38,7 @@ import {gettingNews }from '../../api/api'
          } 
 
 
-            if (itemsResult.length > lengthNews || itemsResult.length === lengthNews ) {
+            if (itemsResult.length > newsData.length || itemsResult.length === newsData.length ) {
             
                 itemsResult.splice(-1,removeItem())
 

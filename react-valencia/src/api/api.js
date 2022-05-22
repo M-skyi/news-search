@@ -2,22 +2,68 @@
    import{changeDate} from "../app/main"
    
    
-   
-   
    let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
 
-    let currentDay = new Date();
 
     let topic = [];
 
     export let getInputValue = (newsTopic) => {
         topic.push(newsTopic);
     } 
+      
+    let arrDateItem = [];
+
+    for (let i = 0; i < 7; i++) {
+       
+       let getDate = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+       
+       arrDateItem.push(getDate);
+    }
 
 
     let gettingNews = async (e) => {
 
-     const url = `https://nomoreparties.co/news/v2/everything?q=${topic.pop()}&from=${currentDay}&to=${currentDay}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+      let topicItem = topic.pop()
+
+     const url = `https://nomoreparties.co/news/v2/everything?q=${topicItem }&from=${arrDateItem[6]}&to=${arrDateItem[0]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+
+     
+     let arrUrlItem = [];
+
+     for (let i = 0; i < 7; i++) {
+        
+        let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topicItem}&from=${arrDateItem[i]}&to=${arrDateItem[i]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
+        
+        arrUrlItem.push(urlDay)
+  
+     }
+
+     arrUrlItem.reverse()
+
+     let arrDaysItem = [];
+
+     let requests = arrUrlItem.map(url => fetch(url));
+    
+     Promise.all(requests)
+     .then((responses) => {
+        
+       const dataResults = responses.map((response) => response.json());
+ 
+       return Promise.all(dataResults);   
+ 
+     })
+     .then((data) => {
+        data.forEach(el => {
+    
+          let dataNewsDay = el.articles
+ 
+          arrDaysItem.push(dataNewsDay);
+ 
+          localStorage.setItem(`analyticsDayArr`, JSON.stringify(arrDaysItem));
+   
+        })
+     })
+ 
 
      const response = await fetch(url);
       
@@ -50,12 +96,20 @@
      let dataObj = JSON.stringify(newsItem)
      localStorage.setItem('newsItem', dataObj)
 
-     localStorage.setItem('newsDataLength', newsData.length)
+     let newsRes = JSON.stringify(newsData)
+     localStorage.setItem('newsData', newsRes)
 
-   
+     let dataTopic = JSON.stringify(topic.pop())
+     localStorage.setItem('topic',dataTopic)
+
+     let totalRes = JSON.stringify(data)
+     localStorage.setItem('totalResults',totalRes)
+
+
+   console.log();
+
      return newsData
 }
-
 
 
 let gettingCommits = async (e) => { 
