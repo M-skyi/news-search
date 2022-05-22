@@ -53,8 +53,6 @@ const NewsMain = (props) => {
         
     }
 
-
-
   return (
     <div className={"NewsMain"}>
        <Header  showLoader = {showPreloader}

@@ -1,13 +1,27 @@
 import'../../styles/Header.css'
-import { Link } from 'react-router-dom';
+import { Link,useLocation  } from 'react-router-dom';
+
 
 const HeaderNavLeft = (props) =>{
 
+    let location = useLocation();
+
+    let headerStyle = {
+        style: "header-analytic"
+    }
+
+    if (location.pathname === "/analytics") {
+        headerStyle.style = "header-analytic"
+    }else{
+        headerStyle.style = "header-top-left__logo-link"
+    }
+
+   
     return(
         <div className={`header-top-left`}>
 
             <div className={"header-top-left__logo "}>
-                <Link className={`header-top-left__logo-link ${props.className}`} to="/">NewsAnalyzer </Link>
+                <Link className={`${headerStyle.style}`} to="/">NewsAnalyzer </Link>
             </div>
 
         </div>

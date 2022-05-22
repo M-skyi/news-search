@@ -56,7 +56,7 @@ const Analytics = (props) => {
     }
 
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 1; i++) {
 
         getAnalyticsData(getDataLocalStor()[i])
         
@@ -67,13 +67,13 @@ const Analytics = (props) => {
       <hr className={"header-line"} />
       <div className={" bg-style container header-top "}>
       
-        <div className={` header-top__logo-pos`}>
+        {/* <div className={` header-top__logo-pos`}>
             <HeaderNavLeft className={`logo__color`}/>
         </div>
 
         <div className={`header-top__nav-pos`}>
             <HeaderNavRight className={`nav__color`}/>
-        </div>
+        </div> */}
        
       </div>
       <AnalyticsHeader count = {itemCountArr}/>

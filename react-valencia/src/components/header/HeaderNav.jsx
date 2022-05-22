@@ -10,11 +10,11 @@ const HeaderNav = (props) =>{
         <div className={`header-top container `}>
 
                 <div className={"header-top__logo-pos"}>
-                    <HeaderNavLeft/>
+                    <HeaderNavLeft />
                 </div>
         
                 <div className={"header-top__nav-pos"}>
-                    <HeaderNavRight active={"item-link--active"}/>   
+                    <HeaderNavRight />   
                 </div>
         </div>
         

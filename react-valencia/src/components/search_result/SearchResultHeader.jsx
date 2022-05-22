@@ -1,9 +1,12 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import'../../styles/SearchResult.css'
+import { useState } from 'react'
 
 
 
 const SearchResultHeader = () =>{
+
+    
 
     return(
         <div className={"search-top-content pos--dis_flex container"}>
@@ -13,7 +16,7 @@ const SearchResultHeader = () =>{
             </div>
 
             <div className={"search-top-content__link"}>
-                <Link className={"search-top-content__link-item"} to='/analytics'>Посмотреть аналитику</Link >    
+                <Link className={"search-top-content__link-item"}  to='/analytics'>Посмотреть аналитику</Link > 
             </div>
             
         </div>   

@@ -2,7 +2,7 @@
    import{changeDate} from "../app/main"
    
    
-   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
+   let apiKey = "398b8b05cfd74c32a83a9f12f6118f07";
 
 
     let topic = [];
@@ -30,7 +30,7 @@
      
      let arrUrlItem = [];
 
-     for (let i = 0; i < 7; i++) {
+     for (let i = 0; i < 1; i++) {
         
         let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topicItem}&from=${arrDateItem[i]}&to=${arrDateItem[i]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
         
