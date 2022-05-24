@@ -142,9 +142,18 @@
     border: none;
     cursor: pointer;
 }
+
 .search-res-btn{
     text-align: center;
     width: inherit;
+}
+
+.search-res-btn__hide-btn {
+    display: none;
+}
+
+.search-res-btn__show-btn {
+    display: block;
 }
 
 @media(min-width: 320px){
@@ -175,7 +184,7 @@
 
     .search-res-item__img {
         width: 100%;
-        height: auto;
+        height: 200px;
         margin-top: 5px;
     }
 
@@ -217,7 +226,7 @@
 
     .search-res-item__img {
         width: 100%;
-        height: auto;
+        height: 230px;
     }
 
     .search-main-content {
@@ -378,12 +387,5 @@
         margin: 64px 0 80px 0;
     }
 
-    .search-res-btn__hide-btn {
-        display: none;
-    }
-
-    .search-res-btn__show-btn {
-        display: block;
-    }
 }
 
