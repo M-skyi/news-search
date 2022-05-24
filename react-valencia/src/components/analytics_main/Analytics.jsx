@@ -2,8 +2,6 @@
 import '../../styles/Analytics.css';
 import AnalyticsContent from './AnalyticsContent';
 import AnalyticsHeader from './AnalyticsHeader';
-import HeaderNavLeft from '../header/HeaderNavLeft';
-import HeaderNavRight from '../header/HeaderNavRight';
  
 
 
@@ -56,7 +54,7 @@ const Analytics = (props) => {
     }
 
 
-    for (let i = 0; i < 1; i++) {
+    for (let i = 0; i < 7; i++) {
 
         getAnalyticsData(getDataLocalStor()[i])
         
@@ -65,17 +63,7 @@ const Analytics = (props) => {
   return (
     <div className={"analytics"}>
       <hr className={"header-line"} />
-      <div className={" bg-style container header-top "}>
-      
-        {/* <div className={` header-top__logo-pos`}>
-            <HeaderNavLeft className={`logo__color`}/>
-        </div>
-
-        <div className={`header-top__nav-pos`}>
-            <HeaderNavRight className={`nav__color`}/>
-        </div> */}
-       
-      </div>
+      <div className={" bg-style container header-top "}> </div>
       <AnalyticsHeader count = {itemCountArr}/>
       <AnalyticsContent count = {itemCountArr}/>
     </div>

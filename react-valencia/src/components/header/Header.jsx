@@ -37,9 +37,7 @@ const Header = (props) =>{
     return(
         <div className={`${classHeader.headerMain} ${classHeader.headerAnalytic}`}>
                 <hr className={"header-line"} />
-
                 <HeaderNav/>
-
                 { headerContent &&  <HeaderContent  showLoader = {props.showLoader}
                  hideLoader = {props.hideLoader}
                  showNoNewsFound = {props.showNoNewsFound}
