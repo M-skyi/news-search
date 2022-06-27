@@ -58,8 +58,6 @@
           let dataNewsDay = el.articles
  
           arrDaysItem.push(dataNewsDay);
-
-          console.log(arrDaysItem);
  
           localStorage.setItem(`analyticsDayArr`, JSON.stringify(arrDaysItem));
    
