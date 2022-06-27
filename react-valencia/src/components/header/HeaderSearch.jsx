@@ -7,7 +7,7 @@ import {getInputValue} from '../../api/api'
 
 
 
-const HeaderMainSearch = (props) =>{
+const HeaderSearch = (props) =>{
 
  
     const [topic, setTitle] = useState('');
@@ -79,6 +79,6 @@ const HeaderMainSearch = (props) =>{
     )
 }
 
-export {HeaderMainSearch} ;
+export {HeaderSearch} ;
 
 

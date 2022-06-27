@@ -2,17 +2,15 @@ import '../../styles/Analytics.css';
 import AnalyticsProgressBarItem from './AnalyticsProgressBarItem';
 import { useState } from 'react'
 
- 
-const AnalyticsProgressBar = (props) =>{
+
+function getDate() {
+
+    let item = []
+
+    let dateCurrent = new Date();
 
 
-        let dates = []
-
-        let dateCurrent = new Date();
-
-         for (let i = 0; i < 7; i++){
-
-            function getDate() {
+    for (let i = 0; i < 7; i++) {
 
                let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 
@@ -21,30 +19,34 @@ const AnalyticsProgressBar = (props) =>{
                
                let str = tempDate.getDate() + ", " + days[tempDate.getDay()]; 
                
-               dates.push(str);
-
-            }
-            getDate()
-        }
+               item.push(str);
         
-        dates.reverse()
+    }
+
+    item.reverse()
+
+    return item
+
+}
+
+ 
+const AnalyticsProgressBar = ({count}) =>{
+
 
     return(
         <div className={"analytics-progress-bar"}>
            
            <ul className="progress-bar">
 
-               {dates.map((item,index) => <AnalyticsProgressBarItem 
+               {getDate().map((el,i) => <AnalyticsProgressBarItem 
                
-               key={index}
+               key={i}
 
-               date={dates[index]}
+               date={getDate()[i]}
 
-               count = {props.count[index]}
+               count = {count[i]}
                
-               />
-               
-               )}
+               />)}
                
             </ul>
 

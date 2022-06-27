@@ -4,28 +4,34 @@ import'../../styles/Header.css'
 import { Link, useLocation } from 'react-router-dom';
 
 
+let classHeader = {
+    headerAnalytic:'',
+    headerMain:''
+}
+
+function headerAnalytic() {
+    classHeader.headerAnalytic = "header-analytic"
+    classHeader.headerMain = ""
+}
+
+function headerMain() {
+    classHeader.headerMain = "header"
+    classHeader.headerAnalytic = ""
+}
 
 
-
-const Header = (props) =>{
+const Header = ({
+    showLoader,
+    hideLoader,
+    showNoNewsFound,
+    hideNoNewsFound,
+    showSearchResult,
+    hideSearchResult,
+    loader}) =>{
 
     let location = useLocation();
     let headerContent = true;
 
-    let classHeader = {
-        headerAnalytic:'',
-        headerMain:''
-    }
-
-    function headerAnalytic() {
-        classHeader.headerAnalytic = "header-analytic"
-        classHeader.headerMain = ""
-    }
-
-    function headerMain() {
-        classHeader.headerMain = "header"
-        classHeader.headerAnalytic = ""
-    }
 
     if (location.pathname === "/analytics") {
         headerContent = false 
@@ -38,12 +44,13 @@ const Header = (props) =>{
         <div className={`${classHeader.headerMain} ${classHeader.headerAnalytic}`}>
                 <hr className={"header-line"} />
                 <HeaderNav/>
-                { headerContent &&  <HeaderContent  showLoader = {props.showLoader}
-                 hideLoader = {props.hideLoader}
-                 showNoNewsFound = {props.showNoNewsFound}
-                 hideNoNewsFound = {props.hideNoNewsFound}
-                 showSearchResult = {props.showSearchResult}
-                 hideSearchResult = {props.hideSearchResult}
+                { headerContent &&  <HeaderContent  showLoader = {showLoader}
+                 hideLoader = {hideLoader}
+                 showNoNewsFound = {showNoNewsFound}
+                 hideNoNewsFound = {hideNoNewsFound}
+                 showSearchResult = {showSearchResult}
+                 hideSearchResult = {hideSearchResult}
+                 loaderChange = {loader}
                  /> }                           
         </div>   
     )

@@ -1,7 +1,7 @@
 
 
 
-function changeDate(arrayDate,newDateArr) {
+const changeDate = (arrayDate,newDateArr) => {
 
     for (let i = 0; i < arrayDate.length; i++) {
 

@@ -7,7 +7,7 @@
 
     let topic = [];
 
-    export let getInputValue = (newsTopic) => {
+    export const getInputValue = (newsTopic) => {
         topic.push(newsTopic);
     } 
       
@@ -15,10 +15,12 @@
 
     for (let i = 0; i < 7; i++) {
        
-       let getDate = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
+       let getDate = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString();
        
        arrDateItem.push(getDate);
     }
+
+    
 
 
     let gettingNews = async (e) => {
@@ -30,7 +32,7 @@
      
      let arrUrlItem = [];
 
-     for (let i = 0; i < 7; i++) {
+     for (let i = 0; i < 1; i++) {
         
         let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topicItem}&from=${arrDateItem[i]}&to=${arrDateItem[i]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
         
@@ -110,7 +112,7 @@
 }
 
 
-let gettingCommits = async (e) => { 
+ const gettingCommits = async (e) => { 
 
       let reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits?&&per_page=20`;
 

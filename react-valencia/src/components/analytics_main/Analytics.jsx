@@ -5,30 +5,28 @@ import AnalyticsHeader from './AnalyticsHeader';
  
 
 
+
+function getDataLocalStor() {
+
+  let analyticsDay = localStorage.getItem('analyticsDayArr');
+
+  analyticsDay = JSON.parse(analyticsDay);
+
+  let analyticsDayArr = [];
+
+  for (let i = 0; i < analyticsDay.length; i++) {
+    
+      analyticsDayArr.push(analyticsDay[i])
+    
+  };
+
+  return analyticsDayArr 
+  
+}
+
 const Analytics = (props) => {
 
-
   let topicRequest = JSON.parse(localStorage.getItem("topic"));
-
-
-
-      function getDataLocalStor() {
-
-        let analyticsDay = localStorage.getItem('analyticsDayArr');
-
-        analyticsDay = JSON.parse(analyticsDay);
-      
-        let analyticsDayArr = [];
-    
-        for (let i = 0; i < analyticsDay.length; i++) {
-          
-            analyticsDayArr.push(analyticsDay[i])
-          
-        };
-    
-        return analyticsDayArr 
-        
-    }
 
     let itemCountArr = [];
 
@@ -54,7 +52,7 @@ const Analytics = (props) => {
     }
 
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 1; i++) {
 
         getAnalyticsData(getDataLocalStor()[i])
         

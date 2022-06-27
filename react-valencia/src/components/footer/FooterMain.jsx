@@ -3,7 +3,7 @@ import FooterCopyright from './FooterCopyright';
 import FooterLinks from './FooterLinks';
 import FooterNav from './FooterNav';
 
-const FooterMain = () =>{
+const Footer = () =>{
 
     return(
        <div className={"footer-main container"}>
@@ -17,4 +17,4 @@ const FooterMain = () =>{
     )
 }
 
-export default FooterMain;
+export default Footer;

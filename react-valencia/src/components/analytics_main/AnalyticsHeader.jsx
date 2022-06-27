@@ -3,19 +3,14 @@ import '../../styles/Analytics.css';
 import { Link } from 'react-router-dom';
 
 
-const AnalyticsHeader = (props) => {
 
-  let x = 0;
-
-  let totalHeadlines = props.count.map(i=>x+=i, x).reverse()[0]
+function totalCountNews () {
 
   let weekCounterNews = JSON.parse(localStorage.getItem("totalResults"));
 
-  let topicRequest = JSON.parse(localStorage.getItem("topic"));
+  let totalResults = weekCounterNews.totalResults;
 
-   let totalResults = weekCounterNews.totalResults;
-
-   let countNumber = totalResults.toString().length;
+  let countNumber = totalResults.toString().length;
 
   let resultString = []
 
@@ -35,6 +30,22 @@ const AnalyticsHeader = (props) => {
       resultString.push(totalResults);
     }
 
+    return resultString
+
+  
+}
+
+
+
+
+const AnalyticsHeader = ({count}) => {
+
+  let x = 0;
+
+  let totalHeadlines = count.map(i=>x+=i, x).reverse()[0]
+
+  let topicRequest = JSON.parse(localStorage.getItem("topic"));
+
 
   return (
 
@@ -52,7 +63,7 @@ const AnalyticsHeader = (props) => {
 
         <div className="count">
             <div className="count__news">
-               Новостей за неделю: <span className="count__news-item count-font--weight">{resultString}</span>
+               Новостей за неделю: <span className="count__news-item count-font--weight">{totalCountNews()}</span>
              </div>
             <div className="count__headline">
                Упоминаний в загаловках: <span className="count__headline-item count-font--weight">{totalHeadlines}</span>
