@@ -5,7 +5,7 @@ import HistoryCommitsSlider from './HistoryCommitsSlider';
 const HistoryCommitsMain = () =>{
 
     return(
-       <div className={"history-commits-main"}>
+       <div className="history-commits-main">
 
            <div className={"container"}>
                 <HistoryCommitsHeader/>

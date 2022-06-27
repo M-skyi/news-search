@@ -1,24 +1,8 @@
 import HeaderContent from "./HeaderContent";
 import HeaderNav from "./HeaderNav";
 import'../../styles/Header.css'
+import classNames from "classnames"
 import { Link, useLocation } from 'react-router-dom';
-
-
-let classHeader = {
-    headerAnalytic:'',
-    headerMain:''
-}
-
-function headerAnalytic() {
-    classHeader.headerAnalytic = "header-analytic"
-    classHeader.headerMain = ""
-}
-
-function headerMain() {
-    classHeader.headerMain = "header"
-    classHeader.headerAnalytic = ""
-}
-
 
 const Header = ({
     showLoader,
@@ -34,14 +18,17 @@ const Header = ({
 
 
     if (location.pathname === "/analytics") {
-        headerContent = false 
-        headerAnalytic()     
-    }else{
-        headerMain() 
+        headerContent = false   
     }
 
+    const headerClass = classNames({
+        
+        'header-analytic': location.pathname === "/analytics",
+        'header': location.pathname === "/"
+      });
+
     return(
-        <div className={`${classHeader.headerMain} ${classHeader.headerAnalytic}`}>
+        <div className = {headerClass}>
                 <hr className={"header-line"} />
                 <HeaderNav/>
                 { headerContent &&  <HeaderContent  showLoader = {showLoader}
@@ -58,3 +45,6 @@ const Header = ({
 }
 
 export default Header;
+
+
+// className={`${classHeader.headerMain} ${classHeader.headerAnalytic}`}

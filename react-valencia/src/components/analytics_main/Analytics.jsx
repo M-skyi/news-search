@@ -51,12 +51,12 @@ const Analytics = (props) => {
 
     }
 
+    for (let i = 0; i < 7; i++) {
 
-    for (let i = 0; i < 1; i++) {
+      getAnalyticsData(getDataLocalStor()[i])
+      
+  }  
 
-        getAnalyticsData(getDataLocalStor()[i])
-        
-    }   
 
   return (
     <div className={"analytics"}>

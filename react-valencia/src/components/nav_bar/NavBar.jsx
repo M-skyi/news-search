@@ -80,8 +80,7 @@ const NavBar = () => {
 
              {preloader && <Preloader/> }
              {noNewsFound && <NoNewsFound/>}
-             {searchResult && <SearchResultMain/>}   
-                          
+             {searchResult && <SearchResultMain/>}                
         </div>   
     )
 

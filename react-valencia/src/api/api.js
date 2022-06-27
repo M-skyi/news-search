@@ -2,7 +2,7 @@
    import{changeDate} from "../app/main"
    
    
-   let apiKey = "2213f1e36fb8400bb4eef4e632efffe3";
+   let apiKey = "53dda3d904814c45bfe91ca26f3c68ff";
 
 
     let topic = [];
@@ -15,14 +15,12 @@
 
     for (let i = 0; i < 7; i++) {
        
-       let getDate = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString();
+       let getDate = new Date(new Date().getTime() - (i * 24 * 60 * 60 * 1000)).toLocaleDateString('sv-SE');
        
        arrDateItem.push(getDate);
     }
 
-    
-
-
+   
     let gettingNews = async (e) => {
 
       let topicItem = topic.pop()
@@ -32,7 +30,7 @@
      
      let arrUrlItem = [];
 
-     for (let i = 0; i < 1; i++) {
+     for (let i = 0; i < 7; i++) {
         
         let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topicItem}&from=${arrDateItem[i]}&to=${arrDateItem[i]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
         
@@ -60,6 +58,8 @@
           let dataNewsDay = el.articles
  
           arrDaysItem.push(dataNewsDay);
+
+          console.log(arrDaysItem);
  
           localStorage.setItem(`analyticsDayArr`, JSON.stringify(arrDaysItem));
    

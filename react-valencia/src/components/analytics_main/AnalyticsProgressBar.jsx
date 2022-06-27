@@ -29,7 +29,6 @@ function getDate() {
 
 }
 
- 
 const AnalyticsProgressBar = ({count}) =>{
 
 
@@ -38,11 +37,11 @@ const AnalyticsProgressBar = ({count}) =>{
            
            <ul className="progress-bar">
 
-               {getDate().map((el,i) => <AnalyticsProgressBarItem 
+               {getDate().map((item,i) => <AnalyticsProgressBarItem 
                
                key={i}
 
-               date={getDate()[i]}
+               date={item}
 
                count = {count[i]}
                

@@ -74,25 +74,26 @@ import { useState} from 'react';
 const SearchResultContent = (props) =>{
 
     const {itemsResult,setResult,dataObjNews} = useItem();
+    
 
     return(
         <div className={"search-main-content container"} >
             
-            {itemsResult.map((item,index) =>
+            {itemsResult.map((item,i) =>
 
-             <SearchResultItem key = {index}
+             <SearchResultItem key = {i}
                 
-             title = {dataObjNews.arrTitle[index]}
+             title = {dataObjNews.arrTitle[i]}
 
-             description = {dataObjNews.arrDescription[index]}
+             description = {dataObjNews.arrDescription[i]}
 
-             author = {dataObjNews.arrAuthor[index]}
+             author = {dataObjNews.arrAuthor[i]}
 
-             publishedAt = {dataObjNews.arrPublishedDate[index]}
+             publishedAt = {dataObjNews.arrPublishedDate[i]}
 
-             img = {dataObjNews.arrImg[index]}
+             img = {dataObjNews.arrImg[i]}
 
-             url = {dataObjNews.arrUrl[index]}
+             url = {dataObjNews.arrUrl[i]}
 
 
             />)} 

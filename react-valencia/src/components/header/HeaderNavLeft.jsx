@@ -1,27 +1,23 @@
 import'../../styles/Header.css'
 import { Link,useLocation,useEffect  } from 'react-router-dom';
-
+import classNames from "classnames"
 
 const HeaderNavLeft = (props) =>{
 
     let location = useLocation();
 
-    let headerStyle = {
-        style: "header-analytic"
-    }
-
-    if (location.pathname === "/analytics") {
-        headerStyle.style = "header-analytic"
-    }else{
-        headerStyle.style = "header-top-left__logo-link"
-    }
+    const headerLogoClass = classNames({
+        
+        'header-analytic': location.pathname === "/analytics",
+        'header-top-left__logo-link': location.pathname === "/"
+      });
 
    
     return(
         <div className={`header-top-left`}>
 
             <div className={"header-top-left__logo "}>
-                <Link className={`${headerStyle.style}`} to="/">NewsAnalyzer </Link>
+                <Link className={headerLogoClass} to="/">NewsAnalyzer </Link>
             </div>
 
         </div>

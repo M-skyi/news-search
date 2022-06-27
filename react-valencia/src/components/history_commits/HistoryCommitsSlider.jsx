@@ -57,7 +57,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-export default function SimpleSlider() {
+function sliderOptions() {
     let settings = {
       dots: true,
       infinite: false,
@@ -100,13 +100,15 @@ export default function SimpleSlider() {
   ]
     };
 
+    return settings 
+}
 
+export default function SimpleSlider() {
 
     let dataCommits = JSON.parse(localStorage.getItem("commitsItem"));
 
-
     return (
-      <Slider {...settings} style={{ display: 'flex', height:'auto' }} className='history-slide'>
+      <Slider {...sliderOptions()} style={{ display: 'flex', height:'auto' }} className='history-slide'>
 
         {dataCommits.arrItemUrl.map( (item,index) => 
 
