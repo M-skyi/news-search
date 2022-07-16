@@ -6,8 +6,8 @@ const FooterNav = () =>{
        <div className={"footer-nav"}>
            
                <Link className={"footer-nav__item"} to="/">Главная</Link>
-               <a className={"footer-nav__item"} href="#">О проекте</a>
-               <a className={"footer-nav__item"} href="#">Valencia.JS</a>
+               <Link className={"footer-nav__item"} to="#">О проекте</Link>
+               <Link className={"footer-nav__item"} to="#">Valencia.JS</Link>
        </div> 
     )
 }

@@ -10,7 +10,7 @@ function getDate() {
     let dateCurrent = new Date();
 
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 6; i >= 0; i--) {
 
                let days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
 
@@ -22,8 +22,6 @@ function getDate() {
                item.push(str);
         
     }
-
-    item.reverse()
 
     return item
 

@@ -30,7 +30,7 @@
      
      let arrUrlItem = [];
 
-     for (let i = 0; i < 7; i++) {
+     for (let i = 0; i < 1; i++) {
         
         let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topicItem}&from=${arrDateItem[i]}&to=${arrDateItem[i]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
         
@@ -105,12 +105,11 @@
      let totalRes = JSON.stringify(data)
      localStorage.setItem('totalResults',totalRes)
 
-
      return newsData
 }
 
 
- const gettingCommits = async (e) => { 
+ const gettingCommit = async (e) => { 
 
       let reposUrl = `https://api.github.com/repos/M-skyi/Test_Valencia_JS/commits?&&per_page=20`;
 
@@ -147,7 +146,7 @@
       
  }   
            
-     gettingCommits()
+    const gettingCommits =  gettingCommit();
 
 
 export {

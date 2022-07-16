@@ -51,11 +51,10 @@ const Analytics = (props) => {
 
     }
 
-    for (let i = 0; i < 7; i++) {
 
-      getAnalyticsData(getDataLocalStor()[i])
-      
-  }  
+  getDataLocalStor().map (item => {
+    getAnalyticsData(item)
+  })
 
 
   return (

@@ -2,7 +2,8 @@ import HeaderContent from "./HeaderContent";
 import HeaderNav from "./HeaderNav";
 import'../../styles/Header.css'
 import classNames from "classnames"
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation} from 'react-router-dom';
+import { useMemo} from 'react'
 
 const Header = ({
     showLoader,
@@ -21,24 +22,27 @@ const Header = ({
         headerContent = false   
     }
 
-    const headerClass = classNames({
+
+    const header = (local) => classNames({
         
-        'header-analytic': location.pathname === "/analytics",
-        'header': location.pathname === "/"
+        'header-analytic': local === "/analytics",
+        'header': local === "/"
       });
+
+      const headerClass = useMemo(() => header(location.pathname), [location.pathname]);
 
     return(
         <div className = {headerClass}>
                 <hr className={"header-line"} />
                 <HeaderNav/>
-                { headerContent &&  <HeaderContent  showLoader = {showLoader}
+                { headerContent &&  (<HeaderContent  showLoader = {showLoader}
                  hideLoader = {hideLoader}
                  showNoNewsFound = {showNoNewsFound}
                  hideNoNewsFound = {hideNoNewsFound}
                  showSearchResult = {showSearchResult}
                  hideSearchResult = {hideSearchResult}
                  loaderChange = {loader}
-                 /> }                           
+                 /> ) }                         
         </div>   
     )
 
