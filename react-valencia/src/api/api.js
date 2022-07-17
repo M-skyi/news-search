@@ -30,7 +30,7 @@
      
      let arrUrlItem = [];
 
-     for (let i = 0; i < 1; i++) {
+     for (let i = 0; i < 7; i++) {
         
         let urlDay = `https://nomoreparties.co/news/v2/everything?q=${topicItem}&from=${arrDateItem[i]}&to=${arrDateItem[i]}&sortBy=publishedAt&pageSize=100&apiKey=${apiKey}`;
         
