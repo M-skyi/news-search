@@ -1,6 +1,5 @@
 import '../../styles/Analytics.css';
 import AnalyticsProgressBarItem from './AnalyticsProgressBarItem';
-import { useState } from 'react'
 
 
 function getDate() {
