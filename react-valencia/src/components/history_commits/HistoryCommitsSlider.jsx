@@ -4,7 +4,7 @@ import Slider from "react-slick";
 import'../../styles/HistoryCommits.css'
 import HistoryCommitsSliderItem from "./HistoryCommitsSliderItem";
 import sliderOptions from "./SettingSlider";
-
+import{changeDate} from "../../app/main"
 
 
 
@@ -16,23 +16,23 @@ const HistorySlider = () => {
     return (
       <Slider {...sliderOptions()} style={{ display: 'flex', height:'auto' }} className='history-slide'>
 
-        {dataCommits.arrItemUrl.map( (item,index) => 
+        {dataCommits.map( (item,index) => 
 
         <HistoryCommitsSliderItem 
         
         key = {index}
 
-        date = {dataCommits.arrChangesDate[index]}
+        date = {changeDate(item.commit.author.date)}
 
-        name = {dataCommits.arrName[index]}
+        name = {item.commit.author.name}
 
-        email = {dataCommits.arrEmail[index]}
+        email = {item.commit.author.email}
 
-        message = {dataCommits.arrMessage[index]}
+        message = {item.commit.message}
 
-        itemUrl = {dataCommits.arrItemUrl[index]}
+        itemUrl = {item.html_url}
 
-        imgUrl = {dataCommits.arrImgUrl[index]}
+        imgUrl = {item.author.avatar_url}
 
         
         /> )}

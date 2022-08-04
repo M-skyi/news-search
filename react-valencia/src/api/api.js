@@ -1,9 +1,5 @@
 
-   import{changeDate} from "../app/main"
-   
-   
    let apiKey = "1bb2c66fe49f4cc8aae2c07724edd0bd";
-
 
     let topic = [];
 
@@ -90,9 +86,6 @@
          newsItem.arrAuthor.push(el.author);
      });  
 
-     changeDate(newsItem.arrPublishedAt,newsItem.arrPublishedDate)
-
-
      let dataObj = JSON.stringify(newsItem)
      localStorage.setItem('newsItem', dataObj)
 
@@ -117,34 +110,9 @@
       
       const data = await response.json()
 
-      let commitsItem = {
-         arrDate: [],
-         arrImgUrl: [],
-         arrName: [],
-         arrEmail: [],
-         arrMessage: [],
-         arrItemUrl: [],
-         arrChangesDate: []
-      }
-
-      data.forEach( el => {
-
-         commitsItem.arrDate.push(el.commit.author.date);
-         commitsItem.arrImgUrl.push(el.author.avatar_url);
-         commitsItem.arrName.push(el.commit.author.name);
-         commitsItem.arrEmail.push(el.commit.author.email);
-         commitsItem.arrMessage.push(el.commit.message);
-         commitsItem.arrItemUrl.push(el.html_url);
-
-      })
-
-      changeDate(commitsItem.arrDate,commitsItem.arrChangesDate)
-
-          let dataCommits = JSON.stringify(commitsItem)
+          let dataCommits = JSON.stringify(data)
           localStorage.setItem('commitsItem', dataCommits)   
-          
-      
- }   
+      }   
            
     const gettingCommits =  gettingCommit();
 
