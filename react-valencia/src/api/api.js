@@ -83,7 +83,7 @@
          newsItem.arrImg.push(el.urlToImage);
          newsItem.arrUrl.push(el.url);
          newsItem.arrPublishedAt.push(el.publishedAt);
-         newsItem.arrAuthor.push(el.author);
+         newsItem.arrAuthor.push(el.source.name);
      });  
 
      let dataObj = JSON.stringify(newsItem)
