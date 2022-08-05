@@ -73,8 +73,7 @@
       arrImg: [],
       arrUrl: [],
       arrPublishedAt: [],
-      arrAuthor: [],
-      arrPublishedDate: []
+      arrAuthor: []
    }
 
       newsData.forEach(el=> {

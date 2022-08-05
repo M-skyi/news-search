@@ -1,23 +1,23 @@
 import'../../styles/HistoryCommits.css'
 
 
-const HistoryCommitsSliderItem = (props) =>{
+const HistoryCommitsSliderItem = ({itemUrl,date,imgUrl,name,email,message}) =>{
 
     return(
        <div >
-         <a className='history-slide__item' href = {props.itemUrl} target="_blank">
+         <a className='history-slide__item' href = {itemUrl} target="_blank">
 
-             <div className="history-slide__date">{props.date}</div>
+             <div className="history-slide__date">{date}</div>
 
               <div className="history-slide__author">
 
-                 <img className="history-slide__img" src = {props.imgUrl} alt="" />
+                 <img className="history-slide__img" src = {imgUrl} alt="" />
 
                  <div className="history-slide__name-email">
 
-                     <div className="history-slide__name">{props.name}</div>
+                     <div className="history-slide__name">{name}</div>
 
-                     <div className="history-slide__email">{props.email}</div>
+                     <div className="history-slide__email">{email}</div>
 
                  </div>
 
@@ -25,7 +25,7 @@ const HistoryCommitsSliderItem = (props) =>{
 
              <div className="history-slide__text">
                  
-                    {props.message}
+                    {message}
             </div>
           </a>
       </div> 

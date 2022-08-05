@@ -6,21 +6,21 @@ import noImg from '../../project_img/noimage.png'
 
 
 
-const SearchResultItem = (props) =>{
+const SearchResultItem = ({url,publishedAt,title,description,author,img}) =>{
 
 
 
-    const [author, setAuthor] = useState(props.author);
-    const [image, setImage] = useState(props.img);
+    const [authorItem, setAuthor] = useState(author);
+    const [image, setImage] = useState(img);
 
     const changeAuthorItem = () => {
 
-        if (author === null || author === "" ) {
+        if (authorItem === null || authorItem === "" ) {
 
             setAuthor("Автор не указан")      
         }
 
-        return author
+        return authorItem
     }
     
     
@@ -49,25 +49,25 @@ const SearchResultItem = (props) =>{
 
 
     return(
-        <a className={`search-res-item `} href={props.url} target="_blank">
+        <a className={`search-res-item `} href={url} target="_blank">
             
                 <img className={"search-res-item__img"} src={changeImageItem()} alt="Img news"/>   
 
                 <div className={"search-res-item__date"}>
 
-                    {props.publishedAt}
+                    {publishedAt}
 
                 </div>
 
                 <div className={"search-res-item__heading"}>
                      
-                     {props.title}
+                     {title}
                      
                 </div>
 
                 <div className={"search-res-item__content"}>
 
-                  {props.description}
+                  {description}
 
                  </div>
 

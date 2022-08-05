@@ -1,7 +1,7 @@
 import'../../styles/SearchResult.css'
 import SearchResultItem from './SearchResultItem';
 import { useState} from 'react';
-
+import{changeDate} from "../../app/main"
 
 
     const useItem = () => {
@@ -89,7 +89,7 @@ const SearchResultContent = (props) =>{
 
              author = {dataObjNews.arrAuthor[i]}
 
-             publishedAt = {dataObjNews.arrPublishedDate[i]}
+             publishedAt = {changeDate(dataObjNews.arrPublishedAt[i])}
 
              img = {dataObjNews.arrImg[i]}
 
