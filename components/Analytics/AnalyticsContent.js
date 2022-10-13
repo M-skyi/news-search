@@ -15,7 +15,7 @@ const AnalyticsContent = ({ itemNum }) => (
           </p>
         </div>
         <div className={`${styles.navHeadline} ${styles.textStyle}`}>
-          Кол-во упоминаний
+          Кол-во упоминаний.
         </div>
       </div>
       <ProgressBar itemNum={itemNum} />
