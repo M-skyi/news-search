@@ -305,7 +305,7 @@
   }
 }
 
-@media (min-width: 1440px) {
+@media (min-width: 1680px) {
   .item {
     max-width: 400px;
     height: 288px;
