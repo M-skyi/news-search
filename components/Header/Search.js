@@ -2,8 +2,10 @@ import { useState } from 'react';
 import classNames from 'classnames';
 import styles from '../../styles/Header.module.css';
 import { gettingNews, getInputValue } from '../../pages/api/api';
+import { useTranslation } from 'next-i18next';
 
 const Search = ({ headerProps }) => {
+  const { t } = useTranslation('search')
   const loader = headerProps[0];
   const noNewsFound = headerProps[1];
   const searchResult = headerProps[2];
@@ -40,7 +42,7 @@ const Search = ({ headerProps }) => {
   };
   return (
     <div className={classNames(styles.search, 'container')}>
-      <h1 className={styles.title}>Что в мире творится?</h1>
+      <h1 className={styles.title}>{t('nav')}</h1>
       <p className={styles.text}>
         Введите в поиске любую тему и узнайте, насколько популярной она была в
         носотях за прошедшую неделю.
@@ -64,4 +66,5 @@ const Search = ({ headerProps }) => {
     </div>
   );
 };
+
 export default Search;

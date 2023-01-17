@@ -156,6 +156,33 @@
   line-height: 24px;
 }
 
+.localLink{
+  color: rgba(0, 0, 0, 0);
+  margin-left: 10px;
+  background-size: cover;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-position: center;
+}
+
+.activeLocal{
+  border-bottom: 2px solid grey;
+}
+
+.inactiveLocal{
+  border: none;
+}
+
+.localLink:nth-child(1){
+  background-image: url(../public/img/en.png);
+  
+}
+
+.localLink:nth-child(2){
+  background-image: url(../public/img/ua.png);
+}
+
 @media (min-width: 320px) {
   .headerWrapper {
     background-image: url(../public/img/mobile-bg.png);

@@ -1,6 +1,7 @@
 import '../styles/globals.css';
 import { useState, useCallback } from 'react';
 import Layout from '../components/Layout/Layout';
+import { appWithTranslation } from 'next-i18next';
 
 function MyApp({ Component, pageProps }) {
   const [preloader, setPreloader] = useState(false);
@@ -29,4 +30,4 @@ function MyApp({ Component, pageProps }) {
   </Layout>;
 }
 
-export default MyApp;
+export default appWithTranslation(MyApp);

@@ -2,17 +2,36 @@ import { useRouter } from 'next/router';
 import Link from 'next/link';
 import classNames from 'classnames';
 import styles from '../../styles/Header.module.css';
+import { useState } from 'react';
+
 
 const navigation = [
   { id: 1, title: 'Главная', path: '/' },
   { id: 2, title: 'О проекте', path: '/about-project' },
 ];
 const NavBar = () => {
+  const {locale, locales} = useRouter();
+  const [active, setActive] = useState({
+    activeObject: locale,
+    objects: locales
+  });
   const pathName = useRouter().asPath;
   const stylesLogo = pathName === '/' ? styles.logoChanges : styles.logo;
   const stylesHover = pathName === '/analytics' ? styles.analyticHover : null;
   const stylesLinkChanges = pathName === '/about-project' ? styles.activeLinkAboutPr : null;
   const stylesActiveChanges = pathName === '/about-project' ? styles.activeAbout : null;
+
+  function toggleActive(index) {
+    setActive({...active, activeObject:active.objects[index]})
+  }
+
+  function toggleActiveStyles(index) {
+    if (active.objects[index] === active.activeObject ) {
+      return styles.activeLocal
+    }else {
+      return styles.inactiveLocal
+    }
+  }
   return (
     <div className={classNames(styles.nav, 'container')}>
       <div className={styles.leftPart}>
@@ -22,6 +41,15 @@ const NavBar = () => {
       </div>
       <div className={styles.rightPart}>
         <nav className={styles.links}>
+          <div className={styles.localLinkWrapper}>
+          {active.objects.map((el,index)=>(
+              <Link  key={el} href={pathName} locale={el} className={styles.localitem} >
+                 <a className={`${styles.localLink} ${toggleActiveStyles(index)}`} onClick = {() => {toggleActive(index)}} >
+                  {el}   
+                  </a> 
+              </Link>  
+          ))}
+          </div>  
           {navigation.map(({ id, title, path }) => (
             <Link href={path} key={id}>
               <a

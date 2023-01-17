@@ -17,7 +17,7 @@ const HistoryCarousel = () => {
   return (
     <div>
       <Slider {...setting()} className={styles.historySlider}>
-        {itemCommits.map((item, index) => (
+        {/* {itemCommits.map((item, index) => (
           <HistoryCarouselItem
             key={index}
             date={changeDate(item.commit.author.date)}
@@ -27,7 +27,7 @@ const HistoryCarousel = () => {
             itemUrl={item.html_url}
             imgUrl={item.author.avatar_url}
           />
-        ))}
+        ))} */}
       </Slider>
     </div>
   );
