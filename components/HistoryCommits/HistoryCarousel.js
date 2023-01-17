@@ -1,6 +1,6 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Slider from 'react-slick';
 import styles from '../../styles/HistoryCommits.module.css';
 import HistoryCarouselItem from './HistoryCarouselItem';
@@ -11,11 +11,11 @@ import { gettingCommits } from '../../pages/api/api';
 
 const HistoryCarousel = () => {
   const [itemCommits, setItemCommits] = useState([]);
-
-  gettingCommits.then((item) => {
-    setItemCommits(item);
-  });
-
+  useEffect(() => {
+    gettingCommits.then((item) => {
+      setItemCommits(item);
+    });
+  }, []);
   return (
     <div>
       <Slider {...setting()} className={styles.historySlider}>
