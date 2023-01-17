@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import classNames from 'classnames';
+import { useTranslation } from 'next-i18next';
 import styles from '../../styles/Header.module.css';
 import { gettingNews, getInputValue } from '../../pages/api/api';
-import { useTranslation } from 'next-i18next';
 
 const Search = ({ headerProps }) => {
-  const { t } = useTranslation('search')
+  const { t } = useTranslation('search');
   const loader = headerProps[0];
   const noNewsFound = headerProps[1];
   const searchResult = headerProps[2];

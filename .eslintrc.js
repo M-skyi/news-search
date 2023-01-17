@@ -17,6 +17,9 @@ module.exports = {
     indent: ['error', 2],
     'no-shadow': 'off',
     'import/no-unresolved': 'off',
-    'import/extensions': 'off'
+    'import/extensions': 'off',
+    'no-param-reassign': [2, {
+      props: false,
+    }],
   },
 };

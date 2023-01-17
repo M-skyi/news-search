@@ -2,13 +2,11 @@ import { useState, useEffect } from 'react';
 import AnalyticsContent from './AnalyticsContent';
 import AnalyticsHeader from './AnalyticsHeader';
 import { dataAnalytics } from '../../app/main';
-import { useTranslation } from 'next-i18next';
 
 const Analytic = () => {
   const [topicRequest, setTopicRequest] = useState([]);
   const [analyticsDay, setAnalyticsDay] = useState([]);
   const [totalResults, setTotalResults] = useState([]);
-  const { t } = useTranslation('analytic')
 
   useEffect(() => {
     const topicRequest = JSON.parse(localStorage.getItem('topic'));

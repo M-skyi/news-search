@@ -1,18 +1,18 @@
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Slider from 'react-slick';
 import styles from '../../styles/HistoryCommits.module.css';
-import HistoryCarouselItem from './HistoryCarouselItem';
+// import HistoryCarouselItem from './HistoryCarouselItem';
 
 import setting from './SettingsSlider';
-import { changeDate } from '../../app/main';
+// import { changeDate } from '../../app/main';
 
 const HistoryCarousel = () => {
-  const [itemCommits, setItemCommits] = useState([]);
+  // const [itemCommits, setItemCommits] = useState([]);
   useEffect(() => {
-    const dataCommits = JSON.parse(localStorage.getItem('commitsItem'));
-    setItemCommits(dataCommits);
+    // const dataCommits = JSON.parse(localStorage.getItem('commitsItem'));
+    // setItemCommits(dataCommits);
   }, []);
   return (
     <div>

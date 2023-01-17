@@ -1,7 +1,7 @@
 import '../styles/globals.css';
 import { useState, useCallback } from 'react';
-import Layout from '../components/Layout/Layout';
 import { appWithTranslation } from 'next-i18next';
+import Layout from '../components/Layout/Layout';
 
 function MyApp({ Component, pageProps }) {
   const [preloader, setPreloader] = useState(false);
