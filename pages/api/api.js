@@ -68,10 +68,7 @@ const gettingCommit = async () => {
   const response = await fetch(reposUrl);
   const data = await response.json();
 
-  if (typeof window !== 'undefined') {
-    const dataCommits = JSON.stringify(data);
-    localStorage.setItem('commitsItem', dataCommits);
-  }
+  return data;
 };
 const gettingCommits = gettingCommit();
 
