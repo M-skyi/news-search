@@ -1,3 +1,28 @@
 {
-    "nav":"Головна"
+    "header.btn.home":"Головна",
+    "header.btn.aboutProject":"Про проект",
+    "header.title":"Що відбувається у світі?",
+    "header.description":"Введіть будь-яку тему в пошук і подивіться, наскільки вона була популярною в новинах за останній тиждень.",
+    "header.input.search":"Введіть тему новини",
+    "header.btn.search":"Пошук",
+    "header.empty.string":"«Потрібно ввести ключове слово»",
+    "header.request.error":"«Під час запиту сталася помилка. Можливо, проблема зі з'єднанням або сервер недоступний. Зачекайте трохи і спробуйте ще раз»",
+
+    "loader":"Йде пошук новин...",
+    "no.found.title":"Нічого не знайдено",
+    "no.found.description":"На жаль, за вашим запитом нічого не знайдено.",
+
+    "search.result.title":"Результати пошуку",
+    "search.result.link":"Переглянути аналітику",
+    "search.result.btn":"Показати ще",
+
+    "author.title":"Про автора",
+    "author.description":"Мене звуть Олексій, я Front-End розробник-початківець . Я володію базовими навичками сучасного фронтенда .Основний стек техноглігій, з яким я працюю, це JavaScript, HTML, Css, React, Next.js, Sass, Git, WordPress, БЕМ.",
+    "author.description.second.part":"Основний стек техноглігій, з яким я працюю, це JavaScript, HTML, Css, React, Next.js, Sass, Git, WordPress, БЕМ.",
+
+    "history.commits.title":"Історія комітів із GitHub",
+    "history.commits.link":"Відкрити в Github",
+
+    "footer.link.home":"Головна",
+    "footer.link.aboutProject":"Про проект"
 }

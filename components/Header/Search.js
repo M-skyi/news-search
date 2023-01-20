@@ -5,7 +5,7 @@ import styles from '../../styles/Header.module.css';
 import { gettingNews, getInputValue } from '../../pages/api/api';
 
 const Search = ({ headerProps }) => {
-  const { t } = useTranslation('search');
+  const { t } = useTranslation('common');
   const loader = headerProps[0];
   const noNewsFound = headerProps[1];
   const searchResult = headerProps[2];
@@ -16,7 +16,7 @@ const Search = ({ headerProps }) => {
     noNewsFound(false);
     if (topic.length === 0) {
       searchResult(false);
-      alert('«Нужно ввести ключевое слово»');
+      alert(t('header.empty.string'));
       return;
     }
     if (setTopic(topic) !== topic) {
@@ -34,18 +34,15 @@ const Search = ({ headerProps }) => {
         }
       })
       .catch(() => {
-        alert(
-          '«Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз»',
-        );
+        alert(t('header.request.error'));
         loader(false);
       });
   };
   return (
     <div className={classNames(styles.search, 'container')}>
-      <h1 className={styles.title}>{t('nav')}</h1>
+      <h1 className={styles.title}>{t('header.title')}</h1>
       <p className={styles.text}>
-        Введите в поиске любую тему и узнайте, насколько популярной она была в
-        носотях за прошедшую неделю.
+        {t('header.description')}
       </p>
       <form className={styles.form}>
         <div className={styles.wrapperInput}>
@@ -53,13 +50,13 @@ const Search = ({ headerProps }) => {
             className={styles.input}
             onChange={(event) => setTopic(event.target.value)}
             type="text"
-            placeholder="Введите тему новости"
+            placeholder={t('header.input.search')}
           ></input>
           <input
             className={styles.btn}
             type="submit"
             onClick={searchNews}
-            value="Искать"
+            value={t('header.btn.search')}
           ></input>
         </div>
       </form>

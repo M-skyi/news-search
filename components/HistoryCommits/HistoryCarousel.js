@@ -8,14 +8,17 @@ import HistoryCarouselItem from './HistoryCarouselItem';
 import setting from './SettingsSlider';
 import { changeDate } from '../../app/main';
 import { gettingCommits } from '../../pages/api/api';
+import { useTranslation } from 'next-i18next';
 
 const HistoryCarousel = () => {
+  const { t } = useTranslation('common');
   const [itemCommits, setItemCommits] = useState([]);
   useEffect(() => {
     gettingCommits.then((item) => {
       setItemCommits(item);
     });
   }, []);
+
   return (
     <div>
       <Slider {...setting()} className={styles.historySlider}>

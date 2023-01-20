@@ -18,6 +18,10 @@ module.exports = {
     'no-shadow': 'off',
     'import/no-unresolved': 'off',
     'import/extensions': 'off',
+    'import/order': 'off',
+    'no-alert': 'off',
+    'arrow-body-style': 'off',
+    'no-unused-vars': 'off',
     'no-param-reassign': [2, {
       props: false,
     }],

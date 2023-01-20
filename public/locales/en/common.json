@@ -1,3 +1,28 @@
 {
-    "nav":"Main"
+    "header.btn.home":"Home",
+    "header.btn.aboutProject":"About project",
+    "header.title":"What is happening in the world?",
+    "header.description":"Type any topic into the search and see how popular it has been in the news in the past week.",
+    "header.input.search":"Enter the news topic",
+    "header.btn.search":"Search",
+    "header.empty.string":"«You need to enter a keyword»",
+    "header.request.error":"«An error occurred during the request. There may be a problem with the connection or the server is unavailable. Wait a while and try again»",
+
+    "loader":"There's a news search going on...",
+    "no.found.title":"Nothing found",
+    "no.found.description":"Unfortunately, nothing was found for your query.",
+
+    "search.result.title":"Search results",
+    "search.result.link":"View analytics",
+    "search.result.btn":"Show more",
+
+    "author.title":"About the author",
+    "author.description":"My name is Oleksii, I am a beginner Front-End developer. I have basic skills of modern front-end development.The main stack of technoglyphs I work with is JavaScript, HTML, Css, React, Next.js, Sass, Git, WordPress, BEM.",
+    "author.description.second.part":"The main stack of technoglyphs I work with is JavaScript, HTML, Css, React, Next.js, Sass, Git, WordPress, BEM.",
+
+    "history.commits.title":"Commit history from GitHub",
+    "history.commits.link":"Open in Github",
+
+    "footer.link.home":"Home",
+    "footer.link.aboutProject":"About project"
 }

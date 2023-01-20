@@ -3,12 +3,10 @@ import Link from 'next/link';
 import classNames from 'classnames';
 import { useState } from 'react';
 import styles from '../../styles/Header.module.css';
+import { useTranslation } from 'next-i18next';
 
-const navigation = [
-  { id: 1, title: 'Главная', path: '/' },
-  { id: 2, title: 'О проекте', path: '/about-project' },
-];
 const NavBar = () => {
+  const { t } = useTranslation('common');
   const { locale, locales } = useRouter();
   const [active, setActive] = useState({
     activeObject: locale,
@@ -19,6 +17,11 @@ const NavBar = () => {
   const stylesHover = pathName === '/analytics' ? styles.analyticHover : null;
   const stylesLinkChanges = pathName === '/about-project' ? styles.activeLinkAboutPr : null;
   const stylesActiveChanges = pathName === '/about-project' ? styles.activeAbout : null;
+
+  const navigation = [
+    { id: 1, title: t('header.btn.home'), path: '/' },
+    { id: 2, title: t('header.btn.aboutProject'), path: '/about-project' },
+  ];
 
   function toggleActive(index) {
     setActive({ ...active, activeObject: active.objects[index] });

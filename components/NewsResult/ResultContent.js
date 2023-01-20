@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import styles from '../../styles/NewsResult.module.css';
 import ResultContentItem from './ResultContentItem';
 import { changeDate } from '../../app/main';
+import { useTranslation } from 'next-i18next';
 
 const useItem = () => {
   const dataObjNews = JSON.parse(localStorage.getItem('newsItem'));
@@ -54,6 +55,7 @@ const useItem = () => {
 };
 
 const ResultContent = () => {
+  const { t } = useTranslation('common');
   const {
     itemsResult, setResult, dataObjNews, classBtn,
   } = useItem();
@@ -75,7 +77,7 @@ const ResultContent = () => {
           className={`${styles.btn} ${classBtn.hideButton}`}
           onClick={setResult}
         >
-          Показать еще
+          {t('search.result.btn')}
         </button>
       </div>
     </div>
