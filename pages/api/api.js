@@ -1,4 +1,4 @@
-const apiKey = '2213f1e36fb8400bb4eef4e632efffe3';
+const apiKey = '1bb2c66fe49f4cc8aae2c07724edd0bd';
 const topic = [];
 export const getInputValue = (newsTopic) => {
   topic.push(newsTopic);

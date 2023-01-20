@@ -187,6 +187,7 @@
   .headerWrapper {
     background-image: url(../public/img/mobile-bg.png);
     background-size: cover;
+    padding: 0 10px 0 10px;
   }
 
   .search {
@@ -272,6 +273,7 @@
   .headerWrapper {
     background-image: url(../public/img/ipad-bg.png);
     background-size: cover;
+    padding: 0;
   }
 
   .logo {

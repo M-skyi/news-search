@@ -24,7 +24,7 @@ a {
 
 @media (min-width: 320px) {
   .container {
-    width: 288px;
+    width: 100%;
   }
 }
 
