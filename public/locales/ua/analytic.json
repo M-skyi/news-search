@@ -1,3 +1,12 @@
 {
-    "nav":"Что в мире творится?"
+    "link.current.page":"/Аналітика",
+    "link.main.page":"Головна",
+
+    "topic.request":"Ви запитали",
+    "news.week":"Новин за тиждень:",
+    "mentions.headlines":"Згадки в заголовках:",
+
+    "analytics.day":"Аналітика по днях",
+    "current.month":"Дата",
+    "number.mentions":"Кількість згадувань"
 }

@@ -1,29 +1,60 @@
+import { useRouter } from 'next/router';
+
 const changeDate = (arrayDate) => {
+  const { locale } = useRouter();
+  if (locale === 'ua') {
+    const dateNews = arrayDate;
+    const changeDate = new Date(dateNews).toLocaleDateString('uk-UA', { year: 'numeric', month: 'long', day: 'numeric' }).slice(0, -3);
+    const strDateMonth = changeDate.split(' ');
+    const currentDate = changeDate.replace(strDateMonth[1], `${strDateMonth[1]},`);
+
+    return currentDate;
+  }
   const dateNews = arrayDate;
-  const changeDate = new Date(dateNews).toLocaleDateString('ru', { year: 'numeric', month: 'long', day: 'numeric' }).slice(0, -3);
+  const changeDate = new Date(dateNews).toLocaleDateString('en-GB', { year: 'numeric', month: 'long', day: 'numeric' });
   const strDateMonth = changeDate.split(' ');
   const currentDate = changeDate.replace(strDateMonth[1], `${strDateMonth[1]},`);
+
   return currentDate;
 };
 
 const currentMonth = () => {
   const date = new Date();
+  const { locale } = useRouter();
+
+  if (locale === 'ua') {
+    date.getMonth();
+    const currentDateMonth = new Date(date).toLocaleDateString('uk-UA', { month: 'long' });
+    return currentDateMonth;
+  }
   date.getMonth();
-  const currentDateMonth = new Date(date).toLocaleDateString('ru', { month: 'long' });
+  const currentDateMonth = new Date(date).toLocaleDateString('en-GB', { month: 'long' });
   return currentDateMonth;
 };
 
 const getDaysWeek = () => {
   const item = [];
   const dateCurrent = new Date();
+  const { locale } = useRouter();
 
-  for (let i = 6; i >= 0; i -= 1) {
-    const days = ['вс', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
-    const tempDate = new Date();
-    tempDate.setDate(dateCurrent.getDate() - i);
-    const str = `${tempDate.getDate()}, ${days[tempDate.getDay()]}`;
-    item.push(str);
+  if (locale === 'ua') {
+    for (let i = 6; i >= 0; i -= 1) {
+      const days = ['нд', 'пн', 'вт', 'ср', 'чт', 'пт', 'сб'];
+      const tempDate = new Date();
+      tempDate.setDate(dateCurrent.getDate() - i);
+      const str = `${tempDate.getDate()}, ${days[tempDate.getDay()]}`;
+      item.push(str);
+    }
+  } else {
+    for (let i = 6; i >= 0; i -= 1) {
+      const days = ['su', 'mo', 'tu', 'we', 'th', 'fr', 'sa'];
+      const tempDate = new Date();
+      tempDate.setDate(dateCurrent.getDate() - i);
+      const str = `${tempDate.getDate()}, ${days[tempDate.getDay()]}`;
+      item.push(str);
+    }
   }
+
   return item;
 };
 

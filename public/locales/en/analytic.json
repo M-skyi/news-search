@@ -1,3 +1,12 @@
 {
-    "nav":"Что в мире творится?"
+    "link.current.page":"/Analytics",
+    "link.main.page":"Home",
+
+    "topic.request":"You asked",
+    "news.week":"News for the week:",
+    "mentions.headlines":"Mentions of the headlines:",
+
+    "analytics.day":"Analytics by day",
+    "current.month":"Date",
+    "number.mentions":"Number of mentions"
 }

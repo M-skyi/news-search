@@ -2,11 +2,13 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import classNames from 'classnames';
 import styles from '../../styles/Analytics.module.css';
+import { useTranslation } from 'next-i18next';
 
 const AnalyticsHeader = ({ topic, totalCount, totalRes }) => {
   const [totalChanges, setTotalChanges] = useState('');
   const countResult = totalRes.toString();
   const totalLength = countResult.length;
+  const { t } = useTranslation('analytic');
 
   useEffect(() => {
     if (totalLength > 4) {
@@ -29,22 +31,22 @@ const AnalyticsHeader = ({ topic, totalCount, totalRes }) => {
     <div className={classNames(styles.header, 'container')}>
       <div className={styles.breadCrumbs}>
         <Link href="/">
-          <a className={styles.link}>Главная</a>
+          <a className={styles.link}>{t('link.main.page')}</a>
         </Link>
-        <span className={styles.currentPage}> / Аналитика</span>
+        <span className={styles.currentPage}>{t('link.current.page')}</span>
       </div>
       <div className={styles.requestNews}>
         <p className={styles.requestTopic}>
-          Вы спросили:
+          {t('topic.request')}
           <span className={styles.requestTopic}>«{topic}»</span>
         </p>
         <div className={styles.dataWrapper}>
           <p className={styles.requestData}>
-            Новостей за неделю:
+            {t('news.week')}
             <span className={styles.requestDataItem}> {totalChanges}</span>
           </p>
           <p className={styles.requestData}>
-            Упоминаний в загаловках:
+            {t('mentions.headlines')}
             <span className={styles.requestDataItem}> {totalCount()}</span>
           </p>
         </div>

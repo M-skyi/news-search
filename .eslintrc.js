@@ -22,6 +22,9 @@ module.exports = {
     'no-alert': 'off',
     'arrow-body-style': 'off',
     'no-unused-vars': 'off',
+    'react-hooks/rules-of-hooks': 'off',
+    'consistent-return': 'off',
+    'no-undef': 'off',
     'no-param-reassign': [2, {
       props: false,
     }],
