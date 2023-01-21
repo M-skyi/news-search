@@ -28,7 +28,7 @@ const AnalyticsHeader = ({ topic, totalCount, totalRes }) => {
     }
   }, [totalRes, totalLength, countResult]);
   return (
-    <div className={classNames(styles.header, 'container')}>
+    <div className={classNames(styles.header, styles.analyticsWrapper, 'container')}>
       <div className={styles.breadCrumbs}>
         <Link href="/">
           <a className={styles.link}>{t('link.main.page')}</a>

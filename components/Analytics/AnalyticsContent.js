@@ -8,7 +8,7 @@ const AnalyticsContent = ({ itemNum }) => {
   const { t } = useTranslation('analytic');
   return (
     <div className={styles.background}>
-      <div className={classNames('container')}>
+      <div className={classNames(styles.analyticsWrapper, 'container')}>
         <h1 className={styles.headline}>{t('analytics.day')}</h1>
         <div className={styles.nav}>
           <div className={`${styles.date} ${styles.textStyle}`}>

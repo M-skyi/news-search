@@ -1,10 +1,11 @@
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
+import styles from '../styles/AboutProject.module.css';
 
 const AboutProject = () => {
   const { t } = useTranslation('aboutProject');
   return (
-    <div>
+    <div className={styles.wrapper}>
       <h1 className="container"> {t('title')} </h1>
     </div>
   );
